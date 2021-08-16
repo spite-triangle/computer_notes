@@ -1,0 +1,84 @@
+{
+    "title": "计算机笔记",
+    "author": "海拉尔的三角",
+    "links": {
+        "sidebar": {
+            "Github": "https://github.com/spite-triangle"
+        }
+    },
+    "styles": {
+        "website": "styles/website.css",
+        "ebook": "styles/ebook.css",
+        "pdf": "styles/pdf.css",
+        "mobi": "styles/mobi.css",
+        "epub": "styles/epub.css"
+    },
+    "plugins": [
+        "-lunr",
+        "-search",
+        "search-pro-fixed",
+        "expandable-chapters-small",
+        "ancre-navigation",
+        "hide-element",
+        "code",
+        "splitter",
+        "insert-logo-link-website",
+        "custom-favicon",
+        "-sharing",
+        "sharing-plus",
+        "prism",
+        "-highlight",
+        "flexible-alerts",
+        "lightbox",
+        "pageview-count",
+        "auto-scroll-table",
+        "katex-pro"
+    ],
+    "pluginsConfig": {
+        "hide-element": {
+            "elements": [
+                ".gitbook-link"
+            ]
+        },
+        "insert-logo-link-website": {
+            "url": "image/logo.png",
+            "link": "https://space.bilibili.com/27206875",
+            "target": "_blank",
+            "style": "height: 230px"
+        },
+        "favicon": "image/ico.png",
+        "prism": {
+            "css": [
+                "prismjs/themes/prism-tomorrow.css"
+            ],
+            "lang": {
+                "flow": "typescript"
+            }
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": false,
+            "google": true,
+            "pocket": false,
+            "qq": true,
+            "qzone": false,
+            "twitter": false,
+            "weibo": true,
+            "whatsapp": false,
+            "all": [
+                "douban",
+                "facebook",
+                "google",
+                "instapaper",
+                "linkedin",
+                "twitter",
+                "weibo",
+                "messenger",
+                "qq",
+                "qzone",
+                "viber",
+                "whatsapp"
+            ]
+        }
+    }
+}
