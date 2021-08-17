@@ -277,7 +277,7 @@ void connectTwoNode(Node node1, Node node2) {
  # 7. 将二叉树变链表
 
 
-![binary to list](../image/cpp/binaryToList.jpeg)
+![binary to list](../../image/cpp/binaryToList.jpeg)
 
 - 将 root 的左子树和右子树拉平
 - 将 root 的右子树接到左子树下方

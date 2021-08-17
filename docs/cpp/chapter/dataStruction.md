@@ -11,7 +11,7 @@
 -  `strcpy，strncpy` 不会在末尾加 `\0`，<font color="#f44336">dest还得手动加终止</font>
 -  `strcat` : <font color="#4c9df8">会自动加  `\0` </font>
 
-```
+```cpp
 #include <string.h>
 
 // 创建
@@ -88,7 +88,7 @@ find_first_of(const string& str); // 子字符串和字符串共同具有的字�
 
 # 2 栈 stack
 
-- <font color="#f44336"> **没有迭代器功能。** </font>
+- <font color="#f44336"> 没有迭代器功能。 </font>
 
 ```cpp
 #include <stack>
@@ -105,7 +105,8 @@ s.push(item);   //在栈顶压入新元素item
 ```
 # 3 队列 queue
 
-- <font color="#f44336"> **没有迭代器功能。** </font>
+- <font color="#f44336"> 没有迭代器功能。 </font>
+
 ```cpp
 queue<int> q; //priority_queue<int> q;
 q.empty();  //判断队列是否为空
@@ -341,8 +342,8 @@ set<string,Compare> names;
 
 - **完全二叉树**
     1. 父节点的编号为k，子左节点编号为2k，子右节点的编号为2k+1
-    2. 子节点的编号为x，父节点的编号为$\lfloor x/2 \rfloor$
-    3. 从上往下最后一个父节点的编号为$\lfloor n/2 \rfloor,n总节点$
+    2. 子节点的编号为x，父节点的编号为 $\lfloor x/2 \rfloor$
+    3. 从上往下最后一个父节点的编号为 $\lfloor n/2 \rfloor$ ,$n$ 总节点数
 - **数组存储**
 - **最大二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 >= 子节点 </span>
 - **最小二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 <= 子节点 </span>

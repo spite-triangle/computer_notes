@@ -3,6 +3,7 @@
     "author": "海拉尔的三角",
     "links": {
         "sidebar": {
+            "Labuladong": "https://labuladong.gitbook.io/algo/",
             "Github": "https://github.com/spite-triangle"
         }
     },
@@ -23,7 +24,6 @@
         "code",
         "splitter",
         "insert-logo-link-website",
-        "custom-favicon",
         "-sharing",
         "sharing-plus",
         "prism",
@@ -32,7 +32,8 @@
         "lightbox",
         "pageview-count",
         "auto-scroll-table",
-        "katex-pro"
+        "katex-pro",
+        "favicon-absolute"
     ],
     "pluginsConfig": {
         "hide-element": {
@@ -46,7 +47,10 @@
             "target": "_blank",
             "style": "height: 230px"
         },
-        "favicon": "image/ico.png",
+        "favicon-absolute": {
+            "favicon": "image/ico.png",
+            "appleTouchIconPrecomposed152": "image/ico.png"
+        },
         "prism": {
             "css": [
                 "prismjs/themes/prism-tomorrow.css"

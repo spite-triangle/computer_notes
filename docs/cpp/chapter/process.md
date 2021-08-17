@@ -94,5 +94,5 @@ pid_t fork(void);
 
 # 3 进程状态变化
 
-- <font color="#4c9df8"> **R 变 非R状态。** </font>
-- <font color="#4c9df8"> **非R 变 R状态** </font>
+- <font color="#4c9df8"> `R`变非`R`状态。 </font>
+- <font color="#4c9df8"> 非`R`变`R`状态 </font>

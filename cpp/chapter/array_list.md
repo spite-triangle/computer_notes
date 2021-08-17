@@ -422,3 +422,63 @@ int removeElement(int[] nums, int val) {
 - **二分查找**
 - **翻转数组**
 - **双指针，升序列，求两数之和**
+
+### 1. 田忌赛马
+
+```cpp
+struct Entry{
+    int index;
+    int val;
+
+    Entry(int index, int val) : index(index), val(val){
+    }
+    Entry(){}
+};
+
+class Compare{
+public:
+    bool operator()(const Entry & A,const Entry & B)const{
+        if (A.val > B.val)
+        {
+            return true;
+        }
+        return false; 
+    }
+};
+
+void optinalSequence(const int* nums1,int* nums2,int n ){
+    vector<Entry> target;
+    vector<int> option; 
+    for (int i = 0; i < n; i++)
+    {
+        target.push_back(Entry(i, nums1[i]));
+        option.push_back(nums2[i]);
+    }
+
+    // 从大到小
+    sort(target.begin(),target.end(),Compare());
+
+    // 从小到大
+    sort(option.begin(),option.end());
+
+    // 左右指针
+    int left = 0; 
+    int right = n - 1;
+    for (int i = 0; i < n; i++)
+    {
+        // 打得赢
+        if (option[right] > target[i].val)
+        {
+            nums2[target[i].index] = option[right];
+            right--;
+        }else{ // 打不赢，就用小的凑数
+            nums2[target[i].index] = option[left];
+            left++;
+        }
+    }
+}
+```
+
+- **凌乱的数组先排序**
+- **`left`: 指向最小的一端**
+- **`right`: 指向最大的一段**
