@@ -631,7 +631,7 @@ int minWeight(const vector<int>& goods,int day){
 # 6 滑动窗口
 
 > [!note|style:flat]
-> **滑动窗口主要用于解决，在长序列上，找子序列的各种问题。**
+> **滑动窗口主要用于解决，在长序列上，不要求顺序，找子序列的各种问题，。**
 
 ## 6.1 模板
 
@@ -771,6 +771,183 @@ string coveredSubsequences(const string &s,const string &t){
         return "";
     }
     return s.substr(start,len); 
+}
+
+```
+
+## 6.3 字符串排列
+
+<p style="text-align:center;"><img src="./image/cpp/../../../../image/cpp/stringSort.jpg" align="middle" />
+
+
+```cpp
+while (right < S.length())
+    {
+        char ch = S[right];
+        right++;
+        。。。
+        // 找到解的评判标准是：字符串长度
+        while (right - left >= B.length())
+        {
+            // 字符都找到了
+            if (valid == need.size())
+            {
+                return true;
+            }
+            。。。   
+    }    
+```
+
+- **`right - left >= B.length()`:使用`>=`，不满足条件时，还要缩小窗口。**
+
+<!--sec data-title="完整代码" data-id="section0" data-show=true data-collapse=true ces-->
+```cpp
+bool substring(const string & S,const string & B){
+
+    unordered_map<char,int> window,need;
+
+    for(char ch:B){
+        need[ch]++;
+    }
+
+    int left = 0;
+    int right = 0;
+
+    int valid = 0;
+
+    while (right < S.length())
+    {
+        char ch = S[right];
+        right++;
+
+        // 存在
+        if (need.count(ch) > 0)
+        {
+            window[ch]++;
+            // 满足要求
+            if (window[ch] == need[ch])
+            {
+                valid += 1;
+            } 
+        }
+
+        // 找到解的评判标准是：字符串长度
+        while (right - left >= B.length())
+        {
+            if (valid == need.size())
+            {
+                return true;
+            }
+            
+            char ch = S[left];
+            left++;
+
+            if (need.count(ch))
+            {
+                if(window[ch] == need[ch]){
+                    valid--;
+                }
+                window[ch]--;
+            }
+        }
+    }    
+    return false;
+}
+```
+<!--endsec-->
+
+## 6.4 找所有字母异位词
+
+![diff char](../image/cpp/../../../image/cpp/diffchar.png)
+
+**解题思路和`6.3`一样。**
+
+<!--sec data-title="完整代码" data-id="section1" data-show=true data-collapse=true ces-->
+
+```cpp
+vector<int> diffSubstring(const string& s1, const string& s2){
+
+    // 存储索引
+    vector<int> starts;
+
+    unordered_map<char,int> need,window;
+    for(char ch:s2){
+        need[ch]++;
+    }
+
+    int left=0;
+    int right=0;
+    int valid = 0;
+
+    while(right < s1.length()){
+        char ch = s1[right];
+        right++;
+
+        if (need.count(ch))
+        {
+            window[ch]++;
+            if (window[ch] == need[ch])
+            {
+                valid++;
+            }
+        }
+        
+
+        while (right - left >= s2.length())
+        {
+
+            if (valid == need.size())
+            {
+                starts.push_back(left);
+            }
+
+            char ch = s1[left];
+            left++;
+            if (need.count(ch))
+            {
+                if (need[ch] == window[ch])
+                {
+                    valid--;
+                }
+                window[ch]--;
+            }
+        }
+    }
+    return starts;
+}
+```
+
+<!--endsec-->
+
+## 6.5 最长无重复子串
+
+![max len substr](../../image/cpp/maxLenSubstring.png)
+
+```cpp
+int findMaxLen(const string& str){
+    unordered_map<char,int> window;
+
+    int left=0;
+    int right=0;
+
+    int maxLen = 0;
+
+    while(right < str.length()){
+        char ch = str[right];
+        right++;
+        window[ch]++;
+        
+        // 去掉重复的字符
+        while (window[ch] > 1)
+        {
+            char out = str[left];
+            left++;
+            window[out]--; 
+        }
+
+        maxLen = max(maxLen,right - left);
+    }
+    return maxLen;
 }
 
 ```

@@ -129,8 +129,8 @@
 - **stack**(栈)
 - **priority_queue**(优先级队列)
 
-|      容器      |   头文件   | 默认容器 |      可选容器       |               说明               |
-| :------------: | :--------: | :------: | :-----------------: | :------------------------------: |
-|     queue      | `<queue\>` |  deque   |     list、deque     | 基础容器必须提供push_front()运算 |
-| priority_queue | `<queue\>` |  vector  |    vector、deque    |   基础容器必须提供随机访问功能   |
-|     stack      | `<stack\>` |  deque   | vector、list、deque |                                  |
+|      容器      |  头文件   | 默认容器 |      可选容器       |               说明               |
+| :------------: | :-------: | :------: | :-----------------: | :------------------------------: |
+|     queue      | `<queue>` |  deque   |     list、deque     | 基础容器必须提供push_front()运算 |
+| priority_queue | `<queue>` |  vector  |    vector、deque    |   基础容器必须提供随机访问功能   |
+|     stack      | `<stack>` |  deque   | vector、list、deque |                                  |

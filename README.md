@@ -1,5 +1,5 @@
 
-<h2 style="text-align:center;font-size:60px;font-weight:bold">简介</h2>
+<h1 style="text-align:center;font-size:60px;font-weight:bold">简介</h1>
 
 <style>
     #btn{
@@ -96,7 +96,7 @@
 </a>
 </div>
 
-<!--sec data-title="描述" data-id="section0" data-show=true data-collapse=false ces-->
+<!--sec data-title="描述" data-id="section0" data-show=true data-collapse=true ces-->
 正在构建中。。。
 <!--endsec-->
 
