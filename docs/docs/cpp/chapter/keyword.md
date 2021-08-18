@@ -2,7 +2,30 @@
  <h1 style="font-size:60px;text-align:center;">关键字</h1>
 
 # 1. `new/delete`
-&emsp;&emsp;编译器关键字，会调用构造器与析构器。malloc/free为库函数实现。
+
+编译器分配内存的关键字，会调用构造器与析构器。`malloc/free`为库函数实现。
+
+> [!note|style:flat]
+> **`new/delete`与`malloc/free`分配内存后，均没用初始化。**
+
+```cpp
+    // 分配内存，没有初始化
+    int* a = new int[10];
+    // 分配内存，初始化 0 
+    int* a = new int[10]();
+    // 通过传值初始化
+    int* a = new int[10](另一个int[10]的数组);
+    delete[] a;
+
+    // 申请一个值的空间
+    int* b = new int(5);
+    delete b;
+
+    // malloc 函数申请空间，没有初始化
+    int* a = (int *) malloc(sizeof(int)*10);
+    free(a);
+```
+
 
 # 2. `const`
 
@@ -104,9 +127,9 @@ const int* const p;
           cin>>a>>b>>c;
       ```
 
- - 当 `cin >>`  从缓冲区中读取数据时，**若缓冲区中第一个字符是空格、tab或换行这些分隔符时，cin>> 会将其<font color="#f44336">忽略并清除</font>，继续读取下一个字符**; 若缓冲区为空，则继续等待。<font color="#f44336">但是如果读取成功，字符后面的 **空白符号** 是残留在缓冲区的，cin>> 不做处理。</font>
+ - 当 `cin >>`  从缓冲区中读取数据时，**若缓冲区中第一个字符是空格、tab或换行这些分隔符时，cin>> 会将其<font color="#f44336">忽略并清除</font>，继续读取下一个字符**; 若缓冲区为空，则继续等待。<font color="#f44336">但是如果读取成功，字符后面的 **空白符号** 是残留在缓冲区的，`cin>>` 不做处理。</font>
  - 不想略过空白字符，那就使用 noskipws 流控制。
- - `cin >>`的返回值为  `cin` ;当输入 `EOF` （windows:ctrl+z， Linux:ctrl+d）时， `cin >>` 会返回0。
+ - `cin >>`的返回值为  `cin` ;当输入 `EOF` （windows:ctrl+z， Linux:ctrl+d）时， `cin >>` 会返回`0`。
 
       ```cpp
       int a;
@@ -190,8 +213,9 @@ istream &ignore(streamsize num=1, int delim=EOF);
 fflush(stdin);
 ```
 
-# 10.  `::` 
+# 10.  `:: / :` 
 
+## 10.1 `::`
 - 当局部变量与全局变量重名，可以修饰变量，访问全局变量。<font color="#f44336">仅c++支持</font>
 
     ```cpp
@@ -256,8 +280,230 @@ fflush(stdin);
     }
     ```
 
+## 10.2 `:`
+
+- **foreach**
+
+```cpp
+    for(int item:vector){
+        
+    }
+```
+
+- **继承**
+
+- **参数初始化列表**
+
+```cpp
+class Father{
+public:
+    Father(){
+        cout << "father" << endl;
+    }
+};
+// 继承
+class Son:public Father{
+public:
+    // 参数化列表
+    Son():Father(){
+        cout << "son" << endl;
+    }
+};
+```
+
+## 10.3 参数初始化列表
+
+- **初始化父类的构造器**
+- **初始化`const`变量**
+- **初始化`var &`引用变量**
+
+```cpp
+class Father{
+public:
+    Father(){
+        cout << "father" << endl;
+    }
+};
+class Son:public Father{
+public:
+    int& a;
+    const int b;
+    // 参数初始化列表
+    Son(a,b):Father(),a(a),b(b){
+        cout << "son" << endl;
+    }
+};
+```
+
+
 # 11. include
 
 -  `#include<>` :**只从从标准库文件目录下搜索**，对于标准库文件搜索效率快。
 
 -  `#include""` :**首先从用户工作目录下开始搜索**，对于自定义文件搜索比较快，然后搜索标准库。
+
+# 12. type-3
+
+## 12.1. 总结`type-3`
+
+| 名称       | 作用                                              | 注意                                                           |
+| ---------- | ------------------------------------------------- | -------------------------------------------------------------- |
+| `typedef`  | 给变量`A`赋予一个别名`B`                          | **1)`A`当前作用域可以访问的** <br> **2)`B`只在当前作用域有效** |
+| `typeid()` | 获取类型信息，也就是**对象原始模板的信息**        | **泛型**                                                       |
+| `typename` | 1）**声明泛型类型**；<br> 2）**声明泛型内嵌类型** | 下面解释                                                       |
+
+## 12.2. `typeid()`
+
+```cpp
+    // 查看类型
+    typedef int FUCK;
+    int var;
+    const type_info & infoInt = typeid(int);
+    const type_info & infoDef = typeid(FUCK);
+    const type_info & infoVar = typeid(var);
+
+    // 查看信息
+    info.name(); // 类型原始模板的名称
+    info.hash_code(); // 类型原始模板的哈希码
+
+    // 查看两个类型是否一样
+    if(infoInt == infoDef)
+
+```
+
+> [!note|style:flat]
+> 1 **`infoInt,infoDef,infoVar`都是一样的，他们的原始模板都是`int`**。
+> 
+> 2 **泛型识别类型**
+> ```cpp
+> template<typename T>
+> void print(T& a){
+>    if(typeid(a) == typeid(int)){
+>        cout << "True" << endl;
+>    }
+> }
+> ```
+> 3 **无法确定继承原始类型，输出为`Father`；`s`被首先`Father`静绑定了。**
+> ```cpp
+> class Father{};
+> class Son : public Father{};
+> int main(){
+>     Father * s = new Son();
+>     cout << typeid(s).name() << endl;
+>     delete son;
+>     return 0;
+> }
+> ```
+
+## 12.3. `typename`
+
+- **声明泛型类型**
+
+    ```cpp
+        // 泛型
+        template<typename T>
+        class Test{
+        public:
+            void print(const T & a){
+                cout << a << endl; 
+            }
+        };
+
+        int main(){
+            Test<int> test;
+
+            test.print(10);
+
+            return 0;
+        }
+    ```
+
+    > [!note|style:flat]
+    > **`Test<int> test;`是在编译时确定，属于静态绑定。**
+
+
+- **声明泛型内嵌类型**
+    - **泛型：大前提**
+    - **内嵌：在类的内部定义类型。**
+    ```cpp
+        class Car{
+        public:
+            // 类型别名
+            typedef float Speed;
+            // 内部类
+            class Wheel{
+            };
+        };
+    ```
+    <span style="color:red;font-weight:bold"> 当使用泛型的内嵌类型定义变量时，需要利用`typename`进行说明，否则编译器不知道这个是类型还是`static`变量。</span>
+
+    ```cpp
+        class Car{
+        public:
+            // 类型别名
+            typedef float Speed;
+            // 内部类
+            class Wheel{
+            };
+
+            static float price;
+        };
+
+        template<typename T>
+        class PrivateCar{
+            public:
+            // 定义变量
+            typename T::Speed v;
+            typename T::Wheel wheels;
+            float getPrice(){
+                // 变量
+                return T::price; 
+            }
+        }; 
+    ```
+    > [!note|style:flat]
+    > **不用`typename`的列外情况**
+    > ```cpp
+    > template<class T>
+    > class Derived: public Base<T>::内部类型
+    > {
+    >   Derived(int x) : Base<T>::内部类型(x)
+    >   {
+    >   ...
+    >   }
+    > }
+    > ```
+
+
+# 13 private/protected/public
+
+## 13.1 类的内部对外
+
+> [!note]
+> **默认修饰为`private`**
+  
+| 修饰成员     | private | protected | public |
+| ------------ | ------- | --------- | ------ |
+| 外部能否访问 | 不行    | 不行      | 可以   |
+
+## 13.2 继承
+
+> [!note]
+> **默认继承为`private`**
+
+### 1. 子类内部对父类的访问
+
+| 修饰父类成员 | private | protected | public |
+| ------------ | ------- | --------- | ------ |
+| 子类能否访问 | 不行    | 可以      | 可以   |
+
+
+> [!note|style:flat]
+> **继承限定对子类访问父类，没有一丢丢的影响，访问权限和上面一样。**
+
+### 2. 子类的父类成员对外
+
+| 修饰继承         | private                                         | protected             | public   |
+| ---------------- | ----------------------------------------------- | --------------------- | -------- |
+| 子类中的父类成员 | `public`变`private` <br> `protected`变`private` | `public`变`protected` | 保持原样 |
+

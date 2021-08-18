@@ -54,3 +54,36 @@ smatch.str(i); // 0之后的，都是捕获部分
 smatch.prefix().str(); // 未匹配的前部分
 smatch.prefix().str();// 未匹配的后部分
 ```
+# 3 匿名函数
+
+> [!note]
+> **只有`c++11`以上的编译器才支持。**
+
+```cpp
+    [capture](Parameters)->return_type{
+        body;
+    }
+```
+
+- `capture`: 
+
+    ```cpp
+    []        //未定义变量.试图在Lambda内使用任何外部变量都是错误的.
+    [x, &y]   //x 按值捕获, y 按引用捕获.
+    [&]       //用到的任何外部变量都隐式按引用捕获
+    [=]       //用到的任何外部变量都隐式按值捕获
+    [&, x]    //x显式地按值捕获. 其它变量按引用捕获
+    [=, &z]   //z按引用捕获. 其它变量按值捕获
+    ```
+    > [!note|style:flat]
+    > **`[this](){this->;}` 对于 `this`只能用值捕获。**
+
+- `parameters`: 参数列表
+
+- `return_type`: 返回值
+
+```cpp
+    sort(vec.begin(),vec.end(),[](const Entry & A,const Entry & B) -> bool{
+        return A.val > B.val;
+    });
+```

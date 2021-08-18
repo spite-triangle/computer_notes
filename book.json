@@ -3,7 +3,6 @@
     "author": "海拉尔的三角",
     "links": {
         "sidebar": {
-            "Labuladong": "https://labuladong.gitbook.io/algo/",
             "Github": "https://github.com/spite-triangle"
         }
     },
@@ -33,13 +32,17 @@
         "pageview-count",
         "auto-scroll-table",
         "katex-pro",
-        "favicon-absolute"
+        "favicon-absolute",
+        "sectionx"
     ],
     "pluginsConfig": {
         "hide-element": {
             "elements": [
                 ".gitbook-link"
             ]
+        },
+        "sectionx": {
+          "tag": "b"
         },
         "insert-logo-link-website": {
             "url": "image/logo.png",

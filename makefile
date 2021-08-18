@@ -14,5 +14,6 @@ build:
 	npm install gitbook-plugin-splitter
 	npm install gitbook-plugin-pageview-count
 	npm install gitbook-plugin-favicon-absolute
+	npm install gitbook-plugin-sectionx
 
 
