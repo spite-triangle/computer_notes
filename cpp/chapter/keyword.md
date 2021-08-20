@@ -1,7 +1,7 @@
 
  <h1 style="font-size:60px;text-align:center;">关键字</h1>
 
-# 1. `new/delete`
+# 1. new/delete
 
 编译器分配内存的关键字，会调用构造器与析构器。`malloc/free`为库函数实现。
 
@@ -27,7 +27,7 @@
 ```
 
 
-# 2. `const`
+# 2. const
 
 ```cpp
 // 限定内容
@@ -53,7 +53,7 @@ const int* const p;
 - **类成员函数后**: 这个函数不会对这个类对象的数据成员（准确地说是非静态数据成员）作任何改变。 <font color="#f44336" style="font-weight:bold">const函数内，只能调用const函数。</font>
 - **类成员函数前**: 返回值是一个常量，不能修改，**通常用来限定引用**。
 - **const变量**: 
-    - 编译器会将常量优化，放到符号表，<font color="#f44336" style="font-weight:bold">取值会从表中直接获取，而不是去内存</font>。通过指针修改值后，值不变。
+    - 编译器会将常量优化，<font color="#f44336" style="font-weight:bold">放到符号表，取值会从表中直接获取，而不是去内存</font>。通过指针修改值后，值不变。
     - 添加关键字`volatile`，可以防止编译器优化，从内存取值。通过指针修改值后，值会变。
 - **const对象**: 只能访问`const`与`static`修饰的内容。
 

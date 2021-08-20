@@ -777,7 +777,7 @@ string coveredSubsequences(const string &s,const string &t){
 
 ## 6.3 字符串排列
 
-<p style="text-align:center;"><img src="./image/cpp/../../../../image/cpp/stringSort.jpg" align="middle" />
+<p style="text-align:center;"><img src="./image/cpp/../../../../image/cpp/stringSort.jpg" align="middle" /></p>
 
 
 ```cpp
