@@ -5,7 +5,7 @@
 &emsp;&emsp;STL（Standard Template Library），即标准模板库，是一个具有工业强度的，高效的C++程序库。该库包含了诸多在计算机科学领域里所常用的**基本数据结构**和**基本算法**。
 - 数据结构和算法的分离
 - 不是面向对象的
-- 广泛应用泛型
+- <span style="color:red;font-weight:bold"> `STL`库的实现包含了「泛型函数」和 「泛型类」； `STL`算法的实现只包含了「泛型函数」</span>
 
 主要构成有六大组件: 
 

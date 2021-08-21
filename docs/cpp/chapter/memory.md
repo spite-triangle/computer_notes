@@ -40,68 +40,111 @@
 - 不同硬件平台对存储空间的处理上存在很大的不同。某些平台对特定类型的数据只能从特定地址开始存取，不能任意存放数据。
 - 不按照平台要求对数据存放进行对齐，会带来存取效率上的损失。例如：一个32位的数据没有存放在4字节整除的内存地址处，那么处理器就需要2个总线周期对其进行访问。
 - <span style="color:red;font-weight:bold"> 说白了就是为了CPU读写数据时，统一规则，能一大块一大块的拿，节约时间。 </span>
-- **VC/C++和GNU GCC中都是默认是4字节对齐**
 
 ## 5.2 字节对齐计算
 
 ### 1. 字节对齐值
 
 > [!note]
-> - **数据类型自身的对齐值**：char型数据自身对齐值为1字节，short型数据为2字节，int/float型为4字节，double型为8字节。
-> - **结构体或类的自身对齐值：`max(成员中自身对齐值)`**
+> - **数据类型「自身对齐值」**：char型数据自身对齐值为1字节，short型数据为2字节，int/float型为4字节，double型为8字节。
+> - **结构体或类的「自身对齐值」：`max(成员中自身对齐值)`**
 > - **指定对齐值：`#pragma pack (对齐值)`**
-> - **结构体和类的有效对齐值：`min{类，结构体自身对齐值，当前指定的pack值}`。** 
-> - **数据成员的有效对齐值：`min{成员自身对齐值，当前指定的pack值}`**
-
+> - **结构体和类的「有效对齐值」：`min{类，结构体自身对齐值，当前指定的pack值}`。** 
+> - **数据成员的「有效对齐值」：`min{成员自身对齐值，当前指定的pack值}`**
+> - **默认对齐值** ：`64`位，`8`字节；`32`位，`4`字节。 
 ### 2. 字节对齐准则
 
 > [!warning|style:flat]
 > - <span style="color:red;font-weight:bold"> 有效对齐值`N`最终决定数据存放地址方式。表示「对齐在`N`上」，即存放的起始地址满足 `起始地址 % N == 0` </span>
 > - **数据结构中的数据变量都是按定义的先后顺序存放。第一个数据变量的起始地址就是数据结构的起始地址。** <span style="color:red;font-weight:bold"> 类，结构体的成员变量要对齐存放 </span>
-> - **结构体本身也要根据自身的有效对齐值圆整**，<span style="color:red;font-weight:bold"> 即结构体成员变量占用总长度为结构体有效对齐值的整数倍，不足也要补足。 </span>
+> - **结构体本身也要根据自身的「有效对齐值」圆整**，<span style="color:red;font-weight:bold"> 即结构体成员变量占用总长度为结构体「有效对齐值」的整数倍，不足也要补足。 </span>
 
 ### 3. 储存字节计算
 
 ```cpp
-class TestA{
-public:
+#pragma pack() 
+struct TestA{
     char ch;
     int i;
     double d;
     const char cch;
-    static int si;
 };
 
-class TestB{
-public:
+struct TestB{
     char chb;
-    TestA a;
+    struct TestA a;
+    int ib;
 };
+#pragma pack() // 缺省，恢复默认的对齐字节
+
+int main(void){
+    struct TestB b;
+
+    printf("amount: %d\n",sizeof(b));
+
+    printf("b.a: %d\n",
+          (unsigned int)(void*)&b.a  - (unsigned int)(void*)&b);
+
+    printf("b.a.ch: %d\n",
+          (unsigned int)(void*)&b.a.ch  - (unsigned int)(void*)&b);
+
+    printf("b.a.i: %d\n",
+          (unsigned int)(void*)&b.a.i  - (unsigned int)(void*)&b);
+
+    printf("b.a.d: %d\n",
+          (unsigned int)(void*)&b.a.d  - (unsigned int)(void*)&b);
+
+    printf("b.a.cch: %d\n",
+          (unsigned int)(void*)&b.a.cch  - (unsigned int)(void*)&b);
+
+    printf("b.ib: %d\n",
+          (unsigned int)(void*)&b.ib  - (unsigned int)(void*)&b);
+    return 0;
+}
 ```
+
+<!--sec data-title="运行结果" data-id="code_res" data-show=true data-collapse=true ces-->
+
+```cpp
+triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$ ./a.out 
+amount: 40
+b.a: 8
+b.a.ch: 8
+b.a.i: 12
+b.a.d: 16
+b.a.cch: 24
+b.ib: 32
+triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$ 
+```
+<!--endsec-->
+
 **对`TestB`的储存结构进行说明：**
 
 <main style="width: 100%;display: flex">
    <div  style="width: 70%;">
-     1. 默认对齐字节为<code>4</code>；<br>
-     2. <code>char chb</code>：<code>char</code>的自身对齐值<code>min{1,4}</code>，所以存储地址首地址<code>0 % 1 == 0</code>成立。<br>
-     3. <code>TestA a</code>：<code>double d;</code>字节数最大，所以其自身对齐值为<code>8</code>，有效对齐值为<code>min{8,4}</code>，存储地址首地址<code> 4 % 4 == 0 </code>成立。<br>
+     1. <code>64</code>位系统，默认对齐字节<code>8</code>；<br>
+     2. <code>char chb</code>：<code>char</code>的自身对齐值<code>min{1,8}</code>，所以存储地址首地址<code>0 % 1 == 0</code>成立。<br>
+     3. <code>TestA a</code>：<code>double d;</code>字节数最大，所以其「自身对齐值」为<code>8</code>，有效对齐值为<code>min{8,8}</code>，存储地址首地址<code> 8 % 8 == 0 </code>成立。<br>
      <br>
-     ===开始对<code>TestA a</code>内部字节<code>4 ~ 27</code>进行划分。===<br> <br>
+     ===开始对<code>TestA a</code>内部字节<code>8 ~ 31</code>进行划分。===<br> <br>
      1. <code>char ch;</code>：就按照<code>TestA a</code>首地址往下存。<br>
-     2. <code>int i;</code>：<code>int</code>的自身对齐值<code>min{4,4}</code>，所以存储地址首地址<code>8 % 4 == 0</code>成立。<br>
-     3. <code>double d;</code>：<code>double</code>的自身对齐值<code>min{8,4}</code>，所以存储地址首地址<code>12 % 4 == 0</code>成立。<br>
-     4. code>const char cch;</code>：<code>char</code>的自身对齐值<code>min{1,4}</code>，所以存储地址首地址<code>21 % 4 == 0</code>成立。<br>
-     5. <span style="color:red;font-weight:bold"> 由于<code>TestA a</code>的自身对齐值为 <code> 8 </code>，根据「圆整准则」<code>TestA a</code> 的大小必须为  <code> n*8 </code>，所以最后的<code> 22 ~ 27 </code> 为编译器填充。 </span> <br><br>
+     2. <code>int i;</code>：<code>int</code>的自身对齐值<code>min{4,8}</code>，所以存储地址首地址<code>12 % 4 == 0</code>成立。<br>
+     3. <code>double d;</code>：<code>double</code>的自身对齐值<code>min{8,8}</code>，所以存储地址首地址<code>16 % 8 == 0</code>成立。<br>
+     4. <code>const char cch;</code>：<code>char</code>的自身对齐值<code>min{1,8}</code>，所以存储地址首地址<code>24 % 1 == 0</code>成立。<br>
+     5. <span style="color:red;font-weight:bold"> 由于<code>TestA a</code>的「有效对齐值」为 <code> min(8,8) </code>，根据「圆整准则」<code>TestA a</code> 的大小必须为  <code> n*8 </code>，所以最后的<code> 25 ~ 31 </code> 为编译器填充。 </span> <br><br>
      ===对<code>TestB</code>进行最后圆整收尾===<br> <br>
-     1. <span style="color:red;font-weight:bold"> 对于<code>TestB</code>而言成员最大的对齐值是<code>TestA a </code>，为 <code> 8 </code>，所以<code>TestB</code> 的大小必须为  <code> n*8 </code>，最后进行了<code> 28 ~ 31 </code> 的填充。 </span> 
+     1. <span style="color:red;font-weight:bold"> 对于<code>TestB</code>而言成员最大的对齐值是<code>TestA a </code>，「有效对齐值」为 <code> min(8,8) </code>，所以<code>TestB</code> 的大小必须为  <code> n*8 </code>，最后进行了<code> 36 ~ 39 </code> 的填充。 </span> 
    </div>
    <div style="width: 30%" align="center"><img src="./../../image/cpp/alignMemory.png"></div>
 </main>
 
-### 4. `# pragma pack(对齐值)`
+### 4. `# pragma pack()`
 
 > [!note]
-> **可以重新定义默认的对齐字节值，计算方法就是`3.`中的默认值替换掉，然后同上计算。** <span style="color:red;font-weight:bold"> 对齐值只能为 $2^n$ </span>。
+> - `# pragma pack(对齐值)`:**可以重新定义默认的对齐字节值，计算方法就是`3.`中的默认值替换掉，然后同上计算。** <span style="color:red;font-weight:bold"> 对齐值只能为 $2^n$ </span>。
+> - `# pragma pack()`: **缺省，表示使用默认。**
+> - `# pragma pack(push)`: **将当前对齐字节值保存**
+> - `# pragma pack(pop)`: **将保存的对齐字节值弹出**
 
 ## 5.3 字节对齐的隐患
 
@@ -161,6 +204,33 @@ void Func(struct B *p2){
 >    }T_MSG;   
 > ```
 
+## 5.4 默认对齐字节的由来
+
+### 1. 内存的结构
+
+一个内存是由若干个「黑色的内存颗粒」构成；一个内存颗粒叫做一个「chip」；每个「chip」内部，是由`8`个「bank」组成的；每一个「bank」是一个二维平面上的矩阵，每一个元素中都是保存了`1 byte`，也就是`8 bit`。
+
+<p style="text-align:center;"><img src="../../image/cpp/memoryStruction.png" align="middle" /></p>
+
+
+### 2. 内存地址
+
+**内存地址编号：**
+<span style="color:red;font-weight:bold"> 一个地址编号对应一个字节，对于地址`0x0000-0x0007`地址，是在第一个「chip」上，是由重叠的`8`个「bank」相同位置上的元素从`bank0 ~ bank7`进行编号，`8`个「bank」是可以并行工作，加快读写速度。</span> 
+
+**`8`个「bank」：**
+<span style="color:blue;font-weight:bold"> `64`位cpu对内存的一次操作只能操作`8 byte`，因为`64`位cpu的寄存器是`64`位的，只能放`8 * 8 bit`的值。 </span>
+
+
+<p style="text-align:center;"><img src="../../image/cpp/memoryGetvalue.png" align="middle" /></p>
+
+### 3. 字节对齐默认值
+
+> [!note|style:flat]
+> <span style="color:red;font-weight:bold">`64`位的cpu，默认对齐字节为`8`， 这就能保证，小于等于`8`字节的数据存储位置，是cpu能一次操作就能成功获取完毕的。 </span> <br> <br>
+> 假如: 你指定要获取的是`0x0005 ~ 0x0009`的数据：内存只好先工作一次把`0x0000-0x0007`取出来，然后再把`0x0008-0x0000f`取出来，最后再把两次的结果合并，把最终结果返回。<br><br>
+><span style="color:red;font-weight:bold"> 同理`32`位的cpu默认对齐字节位`4`，因为`32`位cpu的寄存器是`32`位的。 </span> 
+
 
 # 6 类/结构体的内存分布
 
@@ -195,6 +265,23 @@ void Func(struct B *p2){
 
 - **类：`sizeof(vptr)` +  `5.2`的结果；`sizeof(vptr)`由操作系统定，`64位，8 byte`；`32位，4 byte`**
 - **结构体：`5.2`的结果**
+
+<!--sec data-title="思考题" data-id="problem" data-show=true data-collapse=true ces-->
+**在`64位`操作系统，`sizeof(TestB)`的大小为`24`。**
+```cpp
+class TestA{
+public:
+    const int b;
+    virtual void fcn(){}
+};
+
+class TestB{
+public:
+    int c;
+    TestA a;
+};
+```
+<!--endsec-->
 
 # 7 对象与类
 

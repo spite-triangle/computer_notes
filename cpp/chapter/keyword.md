@@ -41,9 +41,6 @@ int const *p;
 const int* const p;
 ```
 
-> [!note|style:flat]
-> **不可变的 := 可变的 ，反过来不行。**
-
 ## 2.1 c
 
 - const变量: **可以通过指针修改值，就是一个建议**。
