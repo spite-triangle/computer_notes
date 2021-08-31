@@ -118,3 +118,27 @@ public:
     }
 };
 ```
+
+# 10 类型安全
+
+**类型安全:指同一段内存在不同的地方，会被强制要求使用相同的描述来解释(内存中的数据是用类型来解释的)，除非使用类型强制转换。**
+
+> [!note|style:flat]
+> <span style="color:red;font-weight:bold"> `c/c++` 并不是类型安全的语言。</span>
+
+<!--sec data-title="案例" data-id="example_typeSafe" data-show=true data-collapse=true ces-->
+```cpp
+int main()
+{
+    // 使用浮点的形式输出整型，编译能够通过
+    printf("%f\n",10); 
+    
+    // d的输出值很有可能不是 5 ，而是其他值，因为字节数错了。
+    int i=5;
+    void* pInt=&i;
+    double d=(*(double*)pInt);
+    cout<<d<<endl;
+    return 0;
+}
+```
+<!--endsec-->

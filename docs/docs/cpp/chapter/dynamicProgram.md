@@ -1,5 +1,4 @@
 
-
  <h1 style="font-size:60px;text-align:center;">动态规划</h1>
 
 # 1 动态规划概念
@@ -12,12 +11,12 @@
 
 ## 1.1. 解题框架
 
-1. 明确 base case: 初始条件
-1. 明确「状态」: **推进子问题向大问题演变的变量。**
-1. 明确「选择」: 也就是导致「状态」产生变化的行为。**「状态」能取哪些值**
-1. 定义 dp 数组/函数:  dp值 = f（当前状态）
-    - dp函数: 参数就是上面说到的「状态」。函数的返回值就是题目要求我们计算的量。
-    - **dp 数组**：当状态为「状态」，问题结果为dp[状态]
+1. **明确 base case**: 如何初始化`dp[]`；确定边界条件。
+1. **明确「状态」**: **推进子问题向大问题演变的变量。就是`dp[i]`的游标`i`的含义。**
+2. **明确「选择」**: **可以使得由过去的状态`i-1,i-2,i-3...`向当前状态`i`推进的 「选择」。**
+3. **定义 dp 数组/函数**:  dp值 = f（当前状态）
+    - **dp函数**: 参数就是上面说到的「状态」。函数的返回值就是「结果」。
+    - **`dp[i]` 数组**：`i`为「状态」，「结果」为`dp[i]`
 
 ```cpp
 
@@ -69,3 +68,194 @@ for 状态1 in 状态1的所有取值：
         }
     }
 ```
+
+
+
+# 2. 斐波那契级数
+
+**题目：**
+某人有一对兔子饲养在围果它们每个月生`1`对兔子，且新的兔子在第`2`个月后(`3`个月为周期)也是每个月生`1`对兔子,问一年后围墙中共有多少对兔子。
+
+**递推式：**
+$$
+f(n) = f(n-1) + f(n - 2)
+$$
+
+**序列为：**`1，1，3，5，8，13，21，34，55，89。。。`
+
+# 3. 凑零钱问题
+
+**题目：**
+给你k种面值的硬币，面值分别为`c1, c2 ... ck`，每种硬币的数量无限，再给一个总金额`amount`，问你最少需要几枚硬币凑出这个金额，如果不可能凑出，算法返回 `-1 `。
+
+**分析：**
+
+> [!tip]
+> - **状态：** `amount` 能推荐问题递推，问题的结果由`amount`影响
+> - **选择：** 每次「状态」的推进，由`c1, c2 ... ck`确定。
+> - **dp[amount]定义：**`dp[amount]`表示，当总金额为`amount`时，最少硬币数为`dp[aomunt]`
+
+<!--sec data-title="实现代码" data-id="coinchange" data-show=true data-collapse=true ces-->
+```cpp
+int coinChange(const int * coins,int n,int amount){
+
+    // 定义dp[i]: 状态为钱总数；结果为当前总价最少钱币数
+    // 初始化放入极端值,由于是求解最小，所以放入一个大值
+    vector<int> dp(amount + 1,amount + 1);
+
+    // 边界条件
+    dp[0] = 0;
+
+    for(int i=2;i <= amount ; i++){
+        // 选择当前的货币
+        for(int j=0;j < n;j++){
+            if(i >= coins[j]){
+                dp[i] = min(dp[i],dp[i - coins[j]] + 1);
+            }
+        }
+    } 
+
+    // 找不到
+    if (dp[amount] == amount + 1)
+    {
+        return -1;
+    }
+    
+    return dp[amount];
+}
+```
+<!--endsec-->
+
+# 2. 子序列问题
+## 2.1. 最长递增(递减)子序列
+
+<p style="text-align:center;"><img src="../../image/cpp/increaseSubsequence.jpg" align="middle" /></p>
+
+**问题特征：**
+
+> [!note|style:flat]
+> - **首先给一组`1`维的长序列**，<span style="color:red;font-weight:bold"> 若是`2`维问题，看看能不能排序降为`1`维问题。 </span>
+> - **要求子序列具有「某种单调关系」**
+> - **目标子序列是关系下的「最长子序列」**
+
+
+**分析：**
+
+> [!tip]
+> - **状态：** 当前查找的序列的以索引`i`结束
+> - **选择：** 选择`dp[i-1],dp[i-2]...`确定`dp[i]`。
+> - **dp[i]定义：** 以索引`i`结束的序列，最长子序列的长度`dp[i]`
+
+<!--sec data-title="实现代码" data-id="lis" data-show=true data-collapse=true ces-->
+```cpp
+int lengthOfLIS(vector<int>& seq){
+
+    vector<int> dp(seq.size(),1);
+
+    dp[0] = 1;
+    // 状态从 1 索引开始
+    for(int i=1;i<seq.size();i++){
+
+        for(int j=0; j < i; j++){
+            if(seq[i] > seq[j]){
+                dp[i] = max(dp[i],dp[j] + 1);
+            }
+        } 
+    }
+
+    int max = 1;
+    for(int item:dp){
+        if(item > max) max = item;
+    }
+
+    return max;
+}
+```
+<!--endsec-->
+
+## 2.2 信封嵌套问题
+
+<p style="text-align:center;"><img src="../../image/cpp/envelope.jpg" align="middle" /></p>
+
+### 1. 降维
+<p style="text-align:center;"><img src="../../image/cpp/subsequenceDimension.jpg" align="middle" /></p>
+
+> [!note|style:flat]
+> **嵌套问题是要求`[w,h]`「两个」数据均有「单调的大小」关系，属于`2`维问题。而递增子序列问题是`1`维问题。** <span style="color:red;font-weight:bold"> 将「`2`维问题」转「`1`维问题」可以使用「排序」，先确定一个维度的关系，然后就只用关心一个维度。 </span> <br>
+> **排序**：**对于`[v1,v2]`形式，一般优先`v1`升序，若`v1`相等，则`v2`降序**
+### 2. 问题求解
+
+> [!tip]
+> - **排序** : **保证对`1`维序列进行操作**，两点（`[v1，v2]`）数据，先排序：**`v1`升序，`v2`降序**
+> - **状态：** 当前查找的序列的以索引`i`结束
+> - **选择：** 选择`dp[i-1],dp[i-2]...`确定`dp[i]`。
+> - **dp[i]定义：** 以索引`i`结束的序列，最长子序列的长度`dp[i]`
+
+<!--sec data-title="实现代码" data-id="maxEnvelopes" data-show=true data-collapse=true ces-->
+```cpp
+
+struct Envelope
+{
+    int width;
+    int height;
+
+    bool greatThan(const Envelope& temp){
+        if (this->width > temp.width && this->height > temp.height)
+        {
+            return true;
+        }
+        return false; 
+    }
+};
+
+int maxEnvelopeLen(vector<Envelope> &envelopes){
+
+    // width 升序，hight 降序
+    sort(envelopes.begin(), envelopes.end(),[](const Envelope & A, const Envelope & B)->bool{
+        if (A.width < B.width)
+        {
+            return true;
+        }else if(A.width == B.width){
+            if(A.height > B.height){
+                return true;
+            }
+        }
+        return false;
+    });
+
+    vector<int> dp(envelopes.size(),1);
+
+    for(int i=0;i<envelopes.size();i++){
+        // 选择
+        for(int j=0;j<i;j++){
+
+            if (envelopes[i].greatThan(envelopes[j]))
+            {
+                dp[i] = max(dp[i],dp[j] + 1);
+            }
+        }
+    }
+
+    int max = 0;
+    for(int item:dp){
+        if (max < item)
+        {
+            max = item;
+        }
+    }
+
+    return max; 
+}
+
+```
+<!--endsec-->
+
+## 2.3 最小编辑距离
+
+<p style="text-align:center;"><img src="../../image/cpp/minEditNumber.jpg" align="middle" /></p>
+
+> [!tip]
+> - **状态：** <span style="color:red;font-weight:bold"> 解决两个字符串的动态规划问题，一般都是用「两个指针」，即「两个状态」。</span> 当前考虑**当两个字符串的索引在`i,j`时**的情况。
+> - **选择：** 删除，插入，替换，跳过
+> - **`dp[i][j]`定义：** 
+

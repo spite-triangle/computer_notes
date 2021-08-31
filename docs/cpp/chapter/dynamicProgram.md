@@ -9,6 +9,9 @@
 - **最优子结构**: 当前步骤的最优只与"上一步"有关。根据这个特点可以**状态压缩**
 - **状态转移方程**: 递推式，解决问题的核心。
 
+> [!note|style:flat]
+> **认为`dp[i][j-1]`就是问题在状态`i,j-1`下的结果，`dp[i-1][j-1]`就是问题在状态`i-1,j-1`下的结果，其余之前的状态同理。** <span style="color:red;font-weight:bold"> 也就是说，抵达`i,j`状态之前，`dp[][]`已经将`i,j`状态之前的状态全部尝试了一遍，并得到了相应的结果。</span>
+
 ## 1.1. 解题框架
 
 1. **明确 base case**: 如何初始化`dp[]`；确定边界条件。
@@ -183,6 +186,9 @@ int lengthOfLIS(vector<int>& seq){
 > [!note|style:flat]
 > **嵌套问题是要求`[w,h]`「两个」数据均有「单调的大小」关系，属于`2`维问题。而递增子序列问题是`1`维问题。** <span style="color:red;font-weight:bold"> 将「`2`维问题」转「`1`维问题」可以使用「排序」，先确定一个维度的关系，然后就只用关心一个维度。 </span> <br>
 > **排序**：**对于`[v1,v2]`形式，一般优先`v1`升序，若`v1`相等，则`v2`降序**
+
+<br>
+
 ### 2. 问题求解
 
 > [!tip]
@@ -255,7 +261,255 @@ int maxEnvelopeLen(vector<Envelope> &envelopes){
 <p style="text-align:center;"><img src="../../image/cpp/minEditNumber.jpg" align="middle" /></p>
 
 > [!tip]
-> - **状态：** <span style="color:red;font-weight:bold"> 解决两个字符串的动态规划问题，一般都是用「两个指针」，即「两个状态」。</span> 当前考虑**当两个字符串的索引在`i,j`时**的情况。
+> - **状态：** <span style="color:red;font-weight:bold"> 解决两个字符串的动态规划问题，一般都是用「两个指针」，即「两个状态」。</span> 源头字符串的前`j`个字符，目标字符串的前`i`个字符。
 > - **选择：** 删除，插入，替换，跳过
-> - **`dp[i][j]`定义：** 
+> - **`dp[i][j]`定义：** 目标字符串的前`i`个字符变为源头字符串的前`j`个字符，所做的小操作距离
 
+
+**插入：** 目标字符串前`i`个字符与源字符串的前`j-1`个字符相同的情况，变当前状态`i,j`
+
+$$
+dp[i][j] = dp[i][j-1] + 1
+$$
+
+<p style="text-align:center;"><img src="../../image/cpp/insert.png" align="middle" /></p>
+
+
+**删除：** 目标字符串前`i-1`个字符与源字符串的前`j`个字符相同的情况，变当前状态`i,j`
+
+$$
+dp[i][j] = dp[i-1][j] + 1;
+$$
+
+<p style="text-align:center;"><img src="../../image/cpp/delete.png" align="middle" /></p>
+
+**替换：** 目标字符串前`i-1`个字符与源字符串的前`j-1`个字符相同的情况，变当前状态`i,j`
+
+<p style="text-align:center;"><img src="../../image/cpp/change.png" align="middle" /></p>
+
+$$
+dp[i][j] = dp[i-1][j-1] + 1;
+$$
+
+
+> [!warning|style:flat]
+> **动态规划状态的迁移：永远是之前已经得出结论的状态，迁移到当前状态；根据`1.4`的状态遍历，之前的状态默认是已经提前都计算好，不必深究。**
+
+
+<!--sec data-title="代码实现" data-id="minEditDistance" data-show=true data-collapse=true ces-->
+
+```cpp
+int minDistance(const string & S,const string & T){
+
+    // 在S的j位置，在T的i位置时，操作数最小
+    vector< vector<int> > dp(T.length()+1,vector<int>(S.length()+1,0));
+
+    // 初始化，当目标是空串时
+    for(int i=1;i<=S.size();i++){
+        dp[0][i] = i;
+    }
+
+    // 初始化，当源是空串时
+    for(int i=1;i<=T.length();i++){
+        dp[i][0] = i;
+    }
+
+    for(int i=1;i<=T.length();i++){
+        for (int j = 1; j <= S.length(); j++)
+        {
+            if (T[i-1] == S[j-1])
+            {
+                dp[i][j] = dp[i-1][j-1];
+            }else{
+                // 替换
+                dp[i][j] = dp[i-1][j-1] + 1;
+                // 删除
+                dp[i][j] = min(dp[i][j],dp[i-1][j] + 1);
+                // 插入
+                dp[i][j] = min(dp[i][j],dp[i][j-1] + 1);
+            }
+        }
+    }
+    return dp[T.length()][S.length()];
+}
+```
+<!--endsec-->
+
+## 2.4 最大子数组之和
+
+<p style="text-align:center;"><img src="../../image/cpp/maxSum.jpg" align="middle" /></p>
+
+> [!tip]
+> - **状态：** 数组的当前索引`i`
+> - **选择：** 由于是「连续子数组」，那就只能和挨着的对比，即`dp[i],dp[i-1]`
+> - **`dp[i]`定义：** 以`nums[i]`为结尾的「最大子数组和」为`dp[i]`
+
+
+<!--sec data-title="实现源码" data-id="maxsumsub" data-show=true data-collapse=true ces-->
+
+```cpp
+int maxSum(vector<int> &nums){
+
+    // 初始化
+    vector<int> dp(nums);
+
+    for (int i = 1; i < nums.size(); i++)
+    {
+        dp[i] = max(dp[i],dp[i-1] + nums[i]);
+    }
+    
+    sort(dp.begin(),dp.end());
+
+    return dp[dp.size()-1];
+}
+
+```
+<!--endsec-->
+
+## 2.5 最长公共子序列问题
+
+### 1. 算法 
+
+**问题：**
+输入`s1 = "zabcde", s2 = "acez"`，它俩的最长公共子序列是`lcs = "ace"`，长度为 `3`，所以算法返回 `3`。
+
+> [!tip]
+> - **状态：** <span style="color:red;font-weight:bold"> 解决两个字符串的动态规划问题，一般都是用「两个指针」，即「两个状态」。</span> `s1`的前`i`个字符，`s2`的前`j`个字符。
+> - **选择：** 当`s1[i]==s2[j]`时，`dp[i-1][j-1] + 1`；当`s1[i]!=s2[j]`时，要找一个目前最大子串长度值`max(dp[i-1][j],dp[i][j-1])`（有可能`s1[i]`子序列中，有可能`s2[j]`子序列中）
+> - **`dp[i][j]`定义：** 在`s1`的前`i`个字符，`s2`的前`j`个字符时，最大子序列的最大长度。
+
+
+<!--sec data-title="源码实现" data-id="maxPublicSub" data-show=true data-collapse=true ces-->
+
+```cpp
+int maxPublicSub(const string& strA,const string& strB){
+
+    vector< vector<int> > dp(strB.size()+1,vector<int>(strA.size()+1,0));
+
+
+    for (int i = 1; i <= strB.size(); i++)
+    {
+        for (int j = 1; j <= strA.size(); j++)
+        {
+            if ( strA[j-1] == strB[i-1])
+            {
+                dp[i][j] = dp[i-1][j-1] + 1;
+            }else{
+                dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+            }
+        }
+    }
+
+    return dp[strB.size()][strA.size()];
+}
+
+```
+
+<!--endsec-->
+
+### 2. 字符串的删除操作
+
+<p style="text-align:center;"><img src="../../image/cpp/deleteString.jpg" align="middle" /></p>
+
+### 3. 最小 ASCII 删除和
+
+<p style="text-align:center;"><img src="../../image/cpp/deleteASCII.jpg" align="middle" /></p>
+
+> [!tip]
+> - **状态：** <span style="color:red;font-weight:bold"> 解决两个字符串的动态规划问题，一般都是用「两个指针」，即「两个状态」。</span> `s1`的前`i`个字符，`s2`的前`j`个字符。
+> - **选择：** 当`s1[i]==s2[j]`时，最小的是`dp[i-1][j-1]`；当`s1[i]!=s2[j]`时，要删除一个`min(dp[i-1][j] + (int)strB[i-1],dp[i][j-1] + (int)strA[j-1])`（有可能`s1[i]`在子序列中，有可能`s2[j]`在子序列中）
+> - **`dp[i][j]`定义：** 在`s1`的前`i`个字符，`s2`的前`j`个字符时，被删除的ascii码最小。
+
+<!--sec data-title="实现代码" data-id="minASCII" data-show=true data-collapse=true ces-->
+```cpp
+int minDeleteASCII(const string& strA,const string& strB){
+
+    vector< vector<int> > dp(strB.size()+1,vector<int>(strA.size()+1,0));
+
+    // 当strA为空时
+    for (int i = 1; i <= strB.size(); i++)
+    {
+        dp[i][0] = dp[i-1][0] + (int)strB[i-1]; 
+    }
+    
+    // 当strB为空时
+    for (int i = 1; i <= strA.size(); i++)
+    {
+        dp[0][i] = dp[0][i-1] + (int)strA[i-1]; 
+    }
+
+    for (int i = 1; i <= strB.size(); i++)
+    {
+        for (int j = 1; j <= strA.size(); j++)
+        {
+            if ( strA[j-1] == strB[i-1])
+            {
+                dp[i][j] = dp[i-1][j-1];
+            }else{
+                dp[i][j] = min(dp[i-1][j] + (int)strB[i-1],dp[i][j-1] + (int)strA[j-1]);
+            }
+        }
+    }
+
+    return dp[strB.size()][strA.size()];
+}
+```
+<!--endsec-->
+
+
+
+## 2.6 子序列/子串问题总结
+
+> [!note|style:flat]
+> - **子串：** 
+>   - `dp[i]`的定义，一般为 **「以`i`结尾的连续子串。。。。」**
+> - **子序列：**
+>   - `dp[i]`的定义，一般为 **「从`0`到`i`位/置的子串。。。。」**
+> -  **涉及两个字符串/数组时，要用双状态**
+> - **特例：一个数组，双指针**
+> - **通过排序，可也把`[v1,v2]`转为子序列问题。**
+
+## 2.7 特例：最长子序列回文
+
+<p style="text-align:center;"><img src="../../image/cpp/maxLenMirror.jpg" align="middle" /></p>
+
+> [!tip]
+> - **状态：** `i`到`j`的子串。
+> - **选择：** 当`s1[i]==s1[j]`时，增加两个`dp[i][j] = dp[i+1][j-1] + 2;`；当`s1[i]!=s1[j]`时，有一个可能在回文里，找最大的`dp[i][j] = max(dp[i+1][j],dp[i][j-1]);`（有可能`s1[i]`在子序列中，有可能`s1[j]`在子序列）
+> - **`dp[i][j]`定义：** `i`到`j`的子串，最大回文数为`dp[i][j]`。
+> - **初始：** `dp[][]`的下半部不会涉及到，所以为`0`；当`i==j`时，`dp[i][j]=1`。
+
+<p style="text-align:center;"><img src="../../image/cpp/maxMirrorBlock.png"  /> <img src="../../image/cpp/loopMethod.png"/> </p>
+
+
+> [!note|style:flat]
+> **由于`dp[i][j]`与`dp[i+1][j-1],dp[i+1][j],dp[i][j-1]`有关，所以要重新设置遍历顺序。** 
+
+<!--sec data-title="代码实现" data-id="maxlenmirror" data-show=true data-collapse=true ces-->
+```cpp
+int maxLenMirror(const string &str){
+
+    vector< vector<int> > dp(str.length(),vector<int>(str.length(),0));
+
+    // 初始化
+    for (int i = 0; i < str.length(); i++)
+    {
+        dp[i][i] = 1;
+    }
+
+    for (int i = str.length() - 2; i>=0; i--)
+    {
+        for (int j = i + 1; j < str.length(); j++)
+        {
+            if(str[i] == str[j]){
+                dp[i][j] = dp[i+1][j-1] + 2;
+            }else {
+                dp[i][j] = max(dp[i+1][j],dp[i][j-1l]);
+            }
+        }
+    }
+
+    return dp[0][dp.size()-1];
+}
+```
+<!--endsec-->

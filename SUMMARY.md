@@ -17,5 +17,6 @@
     - [十、目标查找](cpp/chapter/find.md)
     - [十一、二叉树](cpp/chapter/binaryTree.md)
     - [十二、动态规划](cpp/chapter/dynamicProgram.md)
-    - [十三、单调栈](cpp/chapter/monotoneStack.md)
+    - [十三、回溯算法](cpp/chapter/backtracking.md)
+    - [十四、单调栈](cpp/chapter/monotoneStack.md)
     - [附录 工具库](cpp/chapter/toollib.md)
