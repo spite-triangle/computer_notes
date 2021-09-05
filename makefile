@@ -15,6 +15,6 @@ build:
 	npm install gitbook-plugin-pageview-count
 	npm install gitbook-plugin-favicon-absolute
 	npm install gitbook-plugin-sectionx
-	npm install gitbook-plugin-terminull
+	npm install gitbook-plugin-terminull-light
 
 
