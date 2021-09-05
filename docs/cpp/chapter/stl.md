@@ -29,9 +29,6 @@
 > [!note|style:flat]
 > `set map multiset multimap` 通过红黑实现，无序 `unorder_map unorder_set` 通过哈希表实现。
  
-## 2.1 `vector`
-
-
 
 # 3 分配器
 <font color="#f44336">容器类自动申请和释放内存，无需new和delete操作。</font>
