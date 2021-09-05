@@ -30,6 +30,8 @@
     "gitbook-plugin-sidebar-style": "^1.0.0",
     "gitbook-plugin-single-page": "^1.0.2",
     "gitbook-plugin-splitter": "0.0.8",
+    "gitbook-plugin-terminull": "^1.0.5",
+    "gitbook-plugin-terminull-light": "^1.0.7",
     "gitbook-plugin-theme-comscore": "0.0.3"
   }
 }

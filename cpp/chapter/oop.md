@@ -96,7 +96,57 @@ obj->fcn();
 
 # 8 动多态与静多态
 
-|        | 实现方式        | 确定时间 |
-| ------ | --------------- | -------- |
-| 动多态 | 继承与overwrite | 运行时   |
-| 静多态 | 泛型            | 编译     |
+|        | 实现方式         | 确定时间 |
+| ------ | ---------------- | -------- |
+| 动多态 | 继承与`override` | 运行时   |
+| 静多态 | 泛型             | 编译     |
+
+# 9 拷贝构造与赋值
+
+- **拷贝构造函数**
+  - 一种特殊的构造函数
+  - 复制的对象还不存在，正在为对象初始化一块内存区域，利用复制值进行初始化。
+
+- **赋值**
+  - 一种函数操作
+  - 赋值的对象已经存在，用复制值来覆盖原来的值。
+
+> [!note|style:flat]
+> <span style="color:red;font-weight:bold"> 默认拷贝构造与默认赋值，均是原封不动的拷贝目标对象的值；对于指针也是直接拷贝指针的地址内容，会造成隐患。 </span>
+
+- **正确的赋值**
+  - **检查是否为同一个**
+  - 指针内存是否要释放
+  - **指针变量，对指向值进行拷贝**。
+
+```cpp
+//赋值函数
+string & string::operator=(const string& other)
+{
+    if(this == &other) //自我检查
+    {
+        return *this;
+    }
+    //删除原有数据内存
+    delete []m_data;
+    int strlen = strlen(other.m_data);
+    m_data = new char[strlen +1];
+    strcpy(m_data ,other.m_data);
+    return 8this;
+}
+```
+
+> [!note|style:flat]
+> **`T & operator=(const T & other)` 返回了原对象，则串行赋值，是正确的。**
+> ```cpp
+>    class Test{
+>    public:
+>          int a;
+>    };
+>    
+>    Test a1,b1,c1;
+>    // 串行赋值
+>    a1 = b1 = c1;
+>    // 修改返回值 修改的是 a1 的值
+>    (a1 = b1).a = 12;
+> ```

@@ -33,7 +33,8 @@
         "auto-scroll-table",
         "katex-pro",
         "favicon-absolute",
-        "sectionx"
+        "sectionx",
+        "terminull"
     ],
     "pluginsConfig": {
         "hide-element": {
