@@ -51,7 +51,8 @@ Database changed
 ```
 # 9. 查看数据库中所有的表
 
-==先选中一个数据库，然后才能查看所选中的数据库中的表。==
+<span style="color:blue;font-weight:bold"> 先选中一个数据库，然后才能查看所选中的数据库中的表。 </span>
+
 
 ```term
 mysql>$ show tables;

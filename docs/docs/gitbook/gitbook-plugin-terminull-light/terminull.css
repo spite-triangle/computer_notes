@@ -1,0 +1,82 @@
+.terminull {
+  /* background-color: #282d39; */
+  border-radius: 5px;
+  font-family: "Ubuntu Mono", Consolas, Menlo, Courier, monospace;
+  background-color: #403C32;
+  font-size: 1em;
+}
+
+.terminullMenu {
+  box-sizing: border-box;
+  height: 20px;
+  margin: 0 auto;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #403C32;
+}
+
+.terminullScreen {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius:5px;
+  /* color: white; */
+  color: #ffffff;
+  text-align: left;
+  font-family: monospace;
+  white-space: nowrap;
+  overflow-y: auto;
+  background-color: #403C32;
+}
+
+.terminullComment {
+  color: #04cc5d;
+  font-style: italic;
+}
+
+.terminullButtons {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  background-color: #ff3b47;
+  border-color: #9d252b;
+  display: inline-block;
+}
+
+.terminullMinimize {
+  left: 11px;
+  background-color: #ffc100;
+  border-color: #9d802c;
+}
+
+.terminullZoom {
+  left: 16px;
+  background-color: #00d742;
+  border-color: #049931;
+}
+
+.terminullDirectory {
+  color:#64d5ca;
+  font-weight: bold;
+  font-family: system-ui;
+  font-size: smaller;
+}
+
+.terminullOutput {
+  display: block;
+  white-space: pre-line;
+}
+
+.terminullCopyBtn {
+  transition: all 0.2s ease-in-out;
+  color:#a7a7a7;
+}
+.terminullCopyBtn:hover {
+  transform: scale(1.1);
+  color:#e4e4e4;
+}

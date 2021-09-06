@@ -6,6 +6,7 @@
 > [!note]
 > **作用：快速提升`MySQL`获取数据的速度。**
 > **效果：小数据的时候用处不大，大数据时效果十分明显。**
+> **缺点：表行数据的变化（insert, update, delete），建立在表列上的索引也会自动维护，一定程度上会使`DML`操作变慢；索引会占用磁盘额外的存储空间。**
 
 # 2. 索引分类
 
@@ -20,7 +21,9 @@
 >   - 默认的常规索引
 > - `fullText`：全文索引
 >   - 只有特定数据库类型支持(`MYISAM`)
->   - 快速定位数据
+>   - 查找的是文本中的关键词，主要用于全文检索
+> - **`(`字段1`,`字段2`,..)`: 组合索引**
+>   - 将多个字段组合，建立起一个索引。
 
 # 3. 索引指令
 
@@ -44,7 +47,7 @@ create table `表名`(
 )engine=INNODB charset=utf8;
 ```
 
-### 3.2.2. 已经创建好的表
+### 3.2.2. 添加表级别索引约束
 
 ```sql
 alter table `表名` add unique key `索引名` (`字段名`);
@@ -64,11 +67,37 @@ create 类型 index 索引名 on `表名`(`字段`);
 explain select 查询语句;
 ```
 
-# 4. 索引原则
+# 4. 组合索引
+
+```sql
+create table `student`(
+    `id` int(11) not null  auto_increment,
+    `name` varchar(20) not null,
+    `address` varchar(20) not null,
+    ....
+
+    primary key (`id`,`name`),
+    key `索引名`(`name`,`address`),
+    unique `索引名` (`address`,`id`)
+)engine=INNODB charset=utf8;
+```
+
+> [!note]
+> - **索引都能使用组合索引。**
+> - **组合索引最有顺序区别。**
+> 对于`(id,name,address)`组合索引，可以等效于「按照从左往右建立起来」的以下三种索引
+>   - `id`：`where id=`
+>   - `id,name`：`where id= AND name=''`
+>   - `id,name,address`：`where id= AND name='' AND address=''`
+> - **「联合索引」与「单列索引」列同时存在，使用「单列索引」。**
+
+
+# 5. 索引原则
 
 > [!note|style:flat]
 > 1. **索引不是越多越好**
 > 1. **不需要对经常变动的数据添加索引**
 > 1. **小数据不需要索引**
 > 1. **索引添加到需要经常查询的字段上**
+> 1. **索引优先级：主键索引，单列索引，组合索引**
 

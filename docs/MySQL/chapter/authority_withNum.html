@@ -1,0 +1,751 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>七、权限管理 · 计算机笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="海拉尔的三角">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro-fixed/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex-pro/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-terminull-light/terminull.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="backup_withNum.html" />
+    
+    
+    <link rel="prev" href="index_withNum.html" />
+    
+
+    
+        <link rel="shortcut icon" href="image/ico.png" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/ico.png">
+    
+    
+        
+    
+    
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/spite-triangle" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../cpp/cpp.html">
+            
+                <a href="../../cpp/cpp.html">
+            
+                    
+                    c++笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../cpp/chapter/foundation.html">
+            
+                <a href="../../cpp/chapter/foundation.html">
+            
+                    
+                    一、基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../cpp/chapter/keyword.html">
+            
+                <a href="../../cpp/chapter/keyword.html">
+            
+                    
+                    二、关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../cpp/chapter/point_reference.html">
+            
+                <a href="../../cpp/chapter/point_reference.html">
+            
+                    
+                    三、指针与引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../cpp/chapter/oop.html">
+            
+                <a href="../../cpp/chapter/oop.html">
+            
+                    
+                    四、面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../cpp/chapter/memory.html">
+            
+                <a href="../../cpp/chapter/memory.html">
+            
+                    
+                    五、内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../cpp/chapter/process.html">
+            
+                <a href="../../cpp/chapter/process.html">
+            
+                    
+                    六、进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../cpp/chapter/stl.html">
+            
+                <a href="../../cpp/chapter/stl.html">
+            
+                    
+                    七、STL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../cpp/chapter/dataStruction.html">
+            
+                <a href="../../cpp/chapter/dataStruction.html">
+            
+                    
+                    八、数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../cpp/chapter/array_list.html">
+            
+                <a href="../../cpp/chapter/array_list.html">
+            
+                    
+                    九、数组链表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../cpp/chapter/find.html">
+            
+                <a href="../../cpp/chapter/find.html">
+            
+                    
+                    十、目标查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../cpp/chapter/binaryTree.html">
+            
+                <a href="../../cpp/chapter/binaryTree.html">
+            
+                    
+                    十一、二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../cpp/chapter/dynamicProgram.html">
+            
+                <a href="../../cpp/chapter/dynamicProgram.html">
+            
+                    
+                    十二、动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../cpp/chapter/backtracking.html">
+            
+                <a href="../../cpp/chapter/backtracking.html">
+            
+                    
+                    十三、回溯算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../cpp/chapter/monotoneStack.html">
+            
+                <a href="../../cpp/chapter/monotoneStack.html">
+            
+                    
+                    十四、单调栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../cpp/chapter/toollib.html">
+            
+                <a href="../../cpp/chapter/toollib.html">
+            
+                    
+                    附录 工具库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../mysql.html">
+            
+                <a href="../mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="introduction_withNum.html">
+            
+                <a href="introduction_withNum.html">
+            
+                    
+                    一、简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="foundation_withNum.html">
+            
+                <a href="foundation_withNum.html">
+            
+                    
+                    二、控制台操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="operatorDB_withNum.html">
+            
+                <a href="operatorDB_withNum.html">
+            
+                    
+                    三、数据库、表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="operatorData_withNum.html">
+            
+                <a href="operatorData_withNum.html">
+            
+                    
+                    四、数据操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="transaction_withNum.html">
+            
+                <a href="transaction_withNum.html">
+            
+                    
+                    五、事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="index_withNum.html">
+            
+                <a href="index_withNum.html">
+            
+                    
+                    六、索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.7" data-path="authority_withNum.html">
+            
+                <a href="authority_withNum.html">
+            
+                    
+                    七、权限管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="backup_withNum.html">
+            
+                <a href="backup_withNum.html">
+            
+                    
+                    八、备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >七、权限管理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x6743;&#x9650;&#x7BA1;&#x7406;"><b></b>&#x6743;&#x9650;&#x7BA1;&#x7406;</a></li><li><span class="title-icon "></span><a href="#1-&#x521B;&#x5EFA;&#x7528;&#x6237;"><b></b>1. &#x521B;&#x5EFA;&#x7528;&#x6237;</a></li><li><span class="title-icon "></span><a href="#2-&#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;"><b></b>2. &#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;</a></li><li><span class="title-icon "></span><a href="#3-&#x5220;&#x9664;&#x7528;&#x6237;"><b></b>3. &#x5220;&#x9664;&#x7528;&#x6237;</a></li><li><span class="title-icon "></span><a href="#4-&#x6743;&#x9650;"><b></b>4. &#x6743;&#x9650;</a></li></ul></div><a href="#&#x6743;&#x9650;&#x7BA1;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 style="font-size:60px;text-align:center;" id="&#x6743;&#x9650;&#x7BA1;&#x7406;"><a name="&#x6743;&#x9650;&#x7BA1;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x6743;&#x9650;&#x7BA1;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6743;&#x9650;&#x7BA1;&#x7406;</h1>
+
+<h1 id="1-&#x521B;&#x5EFA;&#x7528;&#x6237;"><a name="1-&#x521B;&#x5EFA;&#x7528;&#x6237;" class="anchor-navigation-ex-anchor" href="#1-&#x521B;&#x5EFA;&#x7528;&#x6237;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x521B;&#x5EFA;&#x7528;&#x6237;</h1>
+<p><strong><code>SQLyog</code>&#x8F6F;&#x4EF6;&#xFF1A;</strong></p>
+<p style="text-align:center;"><a href="../../image/mysql/sqlyog_adduser.png" data-lightbox="a2b6077e-02b9-4616-a944-ae8048a877eb" data-title="undefined"><img src="../../image/mysql/sqlyog_adduser.png" alt="undefined"></a></p>
+
+<p style="text-align:center;"><a href="../../image/mysql/privileges.png" data-lightbox="76090eb9-1467-4bf1-993a-23e0618bb094" data-title="undefined"><img src="../../image/mysql/privileges.png" alt="undefined"></a></p>
+
+<p><strong><code>SQL</code>&#x547D;&#x4EE4;&#xFF1A;</strong></p>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x5C31;&#x662F;&#x4FEE;&#x6539;<code>mysql</code>&#x6570;&#x636E;&#x4E0B;&#x7684;<code>user</code>&#x8868;&#x3002;</strong></p>
+</blockquote>
+<pre class="language-"><code class="lang-sql"><span class="token comment">-- &#x521B;&#x5EFA;&#x7528;&#x6237;</span>
+<span class="token keyword">create</span> <span class="token keyword">user</span> &#x7528;&#x6237;&#x540D; indentified <span class="token keyword">by</span> <span class="token string">&apos;&#x5BC6;&#x7801;&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- &#x4FEE;&#x6539;&#x5F53;&#x524D;&#x5BC6;&#x7801;</span>
+<span class="token keyword">set</span> password<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">&apos;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- &#x4FEE;&#x6539;&#x6307;&#x5B9A;&#x7528;&#x6237;&#x5BC6;&#x7801;</span>
+<span class="token keyword">set</span> password <span class="token keyword">for</span> &#x7528;&#x6237;&#x540D;<span class="token operator">=</span>password<span class="token punctuation">(</span><span class="token string">&apos;&#x5BC6;&#x7801;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="2-&#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;"><a name="2-&#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;" class="anchor-navigation-ex-anchor" href="#2-&#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7528;&#x6237;&#x91CD;&#x547D;&#x540D;</h1>
+<pre class="language-"><code class="lang-sql"><span class="token keyword">rename</span> <span class="token keyword">user</span> &#x7528;&#x6237;&#x540D; <span class="token keyword">to</span> &#x65B0;&#x540D;&#x5B57;<span class="token punctuation">;</span>
+</code></pre>
+<h1 id="3-&#x5220;&#x9664;&#x7528;&#x6237;"><a name="3-&#x5220;&#x9664;&#x7528;&#x6237;" class="anchor-navigation-ex-anchor" href="#3-&#x5220;&#x9664;&#x7528;&#x6237;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x5220;&#x9664;&#x7528;&#x6237;</h1>
+<pre class="language-"><code class="lang-sql"><span class="token keyword">drop</span> <span class="token keyword">user</span> <span class="token punctuation">`</span>&#x7528;&#x6237;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</code></pre>
+<h1 id="4-&#x6743;&#x9650;"><a name="4-&#x6743;&#x9650;" class="anchor-navigation-ex-anchor" href="#4-&#x6743;&#x9650;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x6743;&#x9650;</h1>
+<p><strong>&#x7ED9;&#x5168;&#x90E8;&#x6743;&#x9650;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-sql"><span class="token comment">-- &#x7ED9;&#x6307;&#x5B9A;&#x8868;&#x6743;&#x9650;</span>
+<span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token punctuation">`</span>&#x6570;&#x636E;&#x5E93;&#x540D;<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>&#x8868;&#x540D;<span class="token punctuation">`</span> <span class="token keyword">to</span> <span class="token punctuation">`</span>&#x7528;&#x6237;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- &#x5168;&#x90E8;&#x6570;&#x636E;&#x5E93;&#x4E0E;&#x8868;</span>
+<span class="token keyword">grant</span> <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">to</span> <span class="token punctuation">`</span>&#x7528;&#x6237;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- root &#x7528;&#x6237;</span>
+<span class="token keyword">GRANT</span> <span class="token keyword">ALL</span> <span class="token keyword">PRIVILEGES</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">&apos;root&apos;</span><span class="token variable">@&apos;localhost&apos;</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span>
+</code></pre>
+<blockquote>
+<p>[!note|style:flat]
+<strong><code>all privileges</code>&#xFF1A;&#x6CA1;&#x6709;&#x6388;&#x6743;<code>grant</code>&#x7684;&#x6743;&#x9650;&#x3002;</strong></p>
+</blockquote>
+<p><strong>&#x67E5;&#x770B;&#x6743;&#x9650;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-sql"><span class="token comment">-- &#x67E5;&#x770B;&#x7528;&#x6237;&#x7684;</span>
+<span class="token keyword">show</span> grants <span class="token keyword">for</span> &#x7528;&#x6237;<span class="token punctuation">;</span>
+<span class="token comment">-- &#x67E5;&#x770B;root&#x7684;</span>
+<span class="token keyword">show</span> grants <span class="token keyword">for</span> root<span class="token variable">@ip</span>&#x5730;&#x5740;<span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x64A4;&#x9500;&#x6743;&#x9650;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-sql">rework <span class="token keyword">all</span> <span class="token keyword">privileges</span> <span class="token keyword">on</span> <span class="token punctuation">`</span>&#x6570;&#x636E;&#x5E93;<span class="token punctuation">`</span><span class="token punctuation">.</span><span class="token punctuation">`</span>&#x8868;<span class="token punctuation">`</span> <span class="token keyword">from</span> <span class="token punctuation">`</span>&#x7528;&#x6237;<span class="token punctuation">`</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="index_withNum.html" class="navigation navigation-prev " aria-label="Previous page: 六、索引">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="backup_withNum.html" class="navigation navigation-next " aria-label="Next page: 八、备份">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"七、权限管理","level":"3.1.7","depth":2,"next":{"title":"八、备份","level":"3.1.8","depth":2,"path":"MySQL/chapter/backup_withNum.md","ref":"MySQL/chapter/backup_withNum.md","articles":[]},"previous":{"title":"六、索引","level":"3.1.6","depth":2,"path":"MySQL/chapter/index_withNum.md","ref":"MySQL/chapter/index_withNum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"MySQL/chapter/authority_withNum.md","mtime":"2021-09-06T07:34:01.285Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-06T07:42:57.692Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-terminull-light/terminull.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

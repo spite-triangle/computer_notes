@@ -1,0 +1,1131 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>十二、动态规划 · 计算机笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="海拉尔的三角">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro-fixed/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex-pro/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-terminull-light/terminull.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="backtracking.html" />
+    
+    
+    <link rel="prev" href="binaryTree.html" />
+    
+
+    
+        <link rel="shortcut icon" href="image/ico.png" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/ico.png">
+    
+    
+        
+    
+    
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/spite-triangle" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cpp.html">
+            
+                <a href="../cpp.html">
+            
+                    
+                    c++笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="foundation.html">
+            
+                <a href="foundation.html">
+            
+                    
+                    一、基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="keyword.html">
+            
+                <a href="keyword.html">
+            
+                    
+                    二、关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="point_reference.html">
+            
+                <a href="point_reference.html">
+            
+                    
+                    三、指针与引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="oop.html">
+            
+                <a href="oop.html">
+            
+                    
+                    四、面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="memory.html">
+            
+                <a href="memory.html">
+            
+                    
+                    五、内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="process.html">
+            
+                <a href="process.html">
+            
+                    
+                    六、进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="stl.html">
+            
+                <a href="stl.html">
+            
+                    
+                    七、STL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="dataStruction.html">
+            
+                <a href="dataStruction.html">
+            
+                    
+                    八、数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="array_list.html">
+            
+                <a href="array_list.html">
+            
+                    
+                    九、数组链表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="find.html">
+            
+                <a href="find.html">
+            
+                    
+                    十、目标查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="binaryTree.html">
+            
+                <a href="binaryTree.html">
+            
+                    
+                    十一、二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.12" data-path="dynamicProgram.html">
+            
+                <a href="dynamicProgram.html">
+            
+                    
+                    十二、动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="backtracking.html">
+            
+                <a href="backtracking.html">
+            
+                    
+                    十三、回溯算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="monotoneStack.html">
+            
+                <a href="monotoneStack.html">
+            
+                    
+                    十四、单调栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="toollib.html">
+            
+                <a href="toollib.html">
+            
+                    
+                    附录 工具库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../MySQL/mysql.html">
+            
+                <a href="../../MySQL/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../MySQL/chapter/introduction_withNum.html">
+            
+                <a href="../../MySQL/chapter/introduction_withNum.html">
+            
+                    
+                    一、简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../MySQL/chapter/foundation_withNum.html">
+            
+                <a href="../../MySQL/chapter/foundation_withNum.html">
+            
+                    
+                    二、基础命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                    
+                    三、数据库、表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../MySQL/chapter/operatorData_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorData_withNum.html">
+            
+                    
+                    四、数据操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../MySQL/chapter/transaction_withNum.html">
+            
+                <a href="../../MySQL/chapter/transaction_withNum.html">
+            
+                    
+                    五、事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../MySQL/chapter/index_withNum.html">
+            
+                <a href="../../MySQL/chapter/index_withNum.html">
+            
+                    
+                    五、索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >十二、动态规划</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x52A8;&#x6001;&#x89C4;&#x5212;"><b></b>&#x52A8;&#x6001;&#x89C4;&#x5212;</a></li><li><span class="title-icon "></span><a href="#1-&#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;"><b></b>1 &#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;</a></li><ul><li><span class="title-icon "></span><a href="#11-&#x89E3;&#x9898;&#x6846;&#x67B6;"><b></b>1.1. &#x89E3;&#x9898;&#x6846;&#x67B6;</a></li><li><span class="title-icon "></span><a href="#12-&#x6D41;&#x7A0B;&#x65B9;&#x5411;"><b></b>1.2. &#x6D41;&#x7A0B;&#x65B9;&#x5411;</a></li><li><span class="title-icon "></span><a href="#13-&#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;"><b></b>1.3. &#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;</a></li><li><span class="title-icon "></span><a href="#14-&#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;"><b></b>1.4. &#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;</a></li></ul><li><span class="title-icon "></span><a href="#2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;"><b></b>2. &#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;</a></li><li><span class="title-icon "></span><a href="#3-&#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;"><b></b>3. &#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><b></b>2. &#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#21-&#x6700;&#x957F;&#x9012;&#x589E;&#x9012;&#x51CF;&#x5B50;&#x5E8F;&#x5217;"><b></b>2.1. &#x6700;&#x957F;&#x9012;&#x589E;(&#x9012;&#x51CF;)&#x5B50;&#x5E8F;&#x5217;</a></li><li><span class="title-icon "></span><a href="#22-&#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;"><b></b>2.2 &#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x964D;&#x7EF4;"><b></b>1. &#x964D;&#x7EF4;</a></li><li><span class="title-icon "></span><a href="#2-&#x95EE;&#x9898;&#x6C42;&#x89E3;"><b></b>2. &#x95EE;&#x9898;&#x6C42;&#x89E3;</a></li></ul><li><span class="title-icon "></span><a href="#23-&#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;"><b></b>2.3 &#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</a></li><li><span class="title-icon "></span><a href="#25-&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><b></b>2.5 &#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#1-&#x7B97;&#x6CD5;"><b></b>1. &#x7B97;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#2-&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;"><b></b>2. &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#3-&#x6700;&#x5C0F;-ascii-&#x5220;&#x9664;&#x548C;"><b></b>3. &#x6700;&#x5C0F; ASCII &#x5220;&#x9664;&#x548C;</a></li></ul><li><span class="title-icon "></span><a href="#26-&#x5B50;&#x5E8F;&#x5217;&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;"><b></b>2.6 &#x5B50;&#x5E8F;&#x5217;/&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;</a></li><li><span class="title-icon "></span><a href="#27-&#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;"><b></b>2.7 &#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;</a></li></ul></ul></div><a href="#&#x52A8;&#x6001;&#x89C4;&#x5212;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 style="font-size:60px;text-align:center;" id="&#x52A8;&#x6001;&#x89C4;&#x5212;"><a name="&#x52A8;&#x6001;&#x89C4;&#x5212;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x6001;&#x89C4;&#x5212;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A8;&#x6001;&#x89C4;&#x5212;</h1>
+
+<h1 id="1-&#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;"><a name="1-&#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#1-&#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>1 &#x52A8;&#x6001;&#x89C4;&#x5212;&#x6982;&#x5FF5;</h1>
+<p><strong>&#x52A8;&#x6001;&#x89C4;&#x5212;&#x95EE;&#x9898;&#x7684;&#x4E00;&#x822C;&#x5F62;&#x5F0F;&#x5C31;&#x662F;&#x6C42;&#x6700;&#x503C;</strong>&#x3002;</p>
+<ul>
+<li><strong>&#x91CD;&#x53E0;&#x5B50;&#x95EE;&#x9898;</strong>: &#x6700;&#x7EC8;&#x70B9;&#x95EE;&#x9898;&#x662F;&#x7531;<strong>&#x67D0;&#x4E00;&#x5355;&#x6B65;&#x5C0F;&#x95EE;&#x9898;</strong>&#x7684;&#x91CD;&#x590D;&#xFF0C;&#x8FD9;&#x4E9B; <strong>&#x5C0F;&#x95EE;&#x9898;&#x7684;&#x6C42;&#x89E3;&#x53EF;&#x80FD;&#x4F1A;&#x91CD;&#x590D;&#x8BA1;&#x7B97;</strong>&#x3002;</li>
+<li><strong>&#x6700;&#x4F18;&#x5B50;&#x7ED3;&#x6784;</strong>: &#x5F53;&#x524D;&#x6B65;&#x9AA4;&#x7684;&#x6700;&#x4F18;&#x53EA;&#x4E0E;&quot;&#x4E0A;&#x4E00;&#x6B65;&quot;&#x6709;&#x5173;&#x3002;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x7279;&#x70B9;&#x53EF;&#x4EE5;<strong>&#x72B6;&#x6001;&#x538B;&#x7F29;</strong></li>
+<li><strong>&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x65B9;&#x7A0B;</strong>: &#x9012;&#x63A8;&#x5F0F;&#xFF0C;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x6838;&#x5FC3;&#x3002;</li>
+</ul>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x8BA4;&#x4E3A;<code>dp[i][j-1]</code>&#x5C31;&#x662F;&#x95EE;&#x9898;&#x5728;&#x72B6;&#x6001;<code>i,j-1</code>&#x4E0B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;<code>dp[i-1][j-1]</code>&#x5C31;&#x662F;&#x95EE;&#x9898;&#x5728;&#x72B6;&#x6001;<code>i-1,j-1</code>&#x4E0B;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5176;&#x4F59;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x540C;&#x7406;&#x3002;</strong> <span style="color:red;font-weight:bold"> &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x62B5;&#x8FBE;<code>i,j</code>&#x72B6;&#x6001;&#x4E4B;&#x524D;&#xFF0C;<code>dp[][]</code>&#x5DF2;&#x7ECF;&#x5C06;<code>i,j</code>&#x72B6;&#x6001;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x5168;&#x90E8;&#x5C1D;&#x8BD5;&#x4E86;&#x4E00;&#x904D;&#xFF0C;&#x5E76;&#x5F97;&#x5230;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x7ED3;&#x679C;&#x3002;</span></p>
+</blockquote>
+<h2 id="11-&#x89E3;&#x9898;&#x6846;&#x67B6;"><a name="11-&#x89E3;&#x9898;&#x6846;&#x67B6;" class="anchor-navigation-ex-anchor" href="#11-&#x89E3;&#x9898;&#x6846;&#x67B6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x89E3;&#x9898;&#x6846;&#x67B6;</h2>
+<ol>
+<li><strong>&#x660E;&#x786E; base case</strong>: &#x5982;&#x4F55;&#x521D;&#x59CB;&#x5316;<code>dp[]</code>&#xFF1B;&#x786E;&#x5B9A;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x3002;</li>
+<li><strong>&#x660E;&#x786E;&#x300C;&#x72B6;&#x6001;&#x300D;</strong>: <strong>&#x63A8;&#x8FDB;&#x5B50;&#x95EE;&#x9898;&#x5411;&#x5927;&#x95EE;&#x9898;&#x6F14;&#x53D8;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5C31;&#x662F;<code>dp[i]</code>&#x7684;&#x6E38;&#x6807;<code>i</code>&#x7684;&#x542B;&#x4E49;&#x3002;</strong></li>
+<li><strong>&#x660E;&#x786E;&#x300C;&#x9009;&#x62E9;&#x300D;</strong>: <strong>&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x7531;&#x8FC7;&#x53BB;&#x7684;&#x72B6;&#x6001;<code>i-1,i-2,i-3...</code>&#x5411;&#x5F53;&#x524D;&#x72B6;&#x6001;<code>i</code>&#x63A8;&#x8FDB;&#x7684; &#x300C;&#x9009;&#x62E9;&#x300D;&#x3002;</strong></li>
+<li><strong>&#x5B9A;&#x4E49; dp &#x6570;&#x7EC4;/&#x51FD;&#x6570;</strong>:  dp&#x503C; = f&#xFF08;&#x5F53;&#x524D;&#x72B6;&#x6001;&#xFF09;<ul>
+<li><strong>dp&#x51FD;&#x6570;</strong>: &#x53C2;&#x6570;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x8BF4;&#x5230;&#x7684;&#x300C;&#x72B6;&#x6001;&#x300D;&#x3002;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x5C31;&#x662F;&#x300C;&#x7ED3;&#x679C;&#x300D;&#x3002;</li>
+<li><strong><code>dp[i]</code> &#x6570;&#x7EC4;</strong>&#xFF1A;<code>i</code>&#x4E3A;&#x300C;&#x72B6;&#x6001;&#x300D;&#xFF0C;&#x300C;&#x7ED3;&#x679C;&#x300D;&#x4E3A;<code>dp[i]</code></li>
+</ul>
+</li>
+</ol>
+<pre class="language-"><code class="lang-cpp"># &#x521D;&#x59CB;&#x5316;
+dp<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> init
+
+# &#x8FB9;&#x754C;&#x6761;&#x4EF6;
+dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span> <span class="token operator">=</span> base
+
+# &#x8FDB;&#x884C;&#x72B6;&#x6001;&#x8F6C;&#x79FB;
+<span class="token keyword">for</span> &#x72B6;&#x6001;<span class="token number">1</span> in &#x72B6;&#x6001;<span class="token number">1</span>&#x7684;&#x6240;&#x6709;&#x53D6;&#x503C;&#xFF1A;
+    <span class="token keyword">for</span> &#x72B6;&#x6001;<span class="token number">2</span> in &#x72B6;&#x6001;<span class="token number">2</span>&#x7684;&#x6240;&#x6709;&#x53D6;&#x503C;&#xFF1A;
+        <span class="token keyword">for</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+            dp<span class="token punctuation">[</span>&#x72B6;&#x6001;<span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>&#x72B6;&#x6001;<span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span> <span class="token operator">=</span> &#x6C42;&#x6700;&#x503C;<span class="token punctuation">(</span>&#x9009;&#x62E9;<span class="token number">1</span>&#xFF0C;&#x9009;&#x62E9;<span class="token number">2.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="12-&#x6D41;&#x7A0B;&#x65B9;&#x5411;"><a name="12-&#x6D41;&#x7A0B;&#x65B9;&#x5411;" class="anchor-navigation-ex-anchor" href="#12-&#x6D41;&#x7A0B;&#x65B9;&#x5411;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x6D41;&#x7A0B;&#x65B9;&#x5411;</h2>
+<ul>
+<li><strong>&#x81EA;&#x9876;&#x5411;&#x4E0B;: &#x4ECE;&#x76EE;&#x6807;&#x5F00;&#x59CB;&#xFF0C;&#x628A;&#x5927;&#x95EE;&#x9898;&#x62C6;&#x89E3;&#x5C0F;&#x95EE;&#x9898;&#xFF0C;&#x76F4;&#x5230;&#x5230;&#x521D;&#x59CB;&#x6761;&#x4EF6;&#x3002;</strong><ul>
+<li>&#x66B4;&#x529B;&#x9012;&#x5F52;: &#x628A;&#x5927;&#x95EE;&#x9898;&#x62C6;&#x6210;&#x5C0F;&#x7684;&#xFF0C;&#x9012;&#x5F52;&#x4E0B;&#x53BB;</li>
+<li><strong>&#x5907;&#x5FD8;&#x5F55;&#x9012;&#x5F52;</strong>: &#x7B97;&#x8FC7;&#x7684;&#x503C;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF0C;&#x4E0D;&#x5728;&#x91CD;&#x590D;&#x7B97;</li>
+</ul>
+</li>
+<li><strong>&#x81EA;&#x5E95;&#x5411;&#x4E0A;: &#x4ECE;&#x521D;&#x59CB;&#x5F00;&#x59CB;&#xFF0C;&#x6839;&#x636E;&#x9012;&#x63A8;&#x5F0F;&#xFF0C;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x8FED;&#x4EE3;&#xFF0C;&#x76F4;&#x5230;&#x76EE;&#x6807;&#x7ED3;&#x675F;&#x3002;</strong> <ul>
+<li><strong>dp&#x6570;&#x7EC4;</strong>: &#x4ECE;&#x521D;&#x59CB;&#x72B6;&#x6001;&#xFF0C;&#x6839;&#x636E;&#x9012;&#x63A8;&#x5173;&#x7CFB;&#xFF0C;&#x7B97;&#x5230;&#x76EE;&#x6807;&#x72B6;&#x6001;&#xFF0C;<strong>&#x5FAA;&#x73AF;&#x6570;&#x7EC4;&#xFF0C;&#x4E0D;&#x7528;&#x9012;&#x5F52;&#x3002;</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="13-&#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;"><a name="13-&#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#13-&#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x91CD;&#x590D;&#x5B50;&#x95EE;&#x9898;&#x7684;&#x786E;&#x5B9A;</h2>
+<pre class="language-"><code class="lang-cpp">dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> min<span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>&#x2003;&#x2003;<strong>&#x5F53;&#x4ECE;<code>dp[i-1][j-1]</code>&#x8FC7;&#x5EA6;&#x5230;<code>dp[i][j]</code>&#x7684;&#x6C42;&#x89E3;&#x6709;&#x591A;&#x79CD;&#x8DEF;&#x5F84;&#x65F6;&#xFF0C;&#x5C31;&#x5B58;&#x5728;&#x89E3;&#x91CD;&#x53E0;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x91C7;&#x7528;&#x5907;&#x5FD8;&#x5F55;&#x548C;dp&#x6570;&#x7EC4;&#x89E3;&#x51B3;&#x3002;</strong></p>
+<h2 id="14-&#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;"><a name="14-&#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;" class="anchor-navigation-ex-anchor" href="#14-&#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x72B6;&#x6001;&#x904D;&#x5386;&#x987A;&#x5E8F;</h2>
+<p><a href="../../image/cpp/dynamic.jpg" data-lightbox="26806a1a-ccc4-4125-88d4-395c02426dbe" data-title="dynamic"><img src="../../image/cpp/dynamic.jpg" alt="dynamic"></a></p>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ol>
+<li><strong>&#x786E;&#x5B9A;&#x4E8C;&#x7EF4;&#x8868;<code>dp[][]</code>&#x521D;&#x59CB;&#x503C;</strong></li>
+<li><strong>&#x786E;&#x5B9A;&#x9012;&#x63A8;&#x5F0F;<code>dp[i][j]</code>&#x7684;&#x4F9D;&#x8D56;&#x60C5;&#x51B5;&#xFF08;&#x4E0A;&#x56FE;&#x5DE6;&#x8FB9;&#xFF09;</strong></li>
+<li><strong>&#x6839;&#x636E;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x586B;&#x5145;&#x4E8C;&#x7EF4;&#x8868;&#xFF0C;&#x6EE1;&#x8DB3;&#x6A2A;&#x5411;&#x586B;&#x5145;&#x6216;&#x8005;&#x7EB5;&#x5411;&#x586B;&#x5145;</strong></li>
+</ol>
+</blockquote>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// i = 0, j = 0 &#x7684;&#x60C5;&#x51B5;&#x662F;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#xFF0C;&#x5DF2;&#x7ECF;&#x521D;&#x59CB;&#x5316;&#x597D;&#x4E86;&#x3002; </span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> m<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h1 id="2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;"><a name="2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;" class="anchor-navigation-ex-anchor" href="#2-&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6590;&#x6CE2;&#x90A3;&#x5951;&#x7EA7;&#x6570;</h1>
+<p><strong>&#x9898;&#x76EE;&#xFF1A;</strong>
+&#x67D0;&#x4EBA;&#x6709;&#x4E00;&#x5BF9;&#x5154;&#x5B50;&#x9972;&#x517B;&#x5728;&#x56F4;&#x679C;&#x5B83;&#x4EEC;&#x6BCF;&#x4E2A;&#x6708;&#x751F;<code>1</code>&#x5BF9;&#x5154;&#x5B50;&#xFF0C;&#x4E14;&#x65B0;&#x7684;&#x5154;&#x5B50;&#x5728;&#x7B2C;<code>2</code>&#x4E2A;&#x6708;&#x540E;(<code>3</code>&#x4E2A;&#x6708;&#x4E3A;&#x5468;&#x671F;)&#x4E5F;&#x662F;&#x6BCF;&#x4E2A;&#x6708;&#x751F;<code>1</code>&#x5BF9;&#x5154;&#x5B50;,&#x95EE;&#x4E00;&#x5E74;&#x540E;&#x56F4;&#x5899;&#x4E2D;&#x5171;&#x6709;&#x591A;&#x5C11;&#x5BF9;&#x5154;&#x5B50;&#x3002;</p>
+<p><strong>&#x9012;&#x63A8;&#x5F0F;&#xFF1A;</strong>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mi>f</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&#x2212;</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+f(n) = f(n-1) + f(n - 2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">)</span></span></span></span></span>
+<strong>&#x5E8F;&#x5217;&#x4E3A;&#xFF1A;</strong><code>1&#xFF0C;1&#xFF0C;3&#xFF0C;5&#xFF0C;8&#xFF0C;13&#xFF0C;21&#xFF0C;34&#xFF0C;55&#xFF0C;89&#x3002;&#x3002;&#x3002;</code></p>
+<h1 id="3-&#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;"><a name="3-&#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#3-&#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x51D1;&#x96F6;&#x94B1;&#x95EE;&#x9898;</h1>
+<p><strong>&#x9898;&#x76EE;&#xFF1A;</strong>
+&#x7ED9;&#x4F60;k&#x79CD;&#x9762;&#x503C;&#x7684;&#x786C;&#x5E01;&#xFF0C;&#x9762;&#x503C;&#x5206;&#x522B;&#x4E3A;<code>c1, c2 ... ck</code>&#xFF0C;&#x6BCF;&#x79CD;&#x786C;&#x5E01;&#x7684;&#x6570;&#x91CF;&#x65E0;&#x9650;&#xFF0C;&#x518D;&#x7ED9;&#x4E00;&#x4E2A;&#x603B;&#x91D1;&#x989D;<code>amount</code>&#xFF0C;&#x95EE;&#x4F60;&#x6700;&#x5C11;&#x9700;&#x8981;&#x51E0;&#x679A;&#x786C;&#x5E01;&#x51D1;&#x51FA;&#x8FD9;&#x4E2A;&#x91D1;&#x989D;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x53EF;&#x80FD;&#x51D1;&#x51FA;&#xFF0C;&#x7B97;&#x6CD5;&#x8FD4;&#x56DE; <code>-1</code>&#x3002;</p>
+<p><strong>&#x5206;&#x6790;&#xFF1A;</strong></p>
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> <code>amount</code> &#x80FD;&#x63A8;&#x8350;&#x95EE;&#x9898;&#x9012;&#x63A8;&#xFF0C;&#x95EE;&#x9898;&#x7684;&#x7ED3;&#x679C;&#x7531;<code>amount</code>&#x5F71;&#x54CD;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x6BCF;&#x6B21;&#x300C;&#x72B6;&#x6001;&#x300D;&#x7684;&#x63A8;&#x8FDB;&#xFF0C;&#x7531;<code>c1, c2 ... ck</code>&#x786E;&#x5B9A;&#x3002;</li>
+<li><strong>dp[amount]&#x5B9A;&#x4E49;&#xFF1A;</strong><code>dp[amount]</code>&#x8868;&#x793A;&#xFF0C;&#x5F53;&#x603B;&#x91D1;&#x989D;&#x4E3A;<code>amount</code>&#x65F6;&#xFF0C;&#x6700;&#x5C11;&#x786C;&#x5E01;&#x6570;&#x4E3A;<code>dp[aomunt]</code></li>
+</ul>
+</blockquote>
+<sec data-title="&#x5B9E;&#x73B0;&#x4EE3;&#x7801;" data-id="coinchange" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B9E;&#x73B0;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="coinchange"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="coinchange"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">coinChange</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">int</span> <span class="token operator">*</span> coins<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> amount<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// &#x5B9A;&#x4E49;dp[i]: &#x72B6;&#x6001;&#x4E3A;&#x94B1;&#x603B;&#x6570;&#xFF1B;&#x7ED3;&#x679C;&#x4E3A;&#x5F53;&#x524D;&#x603B;&#x4EF7;&#x6700;&#x5C11;&#x94B1;&#x5E01;&#x6570;</span>
+    <span class="token comment">// &#x521D;&#x59CB;&#x5316;&#x653E;&#x5165;&#x6781;&#x7AEF;&#x503C;,&#x7531;&#x4E8E;&#x662F;&#x6C42;&#x89E3;&#x6700;&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x5927;&#x503C;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x8FB9;&#x754C;&#x6761;&#x4EF6;</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> amount <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// &#x9009;&#x62E9;&#x5F53;&#x524D;&#x7684;&#x8D27;&#x5E01;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">&gt;=</span> coins<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> coins<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> 
+
+    <span class="token comment">// &#x627E;&#x4E0D;&#x5230;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span> <span class="token operator">==</span> amount <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>amount<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h1 id="2-&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><a name="2-&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#2-&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;</h1>
+<h2 id="21-&#x6700;&#x957F;&#x9012;&#x589E;&#x9012;&#x51CF;&#x5B50;&#x5E8F;&#x5217;"><a name="21-&#x6700;&#x957F;&#x9012;&#x589E;&#x9012;&#x51CF;&#x5B50;&#x5E8F;&#x5217;" class="anchor-navigation-ex-anchor" href="#21-&#x6700;&#x957F;&#x9012;&#x589E;&#x9012;&#x51CF;&#x5B50;&#x5E8F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x6700;&#x957F;&#x9012;&#x589E;(&#x9012;&#x51CF;)&#x5B50;&#x5E8F;&#x5217;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/increaseSubsequence.jpg" data-lightbox="b4360d2e-d2a2-4a7d-a02d-63bf4de9950c" data-title="undefined"><img src="../../image/cpp/increaseSubsequence.jpg" alt="undefined"></a></p>
+
+<p><strong>&#x95EE;&#x9898;&#x7279;&#x5F81;&#xFF1A;</strong></p>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ul>
+<li><strong>&#x9996;&#x5148;&#x7ED9;&#x4E00;&#x7EC4;<code>1</code>&#x7EF4;&#x7684;&#x957F;&#x5E8F;&#x5217;</strong>&#xFF0C;<span style="color:red;font-weight:bold"> &#x82E5;&#x662F;<code>2</code>&#x7EF4;&#x95EE;&#x9898;&#xFF0C;&#x770B;&#x770B;&#x80FD;&#x4E0D;&#x80FD;&#x6392;&#x5E8F;&#x964D;&#x4E3A;<code>1</code>&#x7EF4;&#x95EE;&#x9898;&#x3002; </span></li>
+<li><strong>&#x8981;&#x6C42;&#x5B50;&#x5E8F;&#x5217;&#x5177;&#x6709;&#x300C;&#x67D0;&#x79CD;&#x5355;&#x8C03;&#x5173;&#x7CFB;&#x300D;</strong></li>
+<li><strong>&#x76EE;&#x6807;&#x5B50;&#x5E8F;&#x5217;&#x662F;&#x5173;&#x7CFB;&#x4E0B;&#x7684;&#x300C;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x300D;</strong></li>
+</ul>
+</blockquote>
+<p><strong>&#x5206;&#x6790;&#xFF1A;</strong></p>
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> &#x5F53;&#x524D;&#x67E5;&#x627E;&#x7684;&#x5E8F;&#x5217;&#x7684;&#x4EE5;&#x7D22;&#x5F15;<code>i</code>&#x7ED3;&#x675F;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x9009;&#x62E9;<code>dp[i-1],dp[i-2]...</code>&#x786E;&#x5B9A;<code>dp[i]</code>&#x3002;</li>
+<li><strong>dp[i]&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x4EE5;&#x7D22;&#x5F15;<code>i</code>&#x7ED3;&#x675F;&#x7684;&#x5E8F;&#x5217;&#xFF0C;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x957F;&#x5EA6;<code>dp[i]</code></li>
+</ul>
+</blockquote>
+<sec data-title="&#x5B9E;&#x73B0;&#x4EE3;&#x7801;" data-id="lis" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B9E;&#x73B0;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="lis"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="lis"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">lengthOfLIS</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> seq<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>seq<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token comment">// &#x72B6;&#x6001;&#x4ECE; 1 &#x7D22;&#x5F15;&#x5F00;&#x59CB;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>seq<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>seq<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> seq<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> item<span class="token operator">:</span>dp<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>item <span class="token operator">&gt;</span> max<span class="token punctuation">)</span> max <span class="token operator">=</span> item<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> max<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="22-&#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;"><a name="22-&#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#22-&#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2 &#x4FE1;&#x5C01;&#x5D4C;&#x5957;&#x95EE;&#x9898;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/envelope.jpg" data-lightbox="d5d44b6a-c5a7-498f-a3c0-71a27102b6f7" data-title="undefined"><img src="../../image/cpp/envelope.jpg" alt="undefined"></a></p>
+
+<h3 id="1-&#x964D;&#x7EF4;"><a name="1-&#x964D;&#x7EF4;" class="anchor-navigation-ex-anchor" href="#1-&#x964D;&#x7EF4;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x964D;&#x7EF4;</h3>
+<p style="text-align:center;"><a href="../../image/cpp/subsequenceDimension.jpg" data-lightbox="cfa17cd3-01ee-4b16-a7e3-49491009100b" data-title="undefined"><img src="../../image/cpp/subsequenceDimension.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x5D4C;&#x5957;&#x95EE;&#x9898;&#x662F;&#x8981;&#x6C42;<code>[w,h]</code>&#x300C;&#x4E24;&#x4E2A;&#x300D;&#x6570;&#x636E;&#x5747;&#x6709;&#x300C;&#x5355;&#x8C03;&#x7684;&#x5927;&#x5C0F;&#x300D;&#x5173;&#x7CFB;&#xFF0C;&#x5C5E;&#x4E8E;<code>2</code>&#x7EF4;&#x95EE;&#x9898;&#x3002;&#x800C;&#x9012;&#x589E;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;&#x662F;<code>1</code>&#x7EF4;&#x95EE;&#x9898;&#x3002;</strong> <span style="color:red;font-weight:bold"> &#x5C06;&#x300C;<code>2</code>&#x7EF4;&#x95EE;&#x9898;&#x300D;&#x8F6C;&#x300C;<code>1</code>&#x7EF4;&#x95EE;&#x9898;&#x300D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x300C;&#x6392;&#x5E8F;&#x300D;&#xFF0C;&#x5148;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x7EF4;&#x5EA6;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EA;&#x7528;&#x5173;&#x5FC3;&#x4E00;&#x4E2A;&#x7EF4;&#x5EA6;&#x3002; </span> <br>
+<strong>&#x6392;&#x5E8F;</strong>&#xFF1A;<strong>&#x5BF9;&#x4E8E;<code>[v1,v2]</code>&#x5F62;&#x5F0F;&#xFF0C;&#x4E00;&#x822C;&#x4F18;&#x5148;<code>v1</code>&#x5347;&#x5E8F;&#xFF0C;&#x82E5;<code>v1</code>&#x76F8;&#x7B49;&#xFF0C;&#x5219;<code>v2</code>&#x964D;&#x5E8F;</strong></p>
+</blockquote>
+<p><br></p>
+<h3 id="2-&#x95EE;&#x9898;&#x6C42;&#x89E3;"><a name="2-&#x95EE;&#x9898;&#x6C42;&#x89E3;" class="anchor-navigation-ex-anchor" href="#2-&#x95EE;&#x9898;&#x6C42;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x95EE;&#x9898;&#x6C42;&#x89E3;</h3>
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x6392;&#x5E8F;</strong> : <strong>&#x4FDD;&#x8BC1;&#x5BF9;<code>1</code>&#x7EF4;&#x5E8F;&#x5217;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</strong>&#xFF0C;&#x4E24;&#x70B9;&#xFF08;<code>[v1&#xFF0C;v2]</code>&#xFF09;&#x6570;&#x636E;&#xFF0C;&#x5148;&#x6392;&#x5E8F;&#xFF1A;<strong><code>v1</code>&#x5347;&#x5E8F;&#xFF0C;<code>v2</code>&#x964D;&#x5E8F;</strong></li>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> &#x5F53;&#x524D;&#x67E5;&#x627E;&#x7684;&#x5E8F;&#x5217;&#x7684;&#x4EE5;&#x7D22;&#x5F15;<code>i</code>&#x7ED3;&#x675F;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x9009;&#x62E9;<code>dp[i-1],dp[i-2]...</code>&#x786E;&#x5B9A;<code>dp[i]</code>&#x3002;</li>
+<li><strong>dp[i]&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x4EE5;&#x7D22;&#x5F15;<code>i</code>&#x7ED3;&#x675F;&#x7684;&#x5E8F;&#x5217;&#xFF0C;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x957F;&#x5EA6;<code>dp[i]</code></li>
+</ul>
+</blockquote>
+<sec data-title="&#x5B9E;&#x73B0;&#x4EE3;&#x7801;" data-id="maxEnvelopes" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B9E;&#x73B0;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="maxEnvelopes"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="maxEnvelopes"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">struct</span> <span class="token class-name">Envelope</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> width<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> height<span class="token punctuation">;</span>
+
+    <span class="token keyword">bool</span> <span class="token function">greatThan</span><span class="token punctuation">(</span><span class="token keyword">const</span> Envelope<span class="token operator">&amp;</span> temp<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">-&gt;</span>width <span class="token operator">&gt;</span> temp<span class="token punctuation">.</span>width <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token operator">-&gt;</span>height <span class="token operator">&gt;</span> temp<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">maxEnvelopeLen</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>Envelope<span class="token operator">&gt;</span> <span class="token operator">&amp;</span>envelopes<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// width &#x5347;&#x5E8F;&#xFF0C;hight &#x964D;&#x5E8F;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>envelopes<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> envelopes<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">const</span> Envelope <span class="token operator">&amp;</span> A<span class="token punctuation">,</span> <span class="token keyword">const</span> Envelope <span class="token operator">&amp;</span> B<span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token keyword">bool</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>A<span class="token punctuation">.</span>width <span class="token operator">&lt;</span> B<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span>width <span class="token operator">==</span> B<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>A<span class="token punctuation">.</span>height <span class="token operator">&gt;</span> B<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>envelopes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>envelopes<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// &#x9009;&#x62E9;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>envelopes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">greatThan</span><span class="token punctuation">(</span>envelopes<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> item<span class="token operator">:</span>dp<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>max <span class="token operator">&lt;</span> item<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            max <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> max<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="23-&#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;"><a name="23-&#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;" class="anchor-navigation-ex-anchor" href="#23-&#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3 &#x6700;&#x5C0F;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/minEditNumber.jpg" data-lightbox="12be37bf-ca26-4847-b872-cea0ca2ae730" data-title="undefined"><img src="../../image/cpp/minEditNumber.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> <span style="color:red;font-weight:bold"> &#x89E3;&#x51B3;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x7528;&#x300C;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x300D;&#xFF0C;&#x5373;&#x300C;&#x4E24;&#x4E2A;&#x72B6;&#x6001;&#x300D;&#x3002;</span> &#x6E90;&#x5934;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#x3002;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x5220;&#x9664;&#xFF0C;&#x63D2;&#x5165;&#xFF0C;&#x66FF;&#x6362;&#xFF0C;&#x8DF3;&#x8FC7;</li>
+<li><strong><code>dp[i][j]</code>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#x53D8;&#x4E3A;&#x6E90;&#x5934;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x6240;&#x505A;&#x7684;&#x5C0F;&#x64CD;&#x4F5C;&#x8DDD;&#x79BB;</li>
+</ul>
+</blockquote>
+<p><strong>&#x63D2;&#x5165;&#xFF1A;</strong> &#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#x4E0E;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>j-1</code>&#x4E2A;&#x5B57;&#x7B26;&#x76F8;&#x540C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53D8;&#x5F53;&#x524D;&#x72B6;&#x6001;<code>i,j</code>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">
+dp[i][j] = dp[i][j-1] + 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></span></p>
+<p style="text-align:center;"><a href="../../image/cpp/insert.png" data-lightbox="d94cfe40-d176-48dc-bcf6-99a484f45ae3" data-title="undefined"><img src="../../image/cpp/insert.png" alt="undefined"></a></p>
+
+<p><strong>&#x5220;&#x9664;&#xFF1A;</strong> &#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x524D;<code>i-1</code>&#x4E2A;&#x5B57;&#x7B26;&#x4E0E;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#x76F8;&#x540C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53D8;&#x5F53;&#x524D;&#x72B6;&#x6001;<code>i,j</code>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">
+dp[i][j] = dp[i-1][j] + 1;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">;</span></span></span></span></span></p>
+<p style="text-align:center;"><a href="../../image/cpp/delete.png" data-lightbox="47756643-6b07-461d-b539-2d18a49cee81" data-title="undefined"><img src="../../image/cpp/delete.png" alt="undefined"></a></p>
+
+<p><strong>&#x66FF;&#x6362;&#xFF1A;</strong> &#x76EE;&#x6807;&#x5B57;&#x7B26;&#x4E32;&#x524D;<code>i-1</code>&#x4E2A;&#x5B57;&#x7B26;&#x4E0E;&#x6E90;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x524D;<code>j-1</code>&#x4E2A;&#x5B57;&#x7B26;&#x76F8;&#x540C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53D8;&#x5F53;&#x524D;&#x72B6;&#x6001;<code>i,j</code></p>
+<p style="text-align:center;"><a href="../../image/cpp/change.png" data-lightbox="e18ace47-198e-460a-bfc5-bee0864831d8" data-title="undefined"><img src="../../image/cpp/change.png" alt="undefined"></a></p>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>&#x2212;</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn><mo separator="true">;</mo></mrow><annotation encoding="application/x-tex">
+dp[i][j] = dp[i-1][j-1] + 1;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">;</span></span></span></span></span>
+&gt; [!warning|style:flat]
+&gt; **&#x52A8;&#x6001;&#x89C4;&#x5212;&#x72B6;&#x6001;&#x7684;&#x8FC1;&#x79FB;&#xFF1A;&#x6C38;&#x8FDC;&#x662F;&#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FC1;&#x79FB;&#x5230;&#x5F53;&#x524D;&#x72B6;&#x6001;&#xFF1B;&#x6839;&#x636E;`1.4`&#x7684;&#x72B6;&#x6001;&#x904D;&#x5386;&#xFF0C;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x9ED8;&#x8BA4;&#x662F;&#x5DF2;&#x7ECF;&#x63D0;&#x524D;&#x90FD;&#x8BA1;&#x7B97;&#x597D;&#xFF0C;&#x4E0D;&#x5FC5;&#x6DF1;&#x7A76;&#x3002;**
+
+<sec data-title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" data-id="minEditDistance" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;<a class="pull-right section atTitle btn btn-default" target="minEditDistance"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="minEditDistance"><div class="panel-body">
+
+```cpp
+int minDistance(const string &amp; S,const string &amp; T){
+
+    // &#x5728;S&#x7684;j&#x4F4D;&#x7F6E;&#xFF0C;&#x5728;T&#x7684;i&#x4F4D;&#x7F6E;&#x65F6;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x6700;&#x5C0F;
+    vector&lt; vector<int> &gt; dp(T.length()+1,vector<int>(S.length()+1,0));
+
+    // &#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5F53;&#x76EE;&#x6807;&#x662F;&#x7A7A;&#x4E32;&#x65F6;
+    for(int i=1;i&lt;=s.size();i++){ dp[0][i]=&quot;i;&quot; } &#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5F53;&#x6E90;&#x662F;&#x7A7A;&#x4E32;&#x65F6; for(int i=&quot;1;i&lt;=T.length();i++){&quot; dp[i][0]=&quot;i;&quot; for (int j=&quot;1;&quot; &lt;=&quot;S.length();&quot; j++) { if (t[i-1]=&quot;=&quot; s[j-1]) dp[i][j]=&quot;dp[i-1][j-1];&quot; }else{ &#x66FF;&#x6362; + 1; &#x5220;&#x9664; 1); &#x63D2;&#x5165; return dp[t.length()][s.length()]; ``` </int></int></div></div></div></sec>
+
+## 2.4 &#x6700;&#x5927;&#x5B50;&#x6570;&#x7EC4;&#x4E4B;&#x548C;
+
+<p style="text-align:center;"><a href="../../image/cpp/maxSum.jpg" data-lightbox="24fdd708-d928-4b72-b161-bf7fd09b248a" data-title="undefined"><img src="../../image/cpp/maxSum.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> &#x6570;&#x7EC4;&#x7684;&#x5F53;&#x524D;&#x7D22;&#x5F15;<code>i</code></li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x7531;&#x4E8E;&#x662F;&#x300C;&#x8FDE;&#x7EED;&#x5B50;&#x6570;&#x7EC4;&#x300D;&#xFF0C;&#x90A3;&#x5C31;&#x53EA;&#x80FD;&#x548C;&#x6328;&#x7740;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;&#x5373;<code>dp[i],dp[i-1]</code></li>
+<li><strong><code>dp[i]</code>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x4EE5;<code>nums[i]</code>&#x4E3A;&#x7ED3;&#x5C3E;&#x7684;&#x300C;&#x6700;&#x5927;&#x5B50;&#x6570;&#x7EC4;&#x548C;&#x300D;&#x4E3A;<code>dp[i]</code></li>
+</ul>
+</blockquote>
+<sec data-title="&#x5B9E;&#x73B0;&#x6E90;&#x7801;" data-id="maxsumsub" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B9E;&#x73B0;&#x6E90;&#x7801;<a class="pull-right section atTitle btn btn-default" target="maxsumsub"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="maxsumsub"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">maxSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&amp;</span>nums<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// &#x521D;&#x59CB;&#x5316;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">sort</span><span class="token punctuation">(</span>dp<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>dp<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>dp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="25-&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><a name="25-&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#25-&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5 &#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;</h2>
+<h3 id="1-&#x7B97;&#x6CD5;"><a name="1-&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#1-&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7B97;&#x6CD5;</h3>
+<p><strong>&#x95EE;&#x9898;&#xFF1A;</strong>
+&#x8F93;&#x5165;<code>s1 = &quot;zabcde&quot;, s2 = &quot;acez&quot;</code>&#xFF0C;&#x5B83;&#x4FE9;&#x7684;&#x6700;&#x957F;&#x516C;&#x5171;&#x5B50;&#x5E8F;&#x5217;&#x662F;<code>lcs = &quot;ace&quot;</code>&#xFF0C;&#x957F;&#x5EA6;&#x4E3A; <code>3</code>&#xFF0C;&#x6240;&#x4EE5;&#x7B97;&#x6CD5;&#x8FD4;&#x56DE; <code>3</code>&#x3002;</p>
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> <span style="color:red;font-weight:bold"> &#x89E3;&#x51B3;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x7528;&#x300C;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x300D;&#xFF0C;&#x5373;&#x300C;&#x4E24;&#x4E2A;&#x72B6;&#x6001;&#x300D;&#x3002;</span> <code>s1</code>&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;<code>s2</code>&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#x3002;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x5F53;<code>s1[i]==s2[j]</code>&#x65F6;&#xFF0C;<code>dp[i-1][j-1] + 1</code>&#xFF1B;&#x5F53;<code>s1[i]!=s2[j]</code>&#x65F6;&#xFF0C;&#x8981;&#x627E;&#x4E00;&#x4E2A;&#x76EE;&#x524D;&#x6700;&#x5927;&#x5B50;&#x4E32;&#x957F;&#x5EA6;&#x503C;<code>max(dp[i-1][j],dp[i][j-1])</code>&#xFF08;&#x6709;&#x53EF;&#x80FD;<code>s1[i]</code>&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;<code>s2[j]</code>&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#xFF09;</li>
+<li><strong><code>dp[i][j]</code>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x5728;<code>s1</code>&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;<code>s2</code>&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#x65F6;&#xFF0C;&#x6700;&#x5927;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x3002;</li>
+</ul>
+</blockquote>
+<sec data-title="&#x6E90;&#x7801;&#x5B9E;&#x73B0;" data-id="maxPublicSub" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x6E90;&#x7801;&#x5B9E;&#x73B0;<a class="pull-right section atTitle btn btn-default" target="maxPublicSub"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="maxPublicSub"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">maxPublicSub</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> strA<span class="token punctuation">,</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> strB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    vector<span class="token operator">&lt;</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token generic-function"><span class="token function">vector</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> strA<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> strB<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h3 id="2-&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;"><a name="2-&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#2-&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;</h3>
+<p style="text-align:center;"><a href="../../image/cpp/deleteString.jpg" data-lightbox="90a5360a-19a0-424c-8604-16c94f388ee1" data-title="undefined"><img src="../../image/cpp/deleteString.jpg" alt="undefined"></a></p>
+
+<h3 id="3-&#x6700;&#x5C0F;-ascii-&#x5220;&#x9664;&#x548C;"><a name="3-&#x6700;&#x5C0F;-ascii-&#x5220;&#x9664;&#x548C;" class="anchor-navigation-ex-anchor" href="#3-&#x6700;&#x5C0F;-ascii-&#x5220;&#x9664;&#x548C;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x6700;&#x5C0F; ASCII &#x5220;&#x9664;&#x548C;</h3>
+<p style="text-align:center;"><a href="../../image/cpp/deleteASCII.jpg" data-lightbox="3d23e8ae-e282-474c-a0fa-80e37fb1a017" data-title="undefined"><img src="../../image/cpp/deleteASCII.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> <span style="color:red;font-weight:bold"> &#x89E3;&#x51B3;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x7528;&#x300C;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x300D;&#xFF0C;&#x5373;&#x300C;&#x4E24;&#x4E2A;&#x72B6;&#x6001;&#x300D;&#x3002;</span> <code>s1</code>&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;<code>s2</code>&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#x3002;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x5F53;<code>s1[i]==s2[j]</code>&#x65F6;&#xFF0C;&#x6700;&#x5C0F;&#x7684;&#x662F;<code>dp[i-1][j-1]</code>&#xFF1B;&#x5F53;<code>s1[i]!=s2[j]</code>&#x65F6;&#xFF0C;&#x8981;&#x5220;&#x9664;&#x4E00;&#x4E2A;<code>min(dp[i-1][j] + (int)strB[i-1],dp[i][j-1] + (int)strA[j-1])</code>&#xFF08;&#x6709;&#x53EF;&#x80FD;<code>s1[i]</code>&#x5728;&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;<code>s2[j]</code>&#x5728;&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#xFF09;</li>
+<li><strong><code>dp[i][j]</code>&#x5B9A;&#x4E49;&#xFF1A;</strong> &#x5728;<code>s1</code>&#x7684;&#x524D;<code>i</code>&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;<code>s2</code>&#x7684;&#x524D;<code>j</code>&#x4E2A;&#x5B57;&#x7B26;&#x65F6;&#xFF0C;&#x88AB;&#x5220;&#x9664;&#x7684;ascii&#x7801;&#x6700;&#x5C0F;&#x3002;</li>
+</ul>
+</blockquote>
+<sec data-title="&#x5B9E;&#x73B0;&#x4EE3;&#x7801;" data-id="minASCII" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B9E;&#x73B0;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="minASCII"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="minASCII"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">minDeleteASCII</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> strA<span class="token punctuation">,</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> strB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    vector<span class="token operator">&lt;</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token generic-function"><span class="token function">vector</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x5F53;strA&#x4E3A;&#x7A7A;&#x65F6;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>strB<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x5F53;strB&#x4E3A;&#x7A7A;&#x65F6;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>strA<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span> strA<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> strB<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>strB<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>strA<span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span>strB<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>strA<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="26-&#x5B50;&#x5E8F;&#x5217;&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;"><a name="26-&#x5B50;&#x5E8F;&#x5217;&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#26-&#x5B50;&#x5E8F;&#x5217;&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6 &#x5B50;&#x5E8F;&#x5217;/&#x5B50;&#x4E32;&#x95EE;&#x9898;&#x603B;&#x7ED3;</h2>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ul>
+<li><strong>&#x5B50;&#x4E32;&#xFF1A;</strong> <ul>
+<li><code>dp[i]</code>&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4E00;&#x822C;&#x4E3A; <strong>&#x300C;&#x4EE5;<code>i</code>&#x7ED3;&#x5C3E;&#x7684;&#x8FDE;&#x7EED;&#x5B50;&#x4E32;&#x3002;&#x3002;&#x3002;&#x3002;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x5B50;&#x5E8F;&#x5217;&#xFF1A;</strong><ul>
+<li><code>dp[i]</code>&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x4E00;&#x822C;&#x4E3A; <strong>&#x300C;&#x4ECE;<code>0</code>&#x5230;<code>i</code>&#x4F4D;/&#x7F6E;&#x7684;&#x5B50;&#x4E32;&#x3002;&#x3002;&#x3002;&#x3002;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x6D89;&#x53CA;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;/&#x6570;&#x7EC4;&#x65F6;&#xFF0C;&#x8981;&#x7528;&#x53CC;&#x72B6;&#x6001;</strong></li>
+<li><strong>&#x7279;&#x4F8B;&#xFF1A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x53CC;&#x6307;&#x9488;</strong></li>
+<li><strong>&#x901A;&#x8FC7;&#x6392;&#x5E8F;&#xFF0C;&#x53EF;&#x4E5F;&#x628A;<code>[v1,v2]</code>&#x8F6C;&#x4E3A;&#x5B50;&#x5E8F;&#x5217;&#x95EE;&#x9898;&#x3002;</strong></li>
+</ul>
+</blockquote>
+<h2 id="27-&#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;"><a name="27-&#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;" class="anchor-navigation-ex-anchor" href="#27-&#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7 &#x7279;&#x4F8B;&#xFF1A;&#x6700;&#x957F;&#x5B50;&#x5E8F;&#x5217;&#x56DE;&#x6587;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/maxLenMirror.jpg" data-lightbox="e1cd9c77-bf04-437d-85fa-f1ed21fadc3e" data-title="undefined"><img src="../../image/cpp/maxLenMirror.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]</p>
+<ul>
+<li><strong>&#x72B6;&#x6001;&#xFF1A;</strong> <code>i</code>&#x5230;<code>j</code>&#x7684;&#x5B50;&#x4E32;&#x3002;</li>
+<li><strong>&#x9009;&#x62E9;&#xFF1A;</strong> &#x5F53;<code>s1[i]==s1[j]</code>&#x65F6;&#xFF0C;&#x589E;&#x52A0;&#x4E24;&#x4E2A;<code>dp[i][j] = dp[i+1][j-1] + 2;</code>&#xFF1B;&#x5F53;<code>s1[i]!=s1[j]</code>&#x65F6;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x5728;&#x56DE;&#x6587;&#x91CC;&#xFF0C;&#x627E;&#x6700;&#x5927;&#x7684;<code>dp[i][j] = max(dp[i+1][j],dp[i][j-1]);</code>&#xFF08;&#x6709;&#x53EF;&#x80FD;<code>s1[i]</code>&#x5728;&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x6709;&#x53EF;&#x80FD;<code>s1[j]</code>&#x5728;&#x5B50;&#x5E8F;&#x5217;&#xFF09;</li>
+<li><strong><code>dp[i][j]</code>&#x5B9A;&#x4E49;&#xFF1A;</strong> <code>i</code>&#x5230;<code>j</code>&#x7684;&#x5B50;&#x4E32;&#xFF0C;&#x6700;&#x5927;&#x56DE;&#x6587;&#x6570;&#x4E3A;<code>dp[i][j]</code>&#x3002;</li>
+<li><strong>&#x521D;&#x59CB;&#xFF1A;</strong> <code>dp[][]</code>&#x7684;&#x4E0B;&#x534A;&#x90E8;&#x4E0D;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;<code>0</code>&#xFF1B;&#x5F53;<code>i==j</code>&#x65F6;&#xFF0C;<code>dp[i][j]=1</code>&#x3002;</li>
+</ul>
+</blockquote>
+<p style="text-align:center;"><a href="../../image/cpp/maxMirrorBlock.png" data-lightbox="e8954038-6ab4-4465-944f-c82e984599f8" data-title="undefined"><img src="../../image/cpp/maxMirrorBlock.png" alt="undefined"></a> <a href="../../image/cpp/loopMethod.png" data-lightbox="7967b38c-f4d5-40f3-ba66-d2d48a905fe2" data-title="undefined"><img src="../../image/cpp/loopMethod.png" alt="undefined"></a> </p>
+
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x7531;&#x4E8E;<code>dp[i][j]</code>&#x4E0E;<code>dp[i+1][j-1],dp[i+1][j],dp[i][j-1]</code>&#x6709;&#x5173;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x904D;&#x5386;&#x987A;&#x5E8F;&#x3002;</strong></p>
+</blockquote>
+<sec data-title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" data-id="maxlenmirror" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;<a class="pull-right section atTitle btn btn-default" target="maxlenmirror"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="maxlenmirror"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">int</span> <span class="token function">maxLenMirror</span><span class="token punctuation">(</span><span class="token keyword">const</span> string <span class="token operator">&amp;</span>str<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    vector<span class="token operator">&lt;</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token operator">&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token generic-function"><span class="token function">vector</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span>str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x521D;&#x59CB;&#x5316;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">&gt;=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> str<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> str<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1l</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>dp<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<!--=s.size();i++){-->
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="binaryTree.html" class="navigation navigation-prev " aria-label="Previous page: 十一、二叉树">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="backtracking.html" class="navigation navigation-next " aria-label="Next page: 十三、回溯算法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"十二、动态规划","level":"2.1.12","depth":2,"next":{"title":"十三、回溯算法","level":"2.1.13","depth":2,"path":"cpp/chapter/backtracking.md","ref":"cpp/chapter/backtracking.md","articles":[]},"previous":{"title":"十一、二叉树","level":"2.1.11","depth":2,"path":"cpp/chapter/binaryTree.md","ref":"cpp/chapter/binaryTree.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"cpp/chapter/dynamicProgram.md","mtime":"2021-08-22T12:12:25.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-05T15:22:13.787Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-terminull-light/terminull.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

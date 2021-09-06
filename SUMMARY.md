@@ -25,8 +25,10 @@
 
 - [MySQL](./MySQL/mysql.md)
   - [一、简介](MySQL/chapter/introduction_withNum.md)
-  - [二、基础命令](MySQL/chapter/foundation_withNum.md)
+  - [二、控制台操作](MySQL/chapter/foundation_withNum.md)
   - [三、数据库、表操作](MySQL/chapter/operatorDB_withNum.md)
   - [四、数据操作](MySQL/chapter/operatorData_withNum.md)
   - [五、事务](MySQL/chapter/transaction_withNum.md)
-  - [五、索引](MySQL/chapter/index_withNum.md)
+  - [六、索引](MySQL/chapter/index_withNum.md)
+  - [七、权限管理](MySQL/chapter/authority_withNum.md)
+  - [八、备份](MySQL/chapter/backup_withNum.md)
