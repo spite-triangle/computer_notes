@@ -1,7 +1,7 @@
 
  <h1 style="font-size:60px;text-align:center;">关键字</h1>
 
-# 1. new/delete
+# new/delete
 
 编译器分配内存的关键字，会调用构造器与析构器。`malloc/free`为库函数实现。
 
@@ -27,7 +27,7 @@
 ```
 
 
-# 2. const
+# const
 
 ```cpp
 // 限定内容
@@ -41,11 +41,11 @@ int const *p;
 const int* const p;
 ```
 
-## 2.1 c
+## c
 
 - const变量: **可以通过指针修改值，就是一个建议**。
 
-## 2.2 c++
+## c++
 
 - **类成员函数后**: 这个函数不会对这个类对象的数据成员（准确地说是非静态数据成员）作任何改变。 <font color="#f44336" style="font-weight:bold">const函数内，只能调用const函数。</font>
 - **类成员函数前**: 返回值是一个常量，不能修改，**通常用来限定引用**。
@@ -54,16 +54,16 @@ const int* const p;
     - 添加关键字`volatile`，可以防止编译器优化，从内存取值。通过指针修改值后，值会变。
 - **const对象**: 只能访问`const`与`static`修饰的内容。
 
-# 3. override
+# override
 
 &emsp;&emsp;配合 **virtual** 关键字使用；修饰**子类 override 函数**。
 
-# 4. volatile
+# volatile
 
 - 避免优化、强制内存读取的顺序。
 - **没有线程同步的语义**
 
-# 5. static
+# static
 - **函数体内**： 修饰的局部变量作用范围为该函数体，**在内存只被分配一次，下次调用的时候维持了上次的值**。
 - <font color="#f44336" style="font-weight:bold">源文件全局</font>：修饰的全局变量或函数，范围限制在声明它的模块内，**不能被extern找到**。
 - **类中修饰成员变量**: 表示该变量属于整个类所有，对类的所有对象只有一份拷贝。
@@ -73,14 +73,14 @@ const int* const p;
 - **类中修饰成员函数**: 表示该函数属于整个类所有，**不接受this指针**，只能访问类中的`static`成员变量。
     - **类的里/外都能实现**，类外实现省略`static`
 
-# 6.  extern "C"
+#  extern "C"
 &emsp;&emsp;会指示编译器这部分代码按`C`语言的进行编译，而不是`C++`的;能够正确实现`C++`代码调用其他`C`语言代码。
 
-# 7.  extern
+#  extern
 &emsp;&emsp;使用`include`将另一个文件全部包含进去可以引用另一个文件中的变量，但是这样做的结果就是，被包含的文件中的所有的变量和方法都可以被这个文件使用，这样就变得不安全。如果只是希望一个文件使用另一个文件中的某个变量还是使用`extern`关键字更好。
 - <font color="#f44336">源文件</font>中的全局变量与函数定义，默认都能被`extern`找到。
 
-# 8.  friend
+#  friend
 &emsp;&emsp;**可以让外部函数或者外部类，访问私有类的私有属性与函数。**
 - **友元函数**
     - 定义在类外的普通函数
@@ -90,16 +90,16 @@ const int* const p;
     - 两个类的关系是单向的
     - 不可传递
 
-# 8.  储存类型符
+#  储存类型符
 - **auto**：所有**局部变量**默认的存储类， **对于C， 块语句中也可定义局部变量，形参也是。** 
 - **register**: 存储在寄存器中（只是建议，具体实现看编译器）。
 - **static**：局部修饰变量后改变了生存期;全局变量修饰后改变了作用域
 - **extern**：引入其他`.C`文件中已定义的非`static`全局变量;可以在函数的内外声明变量或者函数。
 - **mutable**：仅适用于类的对象成员变量，它允许`const`函数能对成员变量进行修改
 
-# 9.  cin
+#  cin
 
-## 9.1. 简介
+## 简介
 
 - 遇到  `\n`  才会将写入内容加载到缓冲区
 - `\n` 也算一个字符，会被加载到缓冲区
@@ -111,9 +111,9 @@ const int* const p;
     >    while(cin >> value){}
     > ```
 
-## 9.2. 用法
+## 用法
 
-### 1. `cin >>` 
+### `cin >>` 
   - 连续从键盘读取想要的数据，<font color="#f44336">以空格、tab 、换行为分隔符</font>。
 
       ```cpp
@@ -137,7 +137,7 @@ const int* const p;
       ```
 
 
-### 2.  `cin.get()` 
+###  `cin.get()` 
 
 > [!note|style:flat]
 > <font color="#f44336" style="font-weight:bold">缓冲区没有东西时，会堵塞等待。</font>
@@ -179,7 +179,7 @@ istream& get(char* s, size_t n, char delim)
 - **换行符(结束符)会被留在缓冲区**，<span style="color:red;font-weight:bold"> 但末尾其余空白符会被读取。 </span>
 
 
-### 3. `cin.getline（）`  **读取行** 
+### `cin.getline（）`  **读取行** 
 
 ```cpp
 istream& getline(char* s, streamsize count); //默认以换行符结束
@@ -189,7 +189,7 @@ istream& getline(char* s, streamsize count, char delim);
 - **换行符(结束符)会被清理掉**，<span style="color:red;font-weight:bold"> 但末尾其余空白符会被读取。 </span>
 -  `getline(cin,string,"结束符")` 功能更强。<font color="#f44336">传入的是  `cin`  ，不是  `stdin`  </font>
 
-## 9.3. cin 清空输入缓冲区
+## cin 清空输入缓冲区
 
 ### 方法一
 ```cpp
@@ -210,9 +210,9 @@ istream &ignore(streamsize num=1, int delim=EOF);
 fflush(stdin);
 ```
 
-# 10.  `:: / :` 
+#  `:: / :` 
 
-## 10.1 `::`
+## `::`
 - 当局部变量与全局变量重名，可以修饰变量，访问全局变量。<font color="#f44336">仅c++支持</font>
 
     ```cpp
@@ -277,7 +277,7 @@ fflush(stdin);
     }
     ```
 
-## 10.2 `:`
+## `:`
 
 - **foreach**
 
@@ -308,7 +308,7 @@ public:
 };
 ```
 
-## 10.3 参数初始化列表
+## 参数初始化列表
 
 - **初始化父类的构造器**
 - **初始化`const`变量**
@@ -333,15 +333,15 @@ public:
 ```
 
 
-# 11. include
+# include
 
 -  `#include<>` :**只从从标准库文件目录下搜索**，对于标准库文件搜索效率快。
 
 -  `#include""` :**首先从用户工作目录下开始搜索**，对于自定义文件搜索比较快，然后搜索标准库。
 
-# 12. type-3
+# type-3
 
-## 12.1. 总结`type-3`
+## 总结`type-3`
 
 | 名称       | 作用                                              | 注意                                                           |
 | ---------- | ------------------------------------------------- | -------------------------------------------------------------- |
@@ -349,7 +349,7 @@ public:
 | `typeid()` | 获取类型信息，也就是**对象原始模板的信息**        | **泛型**                                                       |
 | `typename` | 1）**声明泛型类型**；<br> 2）**声明泛型内嵌类型** | 下面解释                                                       |
 
-## 12.2. `typeid()`
+## `typeid()`
 
 ```cpp
     // 查看类型
@@ -392,7 +392,7 @@ public:
 > }
 > ```
 
-## 12.3. `typename`
+## `typename`
 
 - **声明泛型类型**
 
@@ -472,9 +472,9 @@ public:
     > ```
 
 
-# 13 private/protected/public
+# private/protected/public
 
-## 13.1 类的内部对外
+## 类的内部对外
 
 > [!note]
 > **默认修饰为`private`**
@@ -483,12 +483,12 @@ public:
 | ------------ | ------- | --------- | ------ |
 | 外部能否访问 | 不行    | 不行      | 可以   |
 
-## 13.2 继承
+## 继承
 
 > [!note]
 > **默认继承为`private`**
 
-### 1. 子类内部对父类的访问
+### 子类内部对父类的访问
 
 | 修饰父类成员 | private | protected | public |
 | ------------ | ------- | --------- | ------ |
@@ -498,9 +498,22 @@ public:
 > [!note|style:flat]
 > **继承限定对子类访问父类，没有一丢丢的影响，访问权限和上面一样。**
 
-### 2. 子类的父类成员对外
+### 子类的父类成员对外
 
 | 修饰继承         | private                                         | protected             | public   |
 | ---------------- | ----------------------------------------------- | --------------------- | -------- |
 | 子类中的父类成员 | `public`变`private` <br> `protected`变`private` | `public`变`protected` | 保持原样 |
+
+# `a = a + b`与`a += b`
+
+**对于`a = a + b`而言，可以等价于：**
+
+> [!tip]
+> ```cpp
+> temp = a;
+> temp += b;
+> a = temp;
+> ```
+> - <span style="color:red;font-weight:bold"> `temp`就是类型转换中的那个「常性中间变量」。 </span
+> - **就效率而言`a += b`比较快。**
 

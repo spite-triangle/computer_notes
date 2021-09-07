@@ -1,6 +1,6 @@
 makefile
 package.json
 AutoNum.py
-./docs/*
+docs/*
 .bookignore
 .gitignore

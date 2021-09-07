@@ -5,9 +5,9 @@
 ---
 
 - [c++笔记](cpp/cpp.md)
-    - [一、基础概念](cpp/chapter/foundation.md)
-    - [二、关键字](cpp/chapter/keyword.md)
-    - [三、指针与引用](cpp/chapter/point_reference.md)
+    - [一、基础概念](cpp/chapter/foundation_withNum.md)
+    - [二、关键字](cpp/chapter/keyword_withNum.md)
+    - [三、指针与引用](cpp/chapter/point_reference_withNum.md)
     - [四、面向对象](cpp/chapter/oop.md)
     - [五、内存](cpp/chapter/memory.md)
     - [六、进程与线程](cpp/chapter/process.md)
