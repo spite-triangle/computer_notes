@@ -514,6 +514,6 @@ public:
 > temp += b;
 > a = temp;
 > ```
-> - <span style="color:red;font-weight:bold"> `temp`就是类型转换中的那个「常性中间变量」。 </span>
+> - <span style="color:red;font-weight:bold"> `temp`就是类型转换中的那个「常性中间变量」。 </span
 > - **就效率而言`a += b`比较快。**
 

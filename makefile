@@ -17,4 +17,11 @@ build:
 	npm install gitbook-plugin-sectionx
 	npm install gitbook-plugin-terminull-light
 
+num:
+	rm ./cpp/chapter/*_withNum.md
+	find ./cpp/chapter/ -type f -exec python3 ./AutoNum.py {} \;
+	rm ./linux/chapter/*_withNum.md
+	find ./linux/chapter/ -type f -exec python3 ./AutoNum.py {} \;
+	rm ./MySQL/chapter/*_withNum.md
+	find ./MySQL/chapter/ -type f -exec python3 ./AutoNum.py {} \;
 

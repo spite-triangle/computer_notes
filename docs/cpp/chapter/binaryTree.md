@@ -1,7 +1,7 @@
  <h1 style="font-size:60px;text-align:center;">二叉树</h1>
 
 
- # 1. 递归的逻辑
+ # 递归的逻辑
 
 - **明确函数的「定义」是什么，然后相信这个定义，利用这个定义推导最终结果，绝不要跳入递归的细节。**
 - **以内部函数调用为分界，上部分是入栈，下部分是出栈**
@@ -16,7 +16,7 @@ int count(TreeNode root) {
 }
 ```
 
- # 2. 二叉树的操作逻辑
+ # 二叉树的操作逻辑
 
 **先搞清楚当前 root 节点「该做什么」(重点)以及「什么时候做」(前，中，后)，然后根据函数定义递归调用子节点。**
 
@@ -32,7 +32,7 @@ void traverse(TreeNode root) {
 
 ```
 
- # 3. 二叉树前，中，后序列化与反序列化
+ # 二叉树前，中，后序列化与反序列化
 
 - **序列化储存形式：`12#4 3 `,`#`表示空节点**
 - **改变「解析」和「序列化」位置，可以分别实现前，中，后。**
@@ -108,7 +108,7 @@ public:
     }
 };
 ```
- # 4. 二叉树层级遍历的序列化与反序列化
+ # 二叉树层级遍历的序列化与反序列化
 
 - **序列化**: <span style="color:red;font-weight:bold"> 递归的作用，1）将父节点输出；2)子节点入队；3）当父节点出队 </span> 
 
@@ -225,7 +225,7 @@ public:
 
 ```
 
- # 5. 翻转二叉树
+ # 翻转二叉树
 
 ```cpp
     void invertTree(Node * root){
@@ -245,7 +245,7 @@ public:
     }
 ```
 
- # 6. 连通完全二叉树一层的节点
+ # 连通完全二叉树一层的节点
 
 ```java
 // 主函数
@@ -274,7 +274,7 @@ void connectTwoNode(Node node1, Node node2) {
 > [!tip|style:flat]
 > **「将每两个相邻节点都连接起来」**
 
- # 7. 将二叉树变链表
+ # 将二叉树变链表
 
 
 ![binary to list](../../image/cpp/binaryToList.jpeg)
@@ -310,7 +310,7 @@ void flatten(TreeNode root) {
 }
 ```
 
- # 8. 构造最大二叉树
+ # 构造最大二叉树
 
 
 ![constructMaximumBinaryTree](../image/../../image/cpp/constructMaximumBinaryTree.jpg)
@@ -347,7 +347,7 @@ void flatten(TreeNode root) {
     }
 ```
 
- # 9. 通过「前序和中序」遍历结果构造二叉树
+ # 通过「前序和中序」遍历结果构造二叉树
 
 
 ![preorder inorder](../image/cpp/../../../image/cpp/preorder_inorder.jpg)
@@ -390,7 +390,7 @@ void flatten(TreeNode root) {
 
 ```
 
- # 10. 通过「中序和后序」遍历结果构造二叉树
+ # 通过「中序和后序」遍历结果构造二叉树
 
 
 ![postorder inorder](../image/cpp/../../../image/cpp/postorder_inorder.jpg)

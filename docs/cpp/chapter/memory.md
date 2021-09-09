@@ -1,7 +1,7 @@
 
  <h1 style="font-size:60px;text-align:center;">内存</h1>
 
-# 1 代码内存分布
+# 代码内存分布
 
 
 | 内存空间       | 存放内容                                                            | 读写权限             |
@@ -13,13 +13,13 @@
 | 只读数据段     | `"fuck you"`等字符串常量                                            | 读                   |
 | 代码段         | 程序代码最终的指令集                                                | 读                   |
 
-# 3 内存泄露/栈溢出
+# 内存泄露/栈溢出
 
 - **内存泄露**: 堆使用了，没清空，内存大量浪费
 - **栈溢出**: 使劲增加局部变量，栈用完了
 
 
-# 4 字符存储编码
+# 字符存储编码
  
 - **ASCII 码**: 使用指定的7 位或8 位二进制数组合来表示128 或256 种可能的字符。
 
@@ -27,23 +27,23 @@
 
 - **内码**: 指汉字系统中使用的二进制字符编码。 
 
-# 5 字节对齐
+# 字节对齐
 
-## 5.1 介绍
+## 介绍
 
-### 1. 概念
+### 概念
 
 **内存空间按照字节划分，在访问特定类型变量时经常在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序一个接一个地存放，这就是对齐**。
 
-### 2. 原因
+### 原因
 
 - 不同硬件平台对存储空间的处理上存在很大的不同。某些平台对特定类型的数据只能从特定地址开始存取，不能任意存放数据。
 - 不按照平台要求对数据存放进行对齐，会带来存取效率上的损失。例如：一个32位的数据没有存放在4字节整除的内存地址处，那么处理器就需要2个总线周期对其进行访问。
 - <span style="color:red;font-weight:bold"> 说白了就是为了CPU读写数据时，统一规则，能一大块一大块的拿，节约时间。 </span>
 
-## 5.2 字节对齐计算
+## 字节对齐计算
 
-### 1. 字节对齐值
+### 字节对齐值
 
 > [!note]
 > - **数据类型「自身对齐值」**：char型数据自身对齐值为1字节，short型数据为2字节，int/float型为4字节，double型为8字节。
@@ -52,14 +52,14 @@
 > - **结构体和类的「有效对齐值」：`min{类，结构体自身对齐值，当前指定的pack值}`。** 
 > - **数据成员的「有效对齐值」：`min{成员自身对齐值，当前指定的pack值}`**
 > - **默认对齐值** ：`64`位，`8`字节；`32`位，`4`字节。 
-### 2. 字节对齐准则
+### 字节对齐准则
 
 > [!warning|style:flat]
 > - <span style="color:red;font-weight:bold"> 有效对齐值`N`最终决定数据存放地址方式。表示「对齐在`N`上」，即存放的起始地址满足 `起始地址 % N == 0` </span>
 > - **数据结构中的数据变量都是按定义的先后顺序存放。第一个数据变量的起始地址就是数据结构的起始地址。** <span style="color:red;font-weight:bold"> 类，结构体的成员变量要对齐存放 </span>
 > - **结构体本身也要根据自身的「有效对齐值」圆整**，<span style="color:red;font-weight:bold"> 即结构体成员变量占用总长度为结构体「有效对齐值」的整数倍，不足也要补足。 </span>
 
-### 3. 储存字节计算
+### 储存字节计算
 
 ```cpp
 #pragma pack() 
@@ -138,7 +138,7 @@ triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$
    <div style="width: 30%" align="center"><img src="./../../image/cpp/alignMemory.png"></div>
 </main>
 
-### 4. `# pragma pack()`
+### `# pragma pack()`
 
 > [!note]
 > - `# pragma pack(对齐值)`:**可以重新定义默认的对齐字节值，计算方法就是`3.`中的默认值替换掉，然后同上计算。** <span style="color:red;font-weight:bold"> 对齐值只能为 $2^n$ </span>。
@@ -146,9 +146,9 @@ triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$
 > - `# pragma pack(push)`: **将当前对齐字节值保存**
 > - `# pragma pack(pop)`: **将保存的对齐字节值弹出**
 
-## 5.3 字节对齐的隐患
+## 字节对齐的隐患
 
-### 1. 问题
+### 问题
 
 ```cpp
 // 案列一
@@ -172,7 +172,7 @@ void Func(struct B *p2){
 > **案列一：`p1`访问内存数值时，由于指向为奇数，对于`32`位会降低速度，对于特殊CPU则会异常。** <br>
 > **案列二：`p2`如果是跨CPU访问，对齐要求不同，也会导致异常。**
 
-### 2. 解决方案
+### 解决方案
 
 > [!tip|style:flat]
 > **对于案列二，可以选择修改对齐方式，然后重新赋值，让编译器解决。**
@@ -204,16 +204,16 @@ void Func(struct B *p2){
 >    }T_MSG;   
 > ```
 
-## 5.4 默认对齐字节的由来
+## 默认对齐字节的由来
 
-### 1. 内存的结构
+### 内存的结构
 
 一个内存是由若干个「黑色的内存颗粒」构成；一个内存颗粒叫做一个「chip」；每个「chip」内部，是由`8`个「bank」组成的；每一个「bank」是一个二维平面上的矩阵，每一个元素中都是保存了`1 byte`，也就是`8 bit`。
 
 <p style="text-align:center;"><img src="../../image/cpp/memoryStruction.png" align="middle" /></p>
 
 
-### 2. 内存地址
+### 内存地址
 
 **内存地址编号：**
 <span style="color:red;font-weight:bold"> 一个地址编号对应一个字节，对于地址`0x0000-0x0007`地址，是在第一个「chip」上，是由重叠的`8`个「bank」相同位置上的元素从`bank0 ~ bank7`进行编号，`8`个「bank」是可以并行工作，加快读写速度。</span> 
@@ -224,7 +224,7 @@ void Func(struct B *p2){
 
 <p style="text-align:center;"><img src="../../image/cpp/memoryGetvalue.png" align="middle" /></p>
 
-### 3. 字节对齐默认值
+### 字节对齐默认值
 
 > [!note|style:flat]
 > <span style="color:red;font-weight:bold">`64`位的cpu，默认对齐字节为`8`， 这就能保证，小于等于`8`字节的数据存储位置，是cpu能一次操作就能成功获取完毕的。 </span> <br> <br>
@@ -232,9 +232,9 @@ void Func(struct B *p2){
 ><span style="color:red;font-weight:bold"> 同理`32`位的cpu默认对齐字节位`4`，因为`32`位cpu的寄存器是`32`位的。 </span> 
 
 
-# 6 类/结构体的内存分布
+# 类/结构体的内存分布
 
-## 6.1 类
+## 类
 
 <p style="text-align:center;"><img src="image/../../../image/cpp/class_memory.jpeg" align="middle" /> </p>
 
@@ -247,7 +247,7 @@ void Func(struct B *p2){
 - **属性存放顺序与定义顺序一样** 
 
 
-## 6.2 子类
+## 子类
 
  <p style="text-align:center;"><img src="../../image/cpp/objectmemory.png" align="middle" /></p>
 
@@ -257,11 +257,11 @@ void Func(struct B *p2){
 > - **最后放子类的属性**
 > - <font color="#f44336">防止多重继承，出现属性多次定义，继承时，使用 virtual 进行修饰。</font>
 
-## 6.3 结构体
+## 结构体
 
 <span style="color:blue;font-weight:bold"> 与类一样。唯一不同点，就是没有`vptr`。 </span>
 
-## 6.4 字节计算
+## 字节计算
 
 - **类：`sizeof(vptr)` +  `5.2`的结果；`sizeof(vptr)`由操作系统定，`64位，8 byte`；`32位，4 byte`**
 - **结构体：`5.2`的结果**
@@ -283,7 +283,7 @@ public:
 ```
 <!--endsec-->
 
-# 7 对象与类
+# 对象与类
 
 | 类型 | 描述                         | 储存                                                              |
 | ---- | ---------------------------- | ----------------------------------------------------------------- |

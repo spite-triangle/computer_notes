@@ -1,8 +1,8 @@
  <h1 style="font-size:60px;text-align:center;">数组链表操作</h1>
 
-# 1 排序
+# 排序
 
-## 1.1. 冒泡排序
+## 冒泡排序
 
 - <span style="color:red;font-weight:bold"> 稳定排序，排序之后，数据输入顺序不会乱掉 </span>
 
@@ -22,7 +22,7 @@
     }
 ```
 
-## 1.2. 桶排序
+## 桶排序
 
 - <span style="color:red;font-weight:bold"> 桶排序可以实现稳定排序 </span>
 
@@ -51,14 +51,14 @@
     }
 ```
 
-## 1.3. 快速排序
+## 快速排序
 
 若要对`nums[lo..hi]`  进行排序，我们先找一个分界点 p，通过交换元素使得 nums[lo..p-1] 都小于等于 nums[p]，且 nums[p+1..hi] 都大于 nums[p]，然后递归地去 nums[lo..p-1] 和 nums[p+1..hi] 中寻找新的分界点，最后整个数组就被排序了。
 
 
-# 2 链表
+# 链表
 
-## 2.1. 构建链表
+## 构建链表
 
 - <span style="color:red;font-weight:bold"> 在头部叠加 </span>
 
@@ -96,9 +96,9 @@
     }
 ```
 
-## 2.2. 逆向
+## 逆向
 
-### 1. 整体逆向: 靠递归的返回过程，完成反转
+### 整体逆向: 靠递归的返回过程，完成反转
 
 ```cpp
     ListNode reverse(ListNode head) {
@@ -118,7 +118,7 @@
     return last;
 }
 ```
-### 2. 从首开始的n个局部逆向
+### 从首开始的n个局部逆向
 
 **将`n+1`节点位置储存，通过上面递归进行逆向，最后把 `n+1` 节点接回去。**
 
@@ -142,7 +142,7 @@ ListNode reverseN(ListNode head, int n) {
 }
 ```
 
-### 3. 对m到n的节点进行逆向:
+### 对m到n的节点进行逆向:
 
 **找到对`m-1`节点进行记录，然后用上面方法逆向，然后接回去。**
 
@@ -159,7 +159,7 @@ ListNode reverseBetween(ListNode head, int m, int n) {
 }
 ```
 
-## 1.3. 一块一块逆向
+## 一块一块逆向
 
 - **循环实现:** **将当前节点，用头方向增长的方式，重新生成一个链表**
 
@@ -214,9 +214,9 @@ ListNode reverseKGroup(ListNode head, int k) {
 }
 ```
 
-# 3 回文
+# 回文
 
-## 5.1. 字符遍历找回文
+## 字符遍历找回文
 
 ```cpp
 string palindrome(string& s, int l, int r) {
@@ -231,7 +231,7 @@ string palindrome(string& s, int l, int r) {
 }
 ```
 
-## 5.2. 判断链表是否是回文
+## 判断链表是否是回文
 
 最简单的办法就是，把原始链表反转存入一条新的链表，然后比较这两条链表是否相同。
 
@@ -254,13 +254,13 @@ boolean traverse(ListNode right) {
 }
 ```
 
-# 4 双指针
+# 双指针
 
-## 4.1. 快慢指针
+## 快慢指针
 
 快慢指针一般都初始化指向链表的头结点`head`，前进时快指针`fast`在前，慢指针`slow`在后。
 
-### 1. 判定链表中是否含有环 
+### 判定链表中是否含有环 
 
 <font color="#FF0010">`fast`的移动速度为`slow`的两倍。</font>
 
@@ -278,7 +278,7 @@ boolean hasCycle(ListNode head) {
 }
 ```
 
-### 2. 已知链表中含有环，返回这个环的起始位置
+### 已知链表中含有环，返回这个环的起始位置
 
 ``` java
 ListNode detectCycle(ListNode head) {
@@ -304,7 +304,7 @@ ListNode detectCycle(ListNode head) {
 
 `fast`一定比`slow`多走了k步，这多走的k步其实就是`fast`指针在环里转圈圈，所以**k的值就是环长度的「整数倍」**。
 
-### 3. 链表的中间位置
+### 链表的中间位置
 
 
 ``` java
@@ -322,7 +322,7 @@ ListNode middleNode(ListNode head) {
 链表的长度是**奇数**，`slow`恰巧停在**中点位置**
 链表的长度是**偶数**，`slow`最终的位置是**中间偏右**：
 
-### 4. 寻找链表的倒数第n个元素
+### 寻找链表的倒数第n个元素
 
 让快指针先走n步，然后快慢指针开始同速前进;这样当快指针走到链表末尾null时，慢指针所在的位置就是倒数第n个链表节点（n不会超过链表长度）
 
@@ -349,7 +349,7 @@ ListNode removeNthFromEnd(ListNode head, int n) {
     return head;
 ```
 
-### 5. 有序数组/链表去重
+### 有序数组/链表去重
 
 数组`nums[]`有顺序，`slow`走在后面，快指针`fast`走在前面探路，比较`nums[fast]`与`nums[slow]`，找到不重复的元素就告诉`slow`并让`slow`前进一步。**`nums[0  slow]`便是去重后的数组。**
 
@@ -394,7 +394,7 @@ ListNode deleteDuplicates(ListNode head) {
 
 **注: 由于c++还需要对new的对象进行手动释放，所以可以用数组来储存链表节点，或者使用智能指针。**
 
-### 6. 删除目标元素，不改变数组顺序
+### 删除目标元素，不改变数组顺序
 
 不要求数组有序，如果`fast`遇到需要去除的元素，则直接跳过，否则就告诉`slow`指针，并让`slow`前进一步。**`nums[0   slow-1]`是去除元素后的数组**
 
@@ -411,11 +411,11 @@ int removeElement(int[] nums, int val) {
     return slow;
 }
 ```
-### 7. 移动零
+### 移动零
 
 上一问题的变种
 
-## 4.2. 左右指针
+## 左右指针
 
 一般初始化为: `left = 0, right = nums.length - 1`
 
@@ -423,7 +423,7 @@ int removeElement(int[] nums, int val) {
 - **翻转数组**
 - **双指针，升序列，求两数之和**
 
-### 1. 田忌赛马
+### 田忌赛马
 
 ```cpp
 struct Entry{

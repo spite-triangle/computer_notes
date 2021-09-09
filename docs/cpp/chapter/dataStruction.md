@@ -2,9 +2,9 @@
  <h1 style="font-size:60px;text-align:center;">数据结构</h1>
 
 
-# 1 字符串
+# 字符串
 
-## 1.1 c风格
+## c风格
 
 - 字符串结尾标志为  `\0` 
 -  ` " " ` : 自带 `\0` 
@@ -37,7 +37,7 @@ char *strchr(const char *str, int c); //返回第一个字符位置，没有返�
 char *strstr(const char *haystack, const char *needle); // 返回第一个字符串位置，没有返回NULL
 ```
 
-## 1.2.  c++字符串
+##  c++字符串
 
 -  `string` 是一个对象
 -  `string` 的结尾没有结束标志  `\0` 
@@ -86,7 +86,7 @@ find_first_of(const string& str); // 子字符串和字符串共同具有的字�
 
 ```
 
-# 2 栈 stack
+# 栈 stack
 
 - <font color="#f44336"> 没有迭代器功能。 </font>
 
@@ -103,7 +103,7 @@ s.top();    //返回栈顶元素的值，但不删除此元素
 
 s.push(item);   //在栈顶压入新元素item
 ```
-# 3 队列 queue
+# 队列 queue
 
 - <font color="#f44336"> 没有迭代器功能。 </font>
 
@@ -121,9 +121,9 @@ q.front();  //返回队首元素的值，但不删除该元素
 q.back();   //返回队尾元素的值，但不删除该元素
 ```
 
-# 4 vector
+# vector
 
-## 4.1 底层实现
+## 底层实现
 
 <p style="text-align:center;"><img src="../../image/cpp/vector_structure.gif" align="middle" /></p>
 
@@ -172,9 +172,9 @@ int a = *it; //获取值
 ```
 <!--endsec-->
 
-## 4.2 内存管理
+## 内存管理
 
-### 1. 内存属性
+### 内存属性
 - `size = _Mylast - _Myfirst`: 数据真正存储了多少个。
 - `capacity = _Myend - _Myfirst`：预分配的内存空间。
 
@@ -183,14 +183,14 @@ vector::size(); // 获取 size
 vecotr::capacity(); // 获取 capacity
 ```
 
-### 2. 内存修改
+### 内存修改
 
 - `reserve(int)`：<span style="color:red;font-weight:bold"> 仅仅只修改`capacity`，但不会真正的创建对象。 </span>
 
 - `resize(int)`：<span style="color:red;font-weight:bold"> 分配了空间，也创建了对象。默认初始化为`0`。同时修改了`size `和` capacity` </span>
 
 
-### 3. 内存扩展
+### 内存扩展
 
 当`size == capacity`时，表示`vector`申请的内存已经被存储完了，需要进行内存扩张：
 1. **完全弃用现有的内存空间，重新申请更大的内存空间；**
@@ -200,7 +200,7 @@ vecotr::capacity(); // 获取 capacity
 > [!note|style:flat]
 > vector 容器在进行扩容后，与其相关的指针、引用以及迭代器可能会失效。
 
-## 4.3 排序
+## 排序
 
 - `>` : 从大到小排序
 - `<` : 从小到大排序，默认方式
@@ -218,7 +218,7 @@ public:
 sort(vec.begin(),vec.end(),Compare());
 ```
 
-# 5 map/multimap
+# map/multimap
 
 - <font color="#f44336">map支持[ ]运算符，multimap不支持[ ]运算符。在用法上没什么区别。</font>
 - `key` **不允许修改**
@@ -299,7 +299,7 @@ public:
 map<string,int,Compare> names;
 ```
 
-# 6 set/multiset
+# set/multiset
 
 - **搜索、移除和插入计算速度 `O(log(n))`**。 
 - set 通常以红黑树实现。
@@ -351,7 +351,7 @@ public:
 set<string,Compare> names;
 ```
 
-# 7 deque
+# deque
 
 ```cpp
     #include <deque>
@@ -375,7 +375,7 @@ set<string,Compare> names;
 
 ```
 
-# 8 二叉堆
+# 二叉堆
 
 ![heap](../../image/cpp/heap.jpg)
 
@@ -387,9 +387,9 @@ set<string,Compare> names;
 - **最大二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 >= 子节点 </span>
 - **最小二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 <= 子节点 </span>
 
-# 9 并查集（union_find）
+# 并查集（union_find）
 
-## 9.1. 概念
+## 概念
 
 ![union set](../../image/cpp/union_set.jpg)
 
@@ -492,9 +492,9 @@ public:
 >   - 对称：两个元素互相连通
 >   - 传递：`a`与`b`连通，`b`与`c`连通，则`c`与`a`之间也是连通的。
 
-## 9.2 基本实现
+## 基本实现
 
-### 1. 数据结构
+### 数据结构
 
 利用一个数组`parent[]`来储存集合元素，来实现一个图存储：
 1）**数组的索引为元素值；**
@@ -503,7 +503,7 @@ public:
 **元素的初始存储形式：**
 ![union data](../../image/cpp/unionData.jpg)
 
-### 2. 合并
+### 合并
 
 ![union opterator](../../image/cpp/union_operator.jpg)
 
@@ -530,7 +530,7 @@ public:
 ```
 <!--endsec-->
 
-### 3. 连通
+### 连通
 
 > [!tip]
 > 1. 将两个元素遍历到各自的根
@@ -555,7 +555,7 @@ public:
 ```
 <!--endsec-->
 
-## 9.3 平衡性优化
+## 平衡性优化
 
 ![optimize balance](../../image/cpp/optimizeBalance.jpg)
 
@@ -588,7 +588,7 @@ public:
 ```
 <!--endsec-->
 
-## 9.4 路径压缩（最重要）
+## 路径压缩（最重要）
 
 ![decrease path](../../image/cpp/decreasePath.gif)
 
@@ -614,7 +614,7 @@ public:
 > [!tip|style:flat]
 > <span style="color:red;font-weight:bold"> 压缩路径的优化性能较强与平衡性优化，平衡性优化可以不用写。 </span>
 
-## 9.5 判定合法算式
+## 判定合法算式
 
 **题目：**
 

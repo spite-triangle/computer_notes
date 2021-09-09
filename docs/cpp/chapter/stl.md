@@ -1,7 +1,7 @@
 
  <h1 style="font-size:60px;text-align:center;">STL</h1>
 
-# 1 简介
+# 简介
 &emsp;&emsp;STL（Standard Template Library），即标准模板库，是一个具有工业强度的，高效的C++程序库。该库包含了诸多在计算机科学领域里所常用的**基本数据结构**和**基本算法**。
 - 数据结构和算法的分离
 - 不是面向对象的
@@ -16,7 +16,7 @@
 - 适配器（Adaptor）
 - 分配器（allocator）
 
-# 2 容器（Container）
+# 容器（Container）
 
 - **序列式容器**（Sequence containers）
     - Vector: 动态数组
@@ -30,10 +30,10 @@
 > `set map multiset multimap` 通过红黑实现，无序 `unorder_map unorder_set` 通过哈希表实现。
  
 
-# 3 分配器
+# 分配器
 <font color="#f44336">容器类自动申请和释放内存，无需new和delete操作。</font>
 
-# 4 迭代器
+# 迭代器
 - 遍历数据用的。
 - <font color="#f44336">支持运算符:  `*;+＋;＝＝;！＝;＝` </font>。
 - <font color="#f44336"> 指针操作 </font>
@@ -63,21 +63,21 @@
     }
 ```
 
-# 5 算法
+# 算法
 
-### 1. 头文件
+### 头文件
 &emsp;&emsp;算法部分主要由头文件`<algorithm>`，<numeric>和<functional>组成。
 
 - `<algorithm>`: 由一大堆模版函数组成的，可以认为每个函数在很大程度上都是独立的，其中常用到的功能范围涉及到比较、交换、查找、遍历操作、复制、修改、移除、反转、排序、合并等等。
 - `<numeric>`: 只包括几个在序列上面进行简单数学运算的模板函数，包括加法和乘法在序列上的一些操作。
 - `<functional>`: 中则定义了一些模板类，用以声明函数对象。
 
-### 2. 常用算法
+### 常用算法
 
 &emsp;&emsp; [STL常用算法](https://blog.csdn.net/b_ingram/article/details/118874862)
 
 
-# 6 仿函数
+# 仿函数
 
 &emsp;&emsp; **钩子函数，可以当参数传递，让具体算法进行调用。** 系统定义好的仿函数: `<functional\>`
 
@@ -120,7 +120,7 @@
 > **`Compare()`是定义了一个临时对象**，作为参数传递给了 `sort()`；**若`sort()`没有采用引用传递，则对象将是值传递。** 
 
 
-# 7 容器适配器
+# 容器适配器
 
 &emsp;&emsp;对基础容器进行功能扩展，标准库提供了三种顺序容器适配器: 
 

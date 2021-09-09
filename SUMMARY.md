@@ -4,22 +4,23 @@
 
 ---
 
-- [c++笔记](cpp/cpp.md)
+- [c/c++](cpp/cpp.md)
     - [一、基础概念](cpp/chapter/foundation_withNum.md)
     - [二、关键字](cpp/chapter/keyword_withNum.md)
     - [三、指针与引用](cpp/chapter/point_reference_withNum.md)
-    - [四、面向对象](cpp/chapter/oop.md)
-    - [五、内存](cpp/chapter/memory.md)
-    - [六、进程与线程](cpp/chapter/process.md)
-    - [七、STL](cpp/chapter/stl.md)
-    - [八、数据结构](cpp/chapter/dataStruction.md)
-    - [九、数组链表操作](cpp/chapter/array_list.md)
-    - [十、目标查找](cpp/chapter/find.md)
-    - [十一、二叉树](cpp/chapter/binaryTree.md)
-    - [十二、动态规划](cpp/chapter/dynamicProgram.md)
-    - [十三、回溯算法](cpp/chapter/backtracking.md)
-    - [十四、单调栈](cpp/chapter/monotoneStack.md)
-    - [附录 工具库](cpp/chapter/toollib.md)
+    - [四、面向对象](cpp/chapter/oop_withNum.md)
+    - [五、内存](cpp/chapter/memory_withNum.md)
+    - [六、进程与线程](cpp/chapter/process_withNum.md)
+    - [七、锁](cpp/chapter/locks_withNum.md)
+    - [八、STL](cpp/chapter/stl_withNum.md)
+    - [九、数据结构](cpp/chapter/dataStruction_withNum.md)
+    - [十、数组链表操作](cpp/chapter/array_list_withNum.md)
+    - [十一、目标查找](cpp/chapter/find_withNum.md)
+    - [十二、二叉树](cpp/chapter/binaryTree_withNum.md)
+    - [十三、动态规划](cpp/chapter/dynamicProgram_withNum.md)
+    - [十四、回溯算法](cpp/chapter/backtracking_withNum.md)
+    - [十五、单调栈](cpp/chapter/monotoneStack_withNum.md)
+    - [附录 工具库](cpp/chapter/toollib_withNum.md)
 
 ---
 
@@ -32,3 +33,9 @@
   - [六、索引](MySQL/chapter/index_withNum.md)
   - [七、权限管理](MySQL/chapter/authority_withNum.md)
   - [八、备份](MySQL/chapter/backup_withNum.md)
+
+---
+
+- [Linux](./linux/linux.md)
+  - [一、原理知识](linux/chapter/foundation_withNum.md)
+  - [二、指令](linux/chapter/command_withNum.md)

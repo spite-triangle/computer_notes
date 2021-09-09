@@ -2,7 +2,7 @@
 <h1 style="font-size:60px;text-align:center;">工具库</h1>
 
 
-# 1 math
+# math
 
 ```cpp
 #include<math.h>
@@ -23,7 +23,7 @@ double fmod(double num，double base);
 %; 只能用于int;
 
 ```
-# 2 regex
+# regex
 
 -  `\b` : 字符边界
 -  `.` : 除 `\n` 以外所有字符
@@ -54,7 +54,7 @@ smatch.str(i); // 0之后的，都是捕获部分
 smatch.prefix().str(); // 未匹配的前部分
 smatch.prefix().str();// 未匹配的后部分
 ```
-# 3 匿名函数
+# 匿名函数
 
 > [!note]
 > **只有`c++11`以上的编译器才支持。**

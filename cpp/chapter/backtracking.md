@@ -1,6 +1,6 @@
 <h1 style="font-size:60px;text-align:center;">回溯算法</h1>
 
-# 一、框架
+# 框架
 
 - **路径**：记录做过具体的选择
 - **标记**：标记记录过的选择
@@ -22,7 +22,7 @@ def backtrack(路径, 选择列表):
 
 **其核心就是 for 循环里面的递归，在递归调用之前「做选择」，在递归调用之后「撤销选择」。**
 
-# 二、全排列
+# 全排列
 
 <p style="text-align:center;"><img src="../../image/cpp/traverseAll.jpg" align="middle" /></p>
 
@@ -59,7 +59,7 @@ void printAll(const vector<int> & nums,vector<int> &path,vector<int> &book){
 }
 ```
 
-# 三、全皇后
+# 全皇后
 
 <!--sec data-title="实现代码" data-id="queue" data-show=true data-collapse=true ces-->
 

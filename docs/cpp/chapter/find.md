@@ -2,9 +2,9 @@
  <h1 style="font-size:60px;text-align:center;">查找问题</h1>
 
 
-# 1 二分法
+# 二分法
 
-## 1.1. 基本的二分搜索
+## 基本的二分搜索
 
 - **`while(left <= right)`一次搜索的区间是：`[left, right]`**
 - **`while(left <= right)` 终止条件：`left == right + 1`**: 就两种情况会终止，1）`right`减过头；2）`left`加过头
@@ -30,7 +30,7 @@
 > **注：**
 > **`nums = [1,2,2,2,3];targe = 2;`找目标的边界，普通二分法无法实现。**
 
-## 1.2. 寻找左侧边界的二分搜索
+## 寻找左侧边界的二分搜索
 
 - **`while(left <= right)`一次搜索的区间是：`[left, right]`**
 - **`while(left <= right)` 终止条件：`left == right + 1`**: 就两种情况会终止，1）`right`减过头；2）`left`加过头
@@ -59,7 +59,7 @@
     }
 ```
 
-## 1.3. 寻找右侧边界的二分搜索
+## 寻找右侧边界的二分搜索
 
 - <span style="color:red;font-weight:bold"> 返回值含义：`nums`中大于`target`的值的个数 </span>
 - <span style="color:red;font-weight:bold"> `nums`循序排列，`target`在数组`nums`中。 </span>
@@ -115,16 +115,16 @@ int right_bound(int[] nums, int target) {
 }
 ```
 
-# 2 two sum
+# two sum
 
-## 2.1. 问题
+## 问题
 
 > 给一个数组和一个整数`target`，可以保证数组中存在两个数的和为`target`，返回这两个数的索引。
 >例:
 >输入: `nums = [3,1,3,6],target = 6`
 >返回数组: `[0,2]`
 
-## 1.2. 双指针暴力枚举
+## 双指针暴力枚举
 
 ```cpp
 void twoSum(int* nums,int target,int * out){
@@ -141,7 +141,7 @@ void twoSum(int* nums,int target,int * out){
 }
 ```
 
-## 1.3. 哈西表查询第二个值
+## 哈西表查询第二个值
 
 ```cpp
     void twoSumMap(int*nums,int n,int target,int* out){
@@ -167,7 +167,7 @@ void twoSum(int* nums,int target,int * out){
     }
 ```
 
-## 1.4. 双指针，升序列，求两数之和
+## 双指针，升序列，求两数之和
 
 ``` java
     int[] twoSum(int[] nums, int target) {
@@ -187,7 +187,7 @@ void twoSum(int* nums,int target,int * out){
     }
 ```
 
-## 1.5. 输出所有不重复的组合
+## 输出所有不重复的组合
 
 ```cpp
     void twoSum(vector<int> &nums,int target){
@@ -226,7 +226,7 @@ void twoSum(int* nums,int target,int * out){
     }     
 ```
 
-## 1.6. 3Sum 问题
+## 3Sum 问题
 
 - `sort()`: 首先进行排序
 - 从左向右依次遍历数组 `nums[index]`
@@ -301,16 +301,16 @@ void twoSum(int* nums,int target,int * out){
 
 ```
 
-# 3 删除/查找数据O(1)
+# 删除/查找数据O(1)
 
 - 使用`map`存储索引，`vector`存储数据
     - 查找: 通过`map`找索引，通过索引去`vector`拿数据
     - 删除: 将最后一个元素与删除元素进行替换，修改`map`，然后再删除索引和数据
 
 
-# 4 区间问题
+# 区间问题
 
-## 4.1. 解题技巧
+## 解题技巧
 
 1. **端点排序：按照区间起点排序，或者先按照起点升序排序，若起点相同，则按照终点降序排序。** <span style="color:red;font-weight:bold"> 不降序，会出问题 </span>
     
@@ -318,7 +318,7 @@ void twoSum(int* nums,int target,int * out){
 
 2. **作图：分别讨论一次涉及的循环区间，有哪些情况，防止漏掉。** <span style="color:red;font-weight:bold"> 区间关系条件得找对。 </span>
 
-## 4.2. 区间覆盖问题
+## 区间覆盖问题
 
 
 ![covered interval](../../image/cpp/CoveredIntervals.png)
@@ -359,7 +359,7 @@ void twoSum(int* nums,int target,int * out){
         return intvs.length - res;
     }
 ```
-## 4.3. 区间合并
+## 区间合并
 
 
 ![merge interval](../../image/cpp/mergeInterval.png)
@@ -421,7 +421,7 @@ void twoSum(int* nums,int target,int * out){
     }
 ```
 
-## 4.4. 区间交集
+## 区间交集
 
 ![interstion interval](../../image/cpp/intersectingInterval.png)
 
@@ -467,7 +467,7 @@ void twoSum(int* nums,int target,int * out){
     }
 ```
 
-## 4.5. 给定两矩形，求相交面积
+## 给定两矩形，求相交面积
 
 - **排序：矩形可以由两个点对角点表示，首先需要确定两个的位置**
 - **作图：判断相交关系**
@@ -500,7 +500,7 @@ void twoSum(int* nums,int target,int * out){
 
 ```
 
-# 5 二分法威力加强
+# 二分法威力加强
 
 > [!tip]
 > **0. 求解该问题可以对一个单调函数区间暴力遍历**
@@ -516,7 +516,7 @@ void twoSum(int* nums,int target,int * out){
 > 
 > - **区间：`mid`的「左边」或者「右边」**
 
-## 5.1 珂珂吃香蕉
+## 珂珂吃香蕉
 
 ![banana](../../image/cpp/banana.png)
 
@@ -561,7 +561,7 @@ int minSpeed(const int* nums,int n,int H){
 }
 
 ```
-## 5.2 运输货物
+## 运输货物
 
 ![deliver](../../image/cpp/deliver.png)
 
@@ -622,18 +622,18 @@ int minWeight(const vector<int>& goods,int day){
 
 ```
 
-## 5.3 分割数组的最大值
+## 分割数组的最大值
 
 **问题`5.2`的变种。**
 
 ![spit array](../../image/cpp/spliteArrayMax.png)
 
-# 6 滑动窗口
+# 滑动窗口
 
 > [!note|style:flat]
 > **滑动窗口主要用于解决，在长序列上，不要求顺序，找子序列的各种问题，。**
 
-## 6.1 模板
+## 模板
 
 > [!tip]
 > **可以想象成一条虫子在一根线上从左向右蠕动。**
@@ -708,7 +708,7 @@ void slidingWindow(string s, string t) {
 > 
 > **`window[]`在收缩窗口时，最后更新。**
 
-## 6.2 最小覆盖子串
+## 最小覆盖子串
 
 ![covered sub](../../image/cpp/coveredSub.png)
 
@@ -775,7 +775,7 @@ string coveredSubsequences(const string &s,const string &t){
 
 ```
 
-## 6.3 字符串排列
+## 字符串排列
 
 <p style="text-align:center;"><img src="./image/cpp/../../../../image/cpp/stringSort.jpg" align="middle" /></p>
 
@@ -856,7 +856,7 @@ bool substring(const string & S,const string & B){
 ```
 <!--endsec-->
 
-## 6.4 找所有字母异位词
+## 找所有字母异位词
 
 ![diff char](../image/cpp/../../../image/cpp/diffchar.png)
 
@@ -919,7 +919,7 @@ vector<int> diffSubstring(const string& s1, const string& s2){
 
 <!--endsec-->
 
-## 6.5 最长无重复子串
+## 最长无重复子串
 
 ![max len substr](../../image/cpp/maxLenSubstring.png)
 

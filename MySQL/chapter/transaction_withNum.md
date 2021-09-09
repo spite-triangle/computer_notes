@@ -101,3 +101,22 @@ set autocommit = 1;
 > - **在`commit rollback`后，就会关闭事务，所有特别关闭`transaction`**
 
 
+# 4. 行级锁
+
+```sql
+
+set autocommit = 0;
+
+-- 查询
+select `字段` from `表名` where id = 1 for update 
+
+-- 修改
+update `表名` set `字段`=值 where id = 1
+
+commit
+set autocommit = 1;
+```
+
+> [!note|style:flat]
+> - **`select  for update`：锁数据，为`MySQL InnoDB` 默认行级锁**
+> - **一条 `SQL` 语句用不到「索引」是不会使用行级锁的，会使用表级锁把整张表锁住。**

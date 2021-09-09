@@ -1,7 +1,7 @@
  <h1 style="font-size:60px;text-align:center;">单调栈</h1>
 
 
-# 1 单调栈作用
+# 单调栈作用
 
 **根据当前入栈的值，栈内部会维持顺序（递增或递减）。**
 
@@ -30,7 +30,7 @@
     }
 ```
 
-# 2. Next Greater Number
+# Next Greater Number
 
 
 ![next greater](../image/../../image/cpp/nextGreater.jpeg)
@@ -67,11 +67,11 @@
     }
 ```
 
-# 3. 「循环」的Next Greater Number
+# 「循环」的Next Greater Number
 
 将数组扩展一倍，然后用单调栈
 
-# 4. 与 Next Greater Number之间的距离
+# 与 Next Greater Number之间的距离
 
 ```cpp
     void nextGreaterInterval(int* nums,int n,int* out){
@@ -100,7 +100,7 @@
 ```
 
 
-# 5. 无序数组，去除重复值
+# 无序数组，去除重复值
 
 >1. 要去重
 >1. 重字符串中的字符顺序不能打乱s中字符出现的相对顺序
