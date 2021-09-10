@@ -30,6 +30,145 @@
 
 **当私有继承和保护继承时，父类指针(引用)无法指向子类。默认为私有继承。防止多重继承，出现属性多次定义，继承时，还要使用 virtual 进行修饰。**
 
+## 3.1. 继承内容
+
+> [!tip]
+> **子类会继承的基类的数据**
+> - 基类中的每个数据成员（包括`private`，尽管子类不一定都能访问）
+> - 基类中的每个普通成员函数（尽管子类不一定都能访问）
+> - 与基类相同的初始数据层
+> - 对于`static`类型成员的访问权（`private`除外）
+>
+> **子类不会继承的基类的数据**
+> - 基类的「构造函数」与「析构函数」
+> - 基类的友元
+
+## 3.2. 子对象的一生
+
+> [!tip]
+> **子类对象创建**
+> 1. 在栈或者堆上给整个对象分配存储空间（包括从父类继承的属性）
+> 1. 调用基类的构造函数来初始化从基类继承下来的数据
+> 1. 调用子类的构造函数来初始化子类中的数据成员
+> 1. 此时，子类对象可以使用了
+>
+> **子类对象销毁**
+>- 首先调用子类的析构函数 
+>- 然后调用基类的析构函数
+>- 最后这个对象的内存资源被回收
+
+<!--sec data-title="创建销毁测试" data-id="createDelete" data-show=true data-collapse=true ces-->
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class Parent{
+public:
+    Parent(){
+        cout << "parent create" << endl;
+    }
+
+    ~Parent(){
+        cout << "parent delete" << endl;
+    }
+};
+
+class Son: public Parent{
+public:
+    Son(){
+        cout << "son create" << endl;
+    }
+    ~Son(){
+        cout << "son delete" << endl;
+    }
+};
+
+
+int main(int argc, char const *argv[])
+{
+    Son son;
+    return 0;
+}
+
+```
+
+```term
+triangle@LEARN_FUCK:~$ ./a.out
+parent create
+son create
+son delete
+parent delete
+```
+<!--endsec-->
+
+## 3.3. 拒绝继承
+
+<span style="font-size:24px;font-weight:bold" class="section2">定义`final`类</span>
+
+```cpp
+class Parent final{
+};
+
+// 报错不能被继承
+class Son final : public Parent{
+};
+
+int main(int argc, char const *argv[])
+{
+    Son son;
+    return 0;
+}
+
+```
+
+```term
+triangle@LEARN_FUCK:~$ make 
+main.cpp:8:7: error: cannot derive from ‘final’ base ‘Parent’ in derived type ‘Son’
+ class Son final : public Parent{
+       ^~~
+Makefile:12: recipe for target 'main.o' failed
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">定义`final`函数</span>
+
+```cpp
+class Parent {
+public:
+   // 不能被 override 
+   virtual void fcn() final {
+
+    }
+};
+
+class Son final : public Parent{
+public:
+    void fcn(){
+
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    Son son;
+    return 0;
+}
+```
+
+```term
+triangle@LEARN_FUCK:~$ make 
+main.cpp:12:10: error: virtual function ‘virtual void Son::fcn()’
+     void fcn(){
+          ^~~
+main.cpp:5:17: error: overriding final function ‘virtual void Parent::fcn()’
+    virtual void fcn() final {
+                 ^~~
+Makefile:12: recipe for target 'main.o' failed
+```
+
+> [!note|style:flat]
+> - **`final`：该关键字为`c++11`新增特性**
+> - `virtual 类型 fcn final()`：必须和`virtual`搭配使用
 
 # 4. 重载/多态
 

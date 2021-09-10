@@ -94,7 +94,13 @@ def add_number_for_line(line_which_is_title,title_sign):
 
 """给传入内容添加编号"""
 def create_lines_with_number(lines_in_file):
+    flag = 0
     for i in range(len(lines_in_file)):
+        # 过滤```
+        if('```' in lines_in_file[i]):
+            flag = 1 - flag
+        if(flag == 1):
+            continue
         title_sign = lines_in_file[i].lstrip().split(' ')
         if title_sign[0] in headline:
             lines_in_file[i] = add_number_for_line(lines_in_file[i],title_sign[0])
@@ -141,7 +147,7 @@ else:
     file_name = sys.argv[1]
 
 
-
+# file_name = "./test.md"
 if os.path.exists(file_name):
     with open(file_name,'r',encoding='utf-8') as f:
         create_markdown_file_with_number(f,file_name)

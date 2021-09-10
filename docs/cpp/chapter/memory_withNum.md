@@ -52,6 +52,8 @@
 > - **结构体和类的「有效对齐值」：`min{类，结构体自身对齐值，当前指定的pack值}`。** 
 > - **数据成员的「有效对齐值」：`min{成员自身对齐值，当前指定的pack值}`**
 > - **默认对齐值** ：`64`位，`8`字节；`32`位，`4`字节。 
+
+
 ### 4.2.2. 字节对齐准则
 
 > [!warning|style:flat]
@@ -105,8 +107,8 @@ int main(void){
 
 <!--sec data-title="运行结果" data-id="code_res" data-show=true data-collapse=true ces-->
 
-```cpp
-triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$ ./a.out 
+```term
+triangle@DESKTOP-RDTVBUO:~$ ./a.out 
 amount: 40
 b.a: 8
 b.a.ch: 8
@@ -114,7 +116,6 @@ b.a.i: 12
 b.a.d: 16
 b.a.cch: 24
 b.ib: 32
-triangle@DESKTOP-RDTVBUO:/mnt/c/Users/GOD/Desktop/test/testcpp$ 
 ```
 <!--endsec-->
 
@@ -232,9 +233,47 @@ void Func(struct B *p2){
 ><span style="color:red;font-weight:bold"> 同理`32`位的cpu默认对齐字节位`4`，因为`32`位cpu的寄存器是`32`位的。 </span> 
 
 
-# 5. 类/结构体的内存分布
+# 5. 内存碎片
 
-## 5.1. 类
+参考博客：
+- [浅谈内存碎片](https://blog.csdn.net/fdk_lcl/article/details/89482835)
+
+## 5.1. 定义
+
+> [!note|style:flat]
+> **内存碎片（碎片的内存）：一个系统中所有不可用的空闲内存，这些空闲内存小且以不连续方式出现在不同的位置，分为外碎片和内碎片。**
+> - **外碎片：** 还没有被分配出去（不属于任何进程），但由于太小了无法分配给申请内存空间的新进程的内存空闲区域。
+> - **内碎片：** 已经被分配出去（能明确指出属于哪个进程）却不能被利用的内存空间
+
+## 5.2. 产生原因
+
+<span style="font-size:24px;font-weight:bold" class="section2">外碎片的产生</span>
+
+**原因**： 
+**频繁的「分配」与「回收」物理页面，这会导致大量的、连续且小的页面块夹杂在已分配的页面中间，就会产生外部碎片。**
+
+<p style="text-align:center;"><img src="../../image/linux/chips.png" align="middle" /></p>
+
+<!--sec data-title="原因解释" data-id="generateChip" data-show=true data-collapse=true ces-->
+
+<p style="text-align:center;"><img src="../../image/linux/generateChip.png" align="middle" /></p>
+
+有一块`100`个单位的连续空闲内存空间，地址为`0~99`。先申请`10`个单位内存，申请到的内存块为`0~9`。继续申请一块5个单位大的内存，第地址为`10~14`。
+
+<p style="text-align:center;"><img src="../../image/linux/generateChip1.png" align="middle" /></p>
+
+接着把`0~9`内存释放，然后再申请一块`20`个单位的内存块。由于刚被释放的内存块不能满足请求，所以只能从`15`开始分配出`20`个单位的内存块。现整个内存空间：`0~9`空闲，`10~14`被占用，`15~34`被占用，`35~99`空闲。**现在`0~9`就是一个内存碎片。若`10~14`一直被占用，而以后申请的空间都`>= 10`个单位，那么`0~9`就永远用不上了，就变成了「外部碎片」。**
+<!--endsec-->
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">内碎片的产生</span>
+
+**原因**： 
+**「字节对齐」时，会导致空闲区域的产生。详情见「字节对齐」**
+
+# 6. 类/结构体的内存分布
+
+## 6.1. 类
 
 <p style="text-align:center;"><img src="image/../../../image/cpp/class_memory.jpeg" align="middle" /> </p>
 
@@ -247,7 +286,7 @@ void Func(struct B *p2){
 - **属性存放顺序与定义顺序一样** 
 
 
-## 5.2. 子类
+## 6.2. 子类
 
  <p style="text-align:center;"><img src="../../image/cpp/objectmemory.png" align="middle" /></p>
 
@@ -257,11 +296,11 @@ void Func(struct B *p2){
 > - **最后放子类的属性**
 > - <font color="#f44336">防止多重继承，出现属性多次定义，继承时，使用 virtual 进行修饰。</font>
 
-## 5.3. 结构体
+## 6.3. 结构体
 
 <span style="color:blue;font-weight:bold"> 与类一样。唯一不同点，就是没有`vptr`。 </span>
 
-## 5.4. 字节计算
+## 6.4. 字节计算
 
 - **类：`sizeof(vptr)` +  `5.2`的结果；`sizeof(vptr)`由操作系统定，`64位，8 byte`；`32位，4 byte`**
 - **结构体：`5.2`的结果**
@@ -283,7 +322,7 @@ public:
 ```
 <!--endsec-->
 
-# 6. 对象与类
+# 7. 对象与类
 
 | 类型 | 描述                         | 储存                                                              |
 | ---- | ---------------------------- | ----------------------------------------------------------------- |
@@ -294,7 +333,7 @@ public:
 > [!warning|style:flat]
 > **类的概念没有占用内存，但是`sizeof(类名)`是有值的，等于`sizeof(实列)`计算结果。**
 
-# 7.  8 代码地址
+# 8.  代码地址
 
 - **运行时地址起始位置**：它芯片公司指定的一开始运行代码的位置。
 

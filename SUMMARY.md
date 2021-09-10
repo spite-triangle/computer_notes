@@ -4,7 +4,7 @@
 
 ---
 
-- [c/c++](cpp/cpp.md)
+- [C/C++](cpp/cpp.md)
     - [一、基础概念](cpp/chapter/foundation_withNum.md)
     - [二、关键字](cpp/chapter/keyword_withNum.md)
     - [三、指针与引用](cpp/chapter/point_reference_withNum.md)

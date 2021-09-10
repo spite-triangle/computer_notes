@@ -23,19 +23,19 @@
 
 ```cpp
 
-# 2. 初始化
+# 初始化
 dp[] = init
 
-# 3. 边界条件
+# 边界条件
 dp[0][0][...] = base
 
-# 4. 进行状态转移
+# 进行状态转移
 for 状态1 in 状态1的所有取值：
     for 状态2 in 状态2的所有取值：
         for ...
             dp[状态1][状态2][...] = 求最值(选择1，选择2...)
 ```
-## 4.1. 流程方向
+## 1.2. 流程方向
 
 - **自顶向下: 从目标开始，把大问题拆解小问题，直到到初始条件。**
     - 暴力递归: 把大问题拆成小的，递归下去
@@ -43,7 +43,7 @@ for 状态1 in 状态1的所有取值：
 -  **自底向上: 从初始开始，根据递推式，一步一步迭代，直到目标结束。** 
     - **dp数组**: 从初始状态，根据递推关系，算到目标状态，**循环数组，不用递归。**
 
-## 4.2. 重复子问题的确定
+## 1.3. 重复子问题的确定
 
 ```cpp
     dp[i][j] = min{
@@ -54,7 +54,7 @@ for 状态1 in 状态1的所有取值：
 ```
 &emsp;&emsp;**当从`dp[i-1][j-1]`过度到`dp[i][j]`的求解有多种路径时，就存在解重叠的情况。采用备忘录和dp数组解决。**
 
-## 4.3. 状态遍历顺序
+## 1.4. 状态遍历顺序
 
 ![dynamic](../../image/cpp/dynamic.jpg)
 
@@ -74,7 +74,7 @@ for 状态1 in 状态1的所有取值：
 
 
 
-# 5. 斐波那契级数
+# 2. 斐波那契级数
 
 **题目：**
 某人有一对兔子饲养在围果它们每个月生`1`对兔子，且新的兔子在第`2`个月后(`3`个月为周期)也是每个月生`1`对兔子,问一年后围墙中共有多少对兔子。
@@ -86,7 +86,7 @@ $$
 
 **序列为：**`1，1，3，5，8，13，21，34，55，89。。。`
 
-# 6. 凑零钱问题
+# 3. 凑零钱问题
 
 **题目：**
 给你k种面值的硬币，面值分别为`c1, c2 ... ck`，每种硬币的数量无限，再给一个总金额`amount`，问你最少需要几枚硬币凑出这个金额，如果不可能凑出，算法返回 `-1 `。
@@ -129,8 +129,8 @@ int coinChange(const int * coins,int n,int amount){
 ```
 <!--endsec-->
 
-# 7. 子序列问题
-## 7.1. 最长递增(递减)子序列
+# 4. 子序列问题
+## 4.1. 最长递增(递减)子序列
 
 <p style="text-align:center;"><img src="../../image/cpp/increaseSubsequence.jpg" align="middle" /></p>
 
@@ -176,11 +176,11 @@ int lengthOfLIS(vector<int>& seq){
 ```
 <!--endsec-->
 
-## 7.2. 信封嵌套问题
+## 4.2. 信封嵌套问题
 
 <p style="text-align:center;"><img src="../../image/cpp/envelope.jpg" align="middle" /></p>
 
-### 7.2.1. 降维
+### 4.2.1. 降维
 <p style="text-align:center;"><img src="../../image/cpp/subsequenceDimension.jpg" align="middle" /></p>
 
 > [!note|style:flat]
@@ -189,7 +189,7 @@ int lengthOfLIS(vector<int>& seq){
 
 <br>
 
-### 7.2.2. 问题求解
+### 4.2.2. 问题求解
 
 > [!tip]
 > - **排序** : **保证对`1`维序列进行操作**，两点（`[v1，v2]`）数据，先排序：**`v1`升序，`v2`降序**
@@ -256,7 +256,7 @@ int maxEnvelopeLen(vector<Envelope> &envelopes){
 ```
 <!--endsec-->
 
-## 7.3. 最小编辑距离
+## 4.3. 最小编辑距离
 
 <p style="text-align:center;"><img src="../../image/cpp/minEditNumber.jpg" align="middle" /></p>
 
@@ -335,7 +335,7 @@ int minDistance(const string & S,const string & T){
 ```
 <!--endsec-->
 
-## 7.4. 最大子数组之和
+## 4.4. 最大子数组之和
 
 <p style="text-align:center;"><img src="../../image/cpp/maxSum.jpg" align="middle" /></p>
 
@@ -366,9 +366,9 @@ int maxSum(vector<int> &nums){
 ```
 <!--endsec-->
 
-## 7.5. 最长公共子序列问题
+## 4.5. 最长公共子序列问题
 
-### 7.5.1. 算法 
+### 4.5.1. 算法 
 
 **问题：**
 输入`s1 = "zabcde", s2 = "acez"`，它俩的最长公共子序列是`lcs = "ace"`，长度为 `3`，所以算法返回 `3`。
@@ -407,11 +407,11 @@ int maxPublicSub(const string& strA,const string& strB){
 
 <!--endsec-->
 
-### 7.5.2. 字符串的删除操作
+### 4.5.2. 字符串的删除操作
 
 <p style="text-align:center;"><img src="../../image/cpp/deleteString.jpg" align="middle" /></p>
 
-### 7.5.3. 最小 ASCII 删除和
+### 4.5.3. 最小 ASCII 删除和
 
 <p style="text-align:center;"><img src="../../image/cpp/deleteASCII.jpg" align="middle" /></p>
 
@@ -458,7 +458,7 @@ int minDeleteASCII(const string& strA,const string& strB){
 
 
 
-## 7.6. 子序列/子串问题总结
+## 4.6. 子序列/子串问题总结
 
 > [!note|style:flat]
 > - **子串：** 
@@ -469,7 +469,7 @@ int minDeleteASCII(const string& strA,const string& strB){
 > - **特例：一个数组，双指针**
 > - **通过排序，可也把`[v1,v2]`转为子序列问题。**
 
-## 7.7. 特例：最长子序列回文
+## 4.7. 特例：最长子序列回文
 
 <p style="text-align:center;"><img src="../../image/cpp/maxLenMirror.jpg" align="middle" /></p>
 
