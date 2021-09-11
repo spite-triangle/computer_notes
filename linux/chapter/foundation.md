@@ -18,7 +18,7 @@
 - `Linux` 从 `CPU` 的角度出发，为了保护内核的安全，把系统分成了两部分，防止用户程序不稳定把系统给搞崩溃。
 
 
-<span style="font-size:24px;font-weight:bold" class="section2">进程、内存：</span>
+<span style="font-size:24px;font-weight:bold" class="section2">1. 进程、内存：</span>
 
 
 - **内存分配**：根据结构上的区分，内存被分为了两大块，两个空间有着各自的内存区域。
@@ -31,7 +31,10 @@
   - 访问内存地址受限制，比如：进程只能访问映射其地址空间的页表项中规定的在用户态下可访问页面的虚拟地址。
 - <span style="color:red;font-weight:bold"> 所有系统资源的管理都是在「内核态」执行。 </span>
 
-<span style="font-size:24px;font-weight:bold" class="section2">用户态切换到内核态</span>
+<p style="text-align:center;"><img src="../../image/cpp/allmemory.png" align="middle" /></p>
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. 用户态切换到内核态</span>
+
 
 **原因：**
 
@@ -56,14 +59,117 @@
 > 
 > 参考博客：[中断与异常的区别](https://blog.csdn.net/qq_29996285/article/details/88078939)
 
-## `init`进程
+
+## 内核
+
+<p style="text-align:center;"><img src="../../image/linux/kernel.jpg" align="middle" /></p>
+
+> [!note|style:flat]
+> **作用：Linux系统的核心是内核（`kernel space`，这里的「内核」是指的是「内核空间」里面的东西）。内核控制着计算机系统上的所有硬件和软件,在必要时分配硬件,并根据需要执行软件。**
+> - **系统内存管理``**
+> - **应用程序管理**
+> - **硬件设备管理**
+> - **文件系统管理**
+
+## 内存管理
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. MMU 内存管理单元</span>
+
+**介绍**： 一个硬件芯片，用来将`virtual memory`映射到真正的物理设备地址上。**也就是说`CPU`是通过`MMU`来找到真正的内存条，硬盘，显卡等硬件的位置。**
+
+<p style="text-align:center;"><img src="../../image/linux/mmmu.png" align="middle" /></p>
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. virtual memory</span>
+
+对`32`位的`CPU`而言，就会构造一个地址范围为`0x00000000 ~ 0xFFFFFFFF`的「虚拟内存」，然后通过`Memory Management`将物理内存`Memory`（内存条）和`Swap Space`（硬盘上的模拟内存）映射到虚拟内存上，同样还有其他硬件的可操作内存都映射到这上面（例如显存）。**这样做的好处就是：将零碎的可访问地址统一集中起来，`CPU`中的指令就只需要根据地址编号`0x00000000 ~ 0xFFFFFFFF`读写对应的内存就行了，具体的找地址工作就交给「内存管理单元`MMU`」完成。**
+
+
+<p style="text-align:center;"><img src="../../image/linux/cpummu.png" align="middle" /></p>
+
+> [!tip]
+> - **我们编写的程序都是以`virtual memory`进行内存寻址的，运行时，也可以看成是在「虚拟地址空间」中运行的。真实的物理寻址则靠`MMU`完成。**
+> - **每个进程都有自己独立的虚拟地址空间，运行时，就将虚拟地址空间里的代码数据映射到内存中，从而被CPU执行与处理。**
+> 
+> <span style="color:red;font-weight:bold"> 上图的内存映射是乱画的，真实情况不知道（懒得查了） </span>
+
+<p style="text-align:center;"><img src="../../image/linux/processVirtual.png" align="middle" /></p>
+
+**虚拟内存的全局图：**
+<p style="text-align:center;"><img src="../../image/cpp/allmemory.png" align="middle" /></p>
+
+
+**下面进行程序测试，同样的程序同时运行，其内存地址是一样。通过`MMU`单元翻译过后的物理地址也应该是一样的。「这就产生问题了，同时运行的程序，其所在的内存地址应该要不一样才行阿。」**
+
+ **在`CPU`中执行的代码只是完整程序的一部分**，对于上面所遇到的两进程同时运行造成的问题，只要系统将进程运行时间错开，再运行就行了，**表面上的同时运行，其实对于`CPU`而言是错开了的。**
+
+**进程1：**
+
+```term
+triangle@LEARN_FUCK:~$ .\a.exe
+int address: 000000000061FE1C
+double address: 000000000061FE10
+一直运行
+```
+
+**进程2：**
+
+```term
+triangle@LEARN_FUCK:~$ .\a.exe
+int address: 000000000061FE1C
+double address: 000000000061FE10
+一直运行
+```
+
+<!--sec data-title="测试代码" data-id="virtualMemory" data-show=true data-collapse=true ces-->
+
+```cpp
+#include <stdio.h>
+int main(int argn,char* args[]){
+    
+    int a = 1;
+    double b = 1.0;
+
+    // 输出地址
+    printf("int address: %p \n",&a);
+    printf("double address: %p \n",&b);
+
+    // 将程序停住，在后台一直运行
+    getchar();
+}
+```
+<!--endsec-->
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. swap space</span>
+
+**`swap space`：就是一块磁盘空间（硬盘空间）。虚拟内存与物理内存映射的时候，当物理内存不够用时，会将代码放到「交换区」中，以后在`CPU`想要执行相关的指令或者数据时，如果内存中没有，先去交换区将需要的指令与数据搬到物理内存，然后`CPU`再执行。**
+
+<p style="text-align:center;"><img src="../../image/linux/swapspace.png" align="middle" /></p>
+
+**在`CPU`中执行的代码只是完整程序的一部分**，`CPU`是会以时间片的形式轮换执行多个程序；在这里`swap space`就充当了一个「休息室」，当「物理内存」中客流量大时（内存被占用的太厉害），就将「物理内存」中还有一段时间才能切换到的空闲程序给撤下来，放到「交换区」里等着，别占用「物理内存」，等到要运行的时候，又将程序与数据加载回「物理内存」。**通过`swap space`这就能实现多个需要大内存运行的程序，能在储存量小的物理内存上同时运。**
+
+
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">4. cache/buffer</span>
+
+- **cache**：缓存，用来加速「读」操作；先把从磁盘读取的数据保存到内存中，然后`CPU`使用时，直接从内存中读取，效率更块。
+- **buffer**：缓冲区，用来加速「写」操作；先把要写出的数据保存到内存中，达到一定数量后，然后`CPU`集中将数据写入磁盘。
+
+
+## 应用程序管理
+
+**`Linux`操作系统将运行中的程序称为「进程」。每个进程分配一个「virtual memory」，真正在物理内存上运行的就只是其中一小部分。** 进程可以在前台运行，将输出显示在屏幕上，也可以在后台运行，隐藏到幕后。内核控制着`Linux`系统如何管理运行在系统上的所有进程。
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. `init`进程</span>
 
 
 **`linux`系统启动后，第一个被创建的「用户态」进程就是`init`进程。** 
 1. 执行系统初始化脚本，创建一系列的进程（它们都是`init`进程的子孙）；
-1. 在一个死循环中等待其子进程的退出事件，并调用`waitid`用来完成「收尸」工作；
-1. `init`进程不会被暂停
-1. `PID`永远为`1`
+2. 在一个死循环中等待其子进程的退出事件，并调用`waitid`用来完成「收尸」工作；
+3. `init`进程不会被暂停
+4. `PID`永远为`1`
 
 
 ```term
@@ -72,17 +178,15 @@ init─┬─init───bash───pstree
      └─{init}
 ```
 
+<span style="font-size:24px;font-weight:bold" class="section2">2. 7大运行级别</span>
 
 
-# 运行级别
-
-## 7大运行级别
 
 > [!tip]
 > - `0`：系统停机 
 > - `1`：单用户工作状态，root权限，用于系统维护，禁止远程登陆 
-> - `2`：多用户状态(没有NFS) 
-> - `3`：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式 
+> - `2`：多用户状态(没有`NFS`，网络文件系统) 
+> - `3`：完全的多用户状态(有`NFS`，网络文件系统)，登陆后进入控制台命令行模式 
 > - `4`：系统未使用，保留 
 > - `5`：X11控制台，桌面模式 
 > - `6`：系统正常关闭并重启
@@ -93,7 +197,54 @@ triangle@LEARN_FUCK:~$ runlevel # 当前运行级别
 5
 ```
 
-## service
+## 硬件设备管理
+
+任何`Linux`系统需要与之通信的设备，都需要在内核代码中加入对应的「驱动程序代码」。驱动程序代码相当于应用程序和硬件设备的中间人，允许内核与设备之间交换数据。
+
+在`Linux`内核中有两种方法用于插入设备驱动代码:
+
+- **编译进内核的设备驱动代码**：加入代码，重新编译内核
+- **可插入内核的设备驱动模块**：允许将驱动代码插入到运行中的内核而无需重新编译内核。当设备不再使用时也可将内核模块从内核中移走。
+
+
+## 文件系统管理
+
+- 内核必须在编译时就加入对所有可能用到的文件系统的支持
+- `Linux`内核采用虚拟文件系统`(Virtual File System,VFS)`作为和每个文件系统交互的接口
+
+```cpp
+ext      | Linux扩展文件系统,最早的Linux文件系统
+ext2     | 第二扩展文件系统,在ext的基础上提供了更多的功能
+ext3     | 第三扩展文件系统,支持日志功能
+ext4     | 第四扩展文件系统,支持高级日志功能
+hpfs     | OS/2高性能文件系统
+jfs      | IBM日志文件系统
+iso9660  | ISO 9660文件系统(CD-ROM)
+minix    | MINIX文件系统
+msdos    | 微软的FAT16
+ncp      | Netware文件系统
+nfs      | 网络文件系统
+ntfs     | 支持Microsoft NT文件系统
+proc     | 访问系统信息
+ReiserFS | 高级Linux文件系统,能提供更好的性能和硬盘恢复功能
+smb      | 支持网络访问的Samba SMB文件系统
+sysv     | 较早期的Unix文件系统
+ufs      | BSD文件系统
+umsdos   | 建立在msdos上的类Unix文件系统
+vfat     | Windows 95文件系统(FAT32)
+XFS      | 高性能64位日志文件系统
+
+```
+
+# `linux`的启动过程
+
+
+1. 主机加电自检，加载 `BIOS`硬件信息。
+2. 读取 `MBR` 的引导文件(GRUB、LILO)。
+3. 引导 `Linux` 内核。
+4. 运行第一个进程 `init` (进程号永远为 1 )。
+5. 进入相应的「运行级别」。
+6. 运行终端，输入用户名和密码。
 
 
 # 文件
@@ -220,7 +371,11 @@ drwxrwxrwx 1 triangle triangle 4096 Sep 10 14:16 testTar/
 
 > [!tip]
 > - **硬链接**: 多个「目录项」绑定到了同一片「数据储存块」（也就是同一文件）；「硬链接」会使得「链接计数器」增加，计数器表示了当前文件被多少个文件绑定，当计数器为`0`时，该文件才能真正被删除。
+>   - **只有超级用户才可以为目录创建硬链接**
+>   - **不可以在不同文件系统的文件间建立链接**
 > - **符号链接**: 是一个包含「i结点」路径的一个索引。
+>   - **软链接克服了硬链接的不足**
+>   - **当原始文件位置变动或者被删除，软连接失效。** 
 
 ```term
 triangle@LEARN_FUCK:~$ ln -s salary.txt  link1
