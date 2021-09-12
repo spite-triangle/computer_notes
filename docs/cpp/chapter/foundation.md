@@ -25,9 +25,173 @@
 - 默认地，类中定义的所有函数，除了**虚函数**之外，会隐式地或自动地当成内联函数; **虚函数也能用inline修饰，建议性质的。**
 - 泛型定义
 
+# c与c++区别
+
+- `C`是面向过程的语言，`C++`是面向对象的语言
+- `C++`中`new`和`delete`是对内存分配的运算符，取代了`C`中的库函数`malloc`和`free`
+- `C++`中有引用的概念，`C`中没有
+- `C++`引入了类的概念，`C`中没有
+- `C++`有函数重载，`C`没有，但是有「标准库函数的重定向」
+- `C`变量只能在函数的开头处声明和定义「旧版编译器」；而`C++`随时定义随时使用
+
+## `int f()` 与 `int f(void)` 区别
+
+**`c`语言：**
+- `int f()` : 表示返回值为`int`，接受任意参数的函数
+- `int f(void)`: 表示返回值为`int`的无参函数
+
+**`c++`中：**
+
+- `int f()`和 `int f(void)`：都表示返回值为`int`的无参函数
+
+## 三目运算
+
+```cpp
+int a = 1;
+int b = 2;
+(a<b ? a : b) = 3;
+(a<b ? 1 : b) = 3;  //错误
+```
+
+- `c`语言：三目运算不能作为左值
+- `c++`：三目运算符可直接返回变量本身，既可作为右值使用，又可作为左值使用
+  - **注意**：三目运算符可能返回的之中如果有一个是常量值，则不能作为左值
 
 # 重定义
 &emsp;&emsp; **`#include`会将头文件复制，同一个东西头文件实现一次，源文件实现一次就会触发重定义。** 
+
+
+## 结构体
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. c</span>
+
+```cpp
+#include <stdio.h>
+struct Test
+{
+    int a;
+    int b;
+    const int c;
+    void (*fcn)();
+};
+
+int main(int argc, char const *argv[])
+{
+    struct Test t = {1,2,3};
+    printf("%d\n",t.c);
+    return 0;
+}
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. c++</span>
+
+```cpp
+#include <stdio.h>
+
+struct Test
+{
+private:
+    int a;
+public:
+    int b;
+    const int c;
+    static int d;
+
+    Test(int a,int b,int c)
+    :c(c)
+    {
+        this->a = a;
+        this->b = b;
+    }
+
+    virtual void fcn(){
+        printf("parent \n");
+    }
+
+    ~Test(){
+
+    }
+};
+
+int Test::d = 1;
+
+struct Son:public Test{
+    Son(int a,int b,int c)
+    : Test(a,b,c)
+    {
+
+    }
+
+    virtual void fcn(){
+        printf("son \n");
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    Son s(1,2,3);
+    Test& t = s;
+    t.fcn();
+    printf("b: %d c: %d d: %d\n",s.b,s.c,s.d);
+    return 0;
+}
+
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. 对比总结</span>
+
+| 项目              | `c`                    | `c++`          |
+| ----------------- | ---------------------- | -------------- |
+| `const`变量       | 可以                   | 可以           |
+| `const`变量初始化 | 定义变量时`{,,}`初始化 | 初始化参数列表 |
+| `static` 变量     | 不行                   | 可以           |
+| 函数定义          | 函数指针               | 直接定义       |
+| 结构体声明        | `struct 名字 变量;`    | `名字 变量;`   |
+| 访问权限          | 没有                   | 有             |
+| 构造、析构函数    | 没有                   | 有             |
+| 继承              | 没有                   | 有             |
+| 多态              | 没有                   | 有             |
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">4. 恶心追加</span>
+
+
+```cpp
+
+#include <stdio.h>
+
+struct Test{
+};
+
+class A{
+};
+
+int main(int argc, char const *argv[])
+{
+    printf("c++ struct: %d, c++ class %d \n", sizeof(Test), sizeof(A));
+    return 0;
+}
+```
+
+```c
+#include <stdio.h>
+
+struct Test
+{
+};
+
+int main(int argc, char const *argv[])
+{
+    printf("%d\n",sizeof(struct Test));
+    return 0;
+}
+```
+
+> [!note|style:flat]
+> - **c++: 空结构体与空类的`sizeof`为`1`。**
+> - **c: 空结构体的`sizeof`为`0`**
+> - `C++`标准规定类的大小不为`0`，空类的大小为`1`，当类不包含虚函数和非静态数据成员时，其对象大小也为`1`
+
 
 # `main`函数
 
@@ -45,6 +209,74 @@ gcc与g++进行文件编译时，会互相调用，**但是编译.c文件除外*
 - **汇编**:`-C`，生成二进制
 - **链接**:`-O`，生成目标文件
  
+# 动态链接与静态链接
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. 对比</span>
+
+- **静态链接**
+    - 在编译链接时，直接将需要的执行代码拷贝到调用处
+    - 程序发布的时候就不需要依赖库，但是体积可能会相对大一些。
+- **动态链接**
+    - 在编译时，不直接拷贝可执行代码，而记录一系列符号和参数，在程序运行或加载时将这些信息传递给操作系统，操作系统负责将需要的动态库加载到内存中，然后程序在运行到指定的代码时，去共享执行内存中已经加载的动态库可执行代码，最终达到运行时连接的目的。
+    - 多个程序可以共享同一段代码，而不需要在磁盘上存储多个拷贝
+    - 运行时加载，可能会影响程序的前期执行性能
+    - 发布程序时，要把动态库也一起带上
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. 静态链接库</span>
+
+<!--sec data-title="案例代码" data-id="example_lib" data-show=true data-collapse=true ces-->
+
+`math.h`
+
+```cpp
+#ifndef __MATH_H__
+#define __MATH_H__
+
+extern int add(int a,int b);
+
+#endif // __MATH_H__
+```
+`math.cpp`
+```cpp
+int add(int a,int b){
+    return a + b;
+}
+```
+`main.cpp`
+```cpp
+#include <stdio.h>
+#include "math.h"
+
+int main(int argc, char const *argv[])
+{
+    printf("%d \n",add(10,11));    
+    return 0;
+}
+```
+<!--endsec-->
+
+```term
+triangle@LEARN_FUCK:~$ gcc -c math.cpp # 生成 .o 文件
+triangle@LEARN_FUCK:~$ ar rcs libmath.a math.o  # 打包生成静态库
+triangle@LEARN_FUCK:~$ gcc main.cpp -L. -lmath # 使用静态库
+triangle@LEARN_FUCK:~$ ./a.out
+21
+```
+
+> [!note|style:flat]
+> **`-lmath`：对于库的名字，不要加 `lib` 和 `.a`**
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. 动态库</span>
+
+```term
+triangle@LEARN_FUCK:~$ gcc -fPIC -c math.cpp # -fPIC 表示生成与路径无关的代码
+triangle@LEARN_FUCK:~$ gcc -shared -o libmath.so math.o # 生成动态库
+triangle@LEARN_FUCK:~$ gcc main.cpp -L. -lmath # 使用动态库
+triangle@LEARN_FUCK:~$ export LD_LIBRARY_PATH=$(pwd) # 添加动态库查找位置
+triangle@LEARN_FUCK:~$ ./a.out
+21
+```
+
 # 定义与声明
 - **定义**：表示创建变量或分配存储单元
     - **定义必须有，且只能出现一次**

@@ -1,3 +1,6 @@
+
+ <h1 style="font-size:60px;text-align:center;">原理介绍</h1>
+
 # 1. `Linux` 简介
 
 ## 1.1. `Linux` 系统结构
@@ -400,12 +403,112 @@ lrwxrwxrwx 1 triangle triangle   10 Sep 10 19:52 link1 -> salary.txt*
 -rwxrwxrwx 3 triangle triangle   55 Sep 10 12:59 salary.txt*
 ```
 
-# 4. 环境变量
+# 4. 文件描述符与进程
+
+## 4.1. 进程
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. `task_struct`</span>
+
+**对于操作系统，进程就是一个数据结构:**
+
+```cpp
+struct task_struct {
+    // 进程状态
+    long              state;
+    // 虚拟内存结构体
+    struct mm_struct  *mm;
+    // 进程号
+    pid_t              pid;
+    // 指向父进程的指针
+    struct task_struct __rcu  *parent;
+    // 子进程列表
+    struct list_head        children;
+    // 存放文件系统信息的指针
+    struct fs_struct        *fs;
+    // 一个数组，包含该进程打开的文件指针
+    struct files_struct        *files;
+};
+```
+
+**- `mm`: 指向的是进程的虚拟内存，也就是载入资源和可执行文件的地方**
+**- `files`：这个数组里装着所有该进程打开的文件的指针**
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. 进程与线程</span>
+
+<p style="text-align:center;"><img src="../../image/linux/process.jpg" align="middle" /></p>
+
+
+<p style="text-align:center;"><img src="../../image/linux/thread.jpg" align="middle" /></p>
+
+> [!note|style:flat]
+> **对于`linux`但无论线程还是进程，都是用 `task_struct` 结构表示的，唯一的区别就是共享的数据区域不同。**
+
+## 4.2. 文件描述符
+
+<p style="text-align:center;"><img src="../../image/linux/files.jpg" align="middle" /></p>
+
+**定义：每个进程被创建时，files 的前三位被填入默认值，分别指向「标准输入流」、「标准输出流」、「标准错误流」。我们常说的「文件描述符」就是指这个文件指针数组的索引。**
+
+> [!tip]
+> - `0`: 就是`stdin`
+> - `1`: 就是`stdout`
+> - `2`: 就是`stderr`
+
+
+**由于在`linux`中，定义一切内容皆是文件，那么要操作什么外部内容就可以往这个`files`结构体中插入「文件」进行操作。**
+
+<p style="text-align:center;"><img src="../../image/linux/otherfiles.jpg" align="middle" /></p>
+
+## 4.3. 重定向
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. 输入重定向</span>
+
+**原理：就是把`files[0]`修改掉。**
+
+```term
+triangle@LEARN_FUCK:~$ command < test.txt
+```
+
+<p style="text-align:center;"><img src="../../image/linux/reopenStdin.jpg" align="middle" /></p>
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. 输出重定向</span>
+
+**原理：就是把`files[1]`修改掉。**
+
+```term
+triangle@LEARN_FUCK:~$ command > test.txt
+```
+
+<p style="text-align:center;"><img src="../../image/linux/reopenstdout.jpg" align="middle" /></p>
+
+
+## 4.4. 他位置的文件描述符
+
+```term
+triangle@LEARN_FUCK:~$ exec 8<> /dev/tcp/www.baidu.com/80
+triangle@LEARN_FUCK:~$ echo -e 'GET / HTTP/1.0\n' 1>& 8
+triangle@LEARN_FUCK:~$ cat 0<& 8
+HTTP/1.0 200 OK
+Accept-Ranges: bytes
+Cache-Control: no-cache
+Content-Length: 14615
+Content-Type: text/html
+....
+```
+
+> [!tip]
+> `A >& B`：
+> - `A,B`：`files[]`的索引数字
+> - `&`：将`B`与`A`绑定
+> - `> <`：是输入替换，还是输出替换。
+
+
+# 5. 环境变量
 
 参考博客：
 - [超详干货！Linux 环境变量配置全攻略](https://zhuanlan.zhihu.com/p/317282094)
 
-## 4.1. 定义
+## 5.1. 定义
 
 > [!tip]
 > **在 `Linux` 系统中，「环境变量」是用来定义系统运行环境的一些参数，比如每个用户不同的家目录`（HOME）`、邮件存放位置`（MAIL）`等。**
@@ -423,7 +526,7 @@ lrwxrwxrwx 1 triangle triangle   10 Sep 10 19:52 link1 -> salary.txt*
 | PS1          | Bash解释器的提示符                     |
 | MAIL         | 邮件保存路径                           |
 
-## 4.2. 查看
+## 5.2. 查看
 
 
 > [!warning|style:flat]
@@ -463,7 +566,7 @@ triangle@LEARN_FUCK:~$ echo ¥USER # 查看指定
 triangle
 ```
 
-## 4.3. 创建
+## 5.3. 创建
 
 <span style="font-size:24px;font-weight:bold" class="section2">终端直接定义变量</span>
 
@@ -525,9 +628,9 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 
 
 
-# 5. `crontab`定时
+# 6. `crontab`定时
 
-## 5.1. 简介
+## 6.1. 简介
 
 
 **作用：可以用来让系统定时调用某个指令。**
@@ -536,7 +639,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/u
 
 <p style="text-align:center;"><img src="../../image/linux/crontab_struction.jpg" align="middle" /></p>
 
-## 5.2. 配置
+## 6.2. 配置
 
 <span style="font-size:24px;font-weight:bold" class="section2">配置文件</span>
 
@@ -584,7 +687,7 @@ triangle@LEARN_FUCK:~$ vim /etc/crontab
 triangle@LEARN_FUCK:~$ crontab -e
 ```
 
-# 6. 挂载
+# 7. 挂载
 
 > [!tip]
 > **`fs`表示`file system`**
@@ -627,3 +730,5 @@ UUID=18823fc1-2958-49a0-9f1e-e1316bd5c2c5       /u02    ext3    defaults        
 - `parameters` 挂载参数
 - `dump dump` （0表示不进行dump备份，1代表每天进行dump备份，2代表不定日期的进行dump备份）
 - `pass fsck`检测顺序 （其实是一个检查顺序，0代表不检查，1代表第一个检查，2后续.一般根目录是1，数字相同则同时检查）
+
+

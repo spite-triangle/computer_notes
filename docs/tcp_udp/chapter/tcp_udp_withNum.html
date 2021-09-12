@@ -1,0 +1,865 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>二、tcp/udp · 计算机笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="海拉尔的三角">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro-fixed/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex-pro/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-terminull-light/terminull.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="foundation_withNum.html" />
+    
+
+    
+        <link rel="shortcut icon" href="image/ico.png" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/ico.png">
+    
+    
+        
+    
+    
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/spite-triangle" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../cpp/cpp.html">
+            
+                <a href="../../cpp/cpp.html">
+            
+                    
+                    C/C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../cpp/chapter/foundation_withNum.html">
+            
+                <a href="../../cpp/chapter/foundation_withNum.html">
+            
+                    
+                    一、基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../cpp/chapter/keyword_withNum.html">
+            
+                <a href="../../cpp/chapter/keyword_withNum.html">
+            
+                    
+                    二、关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../cpp/chapter/point_reference_withNum.html">
+            
+                <a href="../../cpp/chapter/point_reference_withNum.html">
+            
+                    
+                    三、指针与引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../cpp/chapter/oop_withNum.html">
+            
+                <a href="../../cpp/chapter/oop_withNum.html">
+            
+                    
+                    四、面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../cpp/chapter/memory_withNum.html">
+            
+                <a href="../../cpp/chapter/memory_withNum.html">
+            
+                    
+                    五、内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../cpp/chapter/process_withNum.html">
+            
+                <a href="../../cpp/chapter/process_withNum.html">
+            
+                    
+                    六、进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../cpp/chapter/locks_withNum.html">
+            
+                <a href="../../cpp/chapter/locks_withNum.html">
+            
+                    
+                    七、锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../cpp/chapter/stl_withNum.html">
+            
+                <a href="../../cpp/chapter/stl_withNum.html">
+            
+                    
+                    八、STL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../cpp/chapter/dataStruction_withNum.html">
+            
+                <a href="../../cpp/chapter/dataStruction_withNum.html">
+            
+                    
+                    九、数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../cpp/chapter/array_list_withNum.html">
+            
+                <a href="../../cpp/chapter/array_list_withNum.html">
+            
+                    
+                    十、数组链表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="../../cpp/chapter/find_withNum.html">
+            
+                <a href="../../cpp/chapter/find_withNum.html">
+            
+                    
+                    十一、目标查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="../../cpp/chapter/binaryTree_withNum.html">
+            
+                <a href="../../cpp/chapter/binaryTree_withNum.html">
+            
+                    
+                    十二、二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="../../cpp/chapter/dynamicProgram_withNum.html">
+            
+                <a href="../../cpp/chapter/dynamicProgram_withNum.html">
+            
+                    
+                    十三、动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="../../cpp/chapter/backtracking_withNum.html">
+            
+                <a href="../../cpp/chapter/backtracking_withNum.html">
+            
+                    
+                    十四、回溯算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="../../cpp/chapter/monotoneStack_withNum.html">
+            
+                <a href="../../cpp/chapter/monotoneStack_withNum.html">
+            
+                    
+                    十五、单调栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="../../cpp/chapter/toollib_withNum.html">
+            
+                <a href="../../cpp/chapter/toollib_withNum.html">
+            
+                    
+                    附录 工具库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../MySQL/mysql.html">
+            
+                <a href="../../MySQL/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../MySQL/chapter/introduction_withNum.html">
+            
+                <a href="../../MySQL/chapter/introduction_withNum.html">
+            
+                    
+                    一、简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../MySQL/chapter/foundation_withNum.html">
+            
+                <a href="../../MySQL/chapter/foundation_withNum.html">
+            
+                    
+                    二、控制台操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                    
+                    三、数据库、表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../MySQL/chapter/operatorData_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorData_withNum.html">
+            
+                    
+                    四、数据操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../MySQL/chapter/transaction_withNum.html">
+            
+                <a href="../../MySQL/chapter/transaction_withNum.html">
+            
+                    
+                    五、事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../MySQL/chapter/index_withNum.html">
+            
+                <a href="../../MySQL/chapter/index_withNum.html">
+            
+                    
+                    六、索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../MySQL/chapter/authority_withNum.html">
+            
+                <a href="../../MySQL/chapter/authority_withNum.html">
+            
+                    
+                    七、权限管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../MySQL/chapter/backup_withNum.html">
+            
+                <a href="../../MySQL/chapter/backup_withNum.html">
+            
+                    
+                    八、备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../linux/linux.html">
+            
+                <a href="../../linux/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../linux/chapter/foundation_withNum.html">
+            
+                <a href="../../linux/chapter/foundation_withNum.html">
+            
+                    
+                    一、原理知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../linux/chapter/command_withNum.html">
+            
+                <a href="../../linux/chapter/command_withNum.html">
+            
+                    
+                    二、指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../tcp_upd.html">
+            
+                <a href="../tcp_upd.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="foundation_withNum.html">
+            
+                <a href="foundation_withNum.html">
+            
+                    
+                    一、网络通讯基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.2" data-path="tcp_udp_withNum.html">
+            
+                <a href="tcp_udp_withNum.html">
+            
+                    
+                    二、tcp/udp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >二、tcp/udp</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#1-&#x6A21;&#x578B;"><b></b>1. &#x6A21;&#x578B;</a></li><li><span class="title-icon "></span><a href="#2-tcpudp"><b></b>2. TCP/UDP</a></li><li><span class="title-icon "></span><a href="#3-tcp"><b></b>3. TCP</a></li><ul><li><span class="title-icon "></span><a href="#31-&#x4E09;&#x6B21;&#x63E1;&#x624B;"><b></b>3.1. &#x4E09;&#x6B21;&#x63E1;&#x624B;</a></li><li><span class="title-icon "></span><a href="#32-&#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;"><b></b>3.2. &#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;</a></li></ul><li><span class="title-icon "></span><a href="#4-&#x56DB;&#x6B21;&#x5206;&#x624B;"><b></b>4. &#x56DB;&#x6B21;&#x5206;&#x624B;</a></li><li><span class="title-icon "></span><a href="#5-&#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;"><b></b>5. &#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;</a></li></ul></div><a href="#1-&#x6A21;&#x578B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="1-&#x6A21;&#x578B;"><a name="1-&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#1-&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x6A21;&#x578B;</h1>
+<p style="text-align:center;"><a href="../../image/tcp_ip/tcp_protocol.jpg" data-lightbox="7fa46508-0a97-4933-8051-0b54644582f8" data-title="undefined"><img src="../../image/tcp_ip/tcp_protocol.jpg" alt="undefined"></a></p>
+
+<p><strong>&#x4E3A;&#x4EC0;&#x4E48;&#x5206;&#x5C42;&#xFF1A;</strong> <span style="color:red;font-weight:bold"> &#x89E3;&#x8026;&#xFF0C;&#x4E0D;&#x540C;&#x5C42;&#x5C31;&#x80FD;&#x66FF;&#x6362;&#x4E0D;&#x540C;&#x5185;&#x5BB9;&#xFF0C;&#x800C;&#x4E0D;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x6D41;&#x7A0B;&#x3002; </span></p>
+<ul>
+<li><strong>&#x5E94;&#x7528;&#x5C42;&#xFF1A;</strong> &#x5177;&#x6709;<code>http,smtp,ssh</code>&#x534F;&#x8BAE;&#xFF0C;&#x63D0;&#x4F9B;&#x534F;&#x8BAE;&#x5185;&#x5BB9;</li>
+<li><strong>&#x4F20;&#x8F93;&#x63A7;&#x5236;&#x5C42;&#xFF1A;</strong> <code>tcp &#xFF0C;udp</code>&#x534F;&#x8BAE;&#xFF0C;&#x521B;&#x5EFA;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x5305;&#x3002;</li>
+<li><strong>&#x7F51;&#x7EDC;&#x5C42;&#xFF1A;</strong> <code>ip,arp</code>&#x534F;&#x8BAE;&#x3002;&#x7F51;&#x7EDC;&#x5C42;&#x8D1F;&#x8D23;&#x5BF9;&#x5B50;&#x7F51;&#x95F4;&#x7684;&#x6570;&#x636E;&#x5305;&#x8FDB;&#x884C;&#x300C;&#x8DEF;&#x7531;&#x9009;&#x62E9;&#x300D;&#x3002;</li>
+<li><strong>&#x94FE;&#x8DEF;&#x5C42;&#xFF1A;</strong> &#x5C06;&#x6E90;&#x81EA;&#x7F51;&#x7EDC;&#x5C42;&#x6765;&#x7684;&#x6570;&#x636E;&#x53EF;&#x9760;&#x5730;&#x4F20;&#x8F93;&#x5230;&#x76F8;&#x90BB;&#x8282;&#x70B9;&#x7684;&#x76EE;&#x6807;&#x673A;&#x7F51;&#x7EDC;&#x5C42;&#x3002;&#x7269;&#x7406;&#x5730;&#x5740;&#x5BFB;&#x5740;&#xFF08;<code>mac</code>&#xFF09;&#x3001;&#x6570;&#x636E;&#x7684;&#x6210;&#x5E27;&#x3001;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#x3001;&#x6570;&#x636E;&#x7684;&#x68C0;&#x9519;&#x3001;&#x91CD;&#x53D1;&#x7B49;&#x3002;</li>
+<li><strong>&#x7269;&#x7406;&#x5C42;&#xFF1A;</strong>&#x786E;&#x4FDD;&#x539F;&#x59CB;&#x7684;&#x6570;&#x636E;&#x53EF;&#x5728;&#x5404;&#x79CD;&#x7269;&#x7406;&#x5A92;&#x4F53;&#x4E0A;&#x4F20;&#x8F93;</li>
+</ul>
+<h1 id="2-tcpudp"><a name="2-tcpudp" class="anchor-navigation-ex-anchor" href="#2-tcpudp"><i class="fa fa-link" aria-hidden="true"></i></a>2. TCP/UDP</h1>
+<p><strong><code>UDP</code></strong></p>
+<p>&#x300C;&#x65E0;&#x8FDE;&#x63A5;&#x300D;&#x7684;&#xFF0C;&#x5C3D;&#x6700;&#x5927;&#x53EF;&#x80FD;&#x4EA4;&#x4ED8;&#xFF0C;&#x6CA1;&#x6709;&#x62E5;&#x585E;&#x63A7;&#x5236;&#xFF0C;&#x9762;&#x5411;&#x62A5;&#x6587;&#xFF08;&#x5BF9;&#x4E8E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F20;&#x4E0B;&#x6765;&#x7684;&#x62A5;&#x6587;&#x4E0D;&#x5408;&#x5E76;&#x4E5F;&#x4E0D;&#x62C6;&#x5206;&#xFF0C;&#x53EA;&#x662F;&#x6DFB;&#x52A0; <code>UDP</code> &#x9996;&#x90E8;&#xFF09;&#xFF0C;&#x652F;&#x6301;&#x4E00;&#x5BF9;&#x4E00;&#x3001;&#x4E00;&#x5BF9;&#x591A;&#x3001;&#x591A;&#x5BF9;&#x4E00;&#x548C;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x4EA4;&#x4E92;&#x901A;&#x4FE1;&#x3002;</p>
+<p><strong><code>TCP</code></strong></p>
+<p>&#x9762;&#x5411;&#x300C;&#x8FDE;&#x63A5;&#x300D;&#x7684;&#xFF0C;&#x63D0;&#x4F9B;&#x53EF;&#x9760;&#x4EA4;&#x4ED8;&#xFF0C;&#x6709;&#x6D41;&#x91CF;&#x63A7;&#x5236;&#xFF0C;&#x62E5;&#x585E;&#x63A7;&#x5236;&#xFF0C;&#x63D0;&#x4F9B;&#x5168;&#x53CC;&#x5DE5;&#x901A;&#x4FE1;&#xFF0C;&#x9762;&#x5411;&#x5B57;&#x8282;&#x6D41;&#xFF08;&#x628A;&#x5E94;&#x7528;&#x5C42;&#x4F20;&#x4E0B;&#x6765;&#x7684;&#x62A5;&#x6587;&#x770B;&#x6210;&#x5B57;&#x8282;&#x6D41;&#xFF0C;&#x628A;&#x5B57;&#x8282;&#x6D41;&#x7EC4;&#x7EC7;&#x6210;&#x5927;&#x5C0F;&#x4E0D;&#x7B49;&#x7684;&#x6570;&#x636E;&#x5757;&#xFF09;&#xFF0C;&#x6BCF;&#x4E00;&#x6761; <code>TCP</code> &#x8FDE;&#x63A5;&#x53EA;&#x80FD;&#x662F;&#x70B9;&#x5BF9;&#x70B9;&#x7684;&#xFF08;&#x4E00;&#x5BF9;&#x4E00;&#xFF09;&#x3002;</p>
+<h1 id="3-tcp"><a name="3-tcp" class="anchor-navigation-ex-anchor" href="#3-tcp"><i class="fa fa-link" aria-hidden="true"></i></a>3. TCP</h1>
+<h2 id="31-&#x4E09;&#x6B21;&#x63E1;&#x624B;"><a name="31-&#x4E09;&#x6B21;&#x63E1;&#x624B;" class="anchor-navigation-ex-anchor" href="#31-&#x4E09;&#x6B21;&#x63E1;&#x624B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x4E09;&#x6B21;&#x63E1;&#x624B;</h2>
+<p style="text-align:center;"><a href="../../image/tcp_ip/link.png" data-lightbox="2e160cb1-b795-4899-8e12-3d98ebc9b711" data-title="undefined"><img src="../../image/tcp_ip/link.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note]
+<strong>&#x4E09;&#x6B21;&#x63E1;&#x624B;&#xFF1A;&#x53EA;&#x662F;&#x4F20;&#x8F93;&#x5C42;&#x6D4B;&#x8BD5;&#x7528;&#xFF0C;&#x548C;&#x7528;&#x6237;&#x5C42;&#x6CA1;&#x5173;&#x7CFB;</strong></p>
+<ol>
+<li>C &#x53D1;&#x9001;&#x4E00;&#x4E2A; <code>syn</code> &#x7ED9; S</li>
+<li>S &#x6536;&#x5230;&#x540E;&#xFF0C;&#x53D1;&#x9001;<code>syn</code>&#x548C;<code>ack</code>&#x7ED9; C</li>
+<li>C &#x6536;&#x5230;&#x540E;&#xFF0C;&#x53D1;&#x9001;&#x4E00;&#x4E2A;<code>ack</code>&#x7ED9; S</li>
+<li><code>syn</code>: &#x7528;&#x4F5C;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x65F6;&#x7684;&#x540C;&#x6B65;&#x4FE1;&#x53F7;</li>
+<li><code>ack</code>: &#x7528;&#x4E8E;&#x5BF9;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x786E;&#x8BA4;</li>
+</ol>
+</blockquote>
+<h2 id="32-&#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;"><a name="32-&#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#32-&#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x4E3A;&#x5565;&#x8981;&#x4E09;&#x6B21;&#xFF1F;</h2>
+<p><strong>&#x6570;&#x636E;&#x4F20;&#x8F93;&#x662F;&#x53CC;&#x5411;&#x7684;&#xFF0C;&#x4E09;&#x6B21;&#x63E1;&#x624B;&#x5C31;&#x80FD;&#x8BC1;&#x660E;&#x53CC;&#x65B9;&#x7684;&#x6536;&#x53D1;&#x90FD;&#x662F;&#x6B63;&#x5E38;&#x7684;&#x3002;</strong></p>
+<ul>
+<li>1 &#x548C; 2 &#xFF1A; C &#x786E;&#x8BA4;&#x7684;&#x6536;&#x53D1;&#x901A;&#x9053;&#x7684;&#x6B63;&#x5E38;</li>
+<li>2 &#x548C; 3 &#xFF1A; S &#x786E;&#x8BA4;&#x4E86;&#x6536;&#x53D1;&#x901A;&#x9053;&#x7684;&#x6B63;&#x5E38;</li>
+</ul>
+<h1 id="4-&#x56DB;&#x6B21;&#x5206;&#x624B;"><a name="4-&#x56DB;&#x6B21;&#x5206;&#x624B;" class="anchor-navigation-ex-anchor" href="#4-&#x56DB;&#x6B21;&#x5206;&#x624B;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x56DB;&#x6B21;&#x5206;&#x624B;</h1>
+<p style="text-align:center;"><a href="../../image/tcp_ip/break.png" data-lightbox="6f3c104d-0fe3-4236-8429-52f9712df9fb" data-title="undefined"><img src="../../image/tcp_ip/break.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note]
+<strong>&#x56DB;&#x6B21;&#x5206;&#x624B;&#xFF1A;</strong></p>
+<ol>
+<li>C &#x53D1;&#x4E00;&#x4E2A; <code>fin</code> &#x7ED9; S&#xFF1A;&#x901A;&#x77E5;&#x8981;&#x65AD;&#x5F00;</li>
+<li>S &#x53D1; <code>ack</code> &#x7ED9; C&#xFF1A;&#x56DE;&#x5E94;&#x4E00;&#x4E0B;&#xFF0C;&#x4E0D;&#x4EE3;&#x8868;&#x540C;&#x610F;&#x65AD;&#x5F00;</li>
+<li>&#x7136;&#x540E; S &#x5F00;&#x59CB;&#x6536;&#x5C3E;&#x5DE5;&#x4F5C;&#xFF0C; &#x53EF;&#x80FD;&#x8FD8;&#x6709;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x4F20;&#x8F93;&#x5B8C;&#xFF0C;C &#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x6570;&#x636E;&#x3002;</li>
+<li>&#x6536;&#x5C3E;&#x5B8C;&#x6BD5;&#xFF0C;S &#x6B63;&#x5F0F;&#x56DE;&#x5E94;&#x4E00;&#x4E2A;<code>fin</code>&#xFF1A;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x65AD;&#x5F00;&#x4E86;</li>
+<li>C &#x56DE;&#x590D;&#x4E00;&#x4E2A;<code>ack</code></li>
+<li>&#x6700;&#x540E;&#x53CC;&#x65B9;&#x5F00;&#x59CB;<code>close</code>&#x56DE;&#x6536;&#x8D44;&#x6E90;&#x3002;</li>
+<li><code>fin</code>: &#x8868;&#x793A;&#x540E;&#x9762;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x9700;&#x8981;&#x53D1;&#x9001;&#xFF0C;&#x901A;&#x5E38;&#x610F;&#x6627;&#x7740;&#x6240;&#x5EFA;&#x7ACB;&#x7684;&#x8FDE;&#x63A5;&#x9700;&#x8981;&#x5173;&#x95ED;&#x4E86;&#x3002;</li>
+</ol>
+</blockquote>
+<h1 id="5-&#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;"><a name="5-&#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;" class="anchor-navigation-ex-anchor" href="#5-&#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x4E3A;&#x4EC0;&#x4E48;&#x56DB;&#x6B21;&#xFF1F;</h1>
+<p><strong>C &#x6CA1;&#x6709;&#x6570;&#x636E;&#x8981;&#x53D1;&#x9001;&#xFF0C;&#x8BF7;&#x6C42;&#x65AD;&#x5F00;&#x3002;&#x4F46;&#x8FD9;&#x4E0D;&#x4EE3;&#x8868; S &#x6CA1;&#x6709;&#x6570;&#x636E;&#x8981;&#x53D1;&#x9001;&#x4E86;&#xFF0C;&#x6240;&#x4EE5; S &#x5148;&#x56DE;&#x590D;&#x4E00;&#x4E0B; C&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x9996;&#x5C3E;&#x5DE5;&#x4F5C;&#xFF0C;&#x628A;&#x6CA1;&#x6709;&#x4F20;&#x8F93;&#x5B8C;&#x7684;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x6389;&#xFF0C;C &#x4E0D;&#x60F3;&#x53D1;&#x9001;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x6570;&#x636E;&#x3002;</strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="foundation_withNum.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 一、网络通讯基础">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"二、tcp/udp","level":"5.1.2","depth":2,"previous":{"title":"一、网络通讯基础","level":"5.1.1","depth":2,"path":"tcp_udp/chapter/foundation_withNum.md","ref":"./tcp_udp/chapter/foundation_withNum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"tcp_udp/chapter/tcp_udp_withNum.md","mtime":"2021-09-12T14:09:52.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-12T14:13:34.946Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-terminull-light/terminull.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
