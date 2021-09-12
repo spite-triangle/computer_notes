@@ -55,6 +55,51 @@
 
 若要对`nums[lo..hi]`  进行排序，我们先找一个分界点 p，通过交换元素使得 nums[lo..p-1] 都小于等于 nums[p]，且 nums[p+1..hi] 都大于 nums[p]，然后递归地去 nums[lo..p-1] 和 nums[p+1..hi] 中寻找新的分界点，最后整个数组就被排序了。
 
+```cpp
+
+void quickSort(int left, int right,int* array){
+
+    if(left >= right){
+        return;
+    }
+
+    int l = left;
+    int r = right;
+    int base = array[l];
+
+    while (l < r)
+    {
+        for ( r; r > l ; r --)
+        {
+            if (array[r] < base)
+            {
+                break;
+            }
+        } 
+        // 移动左边
+        for (l; l < r; l++)
+        {
+            if (array[l] > base)
+            {
+                break;
+            }
+        }
+        
+        if(l == r){
+            array[left] = array[l];
+            array[l] = base;
+        }else{
+            int temp = array[l];
+            array[l] = array[r];
+            array[r] = temp;
+        }
+    }
+
+    quickSort(left,l-1,array);
+    quickSort(l+1,right,array);
+}
+```
+
 
 # 2. 链表
 

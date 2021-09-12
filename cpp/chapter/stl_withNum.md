@@ -27,7 +27,7 @@
     - Map/Multimap: map只允许key唯一；multimap中key可以重复使用；
 
 > [!note|style:flat]
-> `set map multiset multimap` 通过红黑树实现，无序 `unorder_map unorder_set` 通过哈希表实现。
+> `set map multiset multimap` 通过红黑实现，无序 `unorder_map unorder_set` 通过哈希表实现。
  
 
 # 3. 分配器
