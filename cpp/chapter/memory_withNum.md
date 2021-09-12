@@ -347,3 +347,227 @@ public:
 
 - **存储地址**: 程序存储在哪儿的。
 
+# 9. `--cpy`
+
+```cpp
+#include <string.h>
+
+void *memcpy(void * __dest,const void *__src,  size_t  n);
+void *memmove (void * __dest, const void *__src, size_t n);
+
+char *strncpy(char * __dest,const char *__src, size_t n);
+char *strcpy(char * __dest,const char *__src);
+
+```
+
+| 函数      | 描述             | 结束            | 重叠问题                          |
+| --------- | ---------------- | --------------- | --------------------------------- |
+| `memcpy`  | 可以复制任意内容 | 复制`n`个，停止 | 未定义                            |
+| `memmove` | 可以复制任意内容 | 复制`n`个，停止 | 保证`dest`没问题，`src`可能会乱掉 |
+| `strcpy`  | 复制字符串       | 到`\0`停止      | 未定义                            |
+| `strncpy` | 复制字符串       | 复制`n`个，停止 | 未定义                            |
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. `memcpy` 与 `strncpy`</span>
+
+<!--sec data-title="测试代码" data-id="memcpystrncpy" data-show=true data-collapse=true ces-->
+```cpp
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char const *argv[])
+{
+    char src[] = "hellow";
+    char dest[12];
+
+    // memcpy(dest, src, 12);
+    strncpy(dest, src, 12);
+
+    for (int i = 0; i < 12; i++)
+    {
+        printf("%d ",(int)dest[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+```
+<!--endsec-->
+
+```term
+triangle@LEARN_FUCK:~$ make  # memcpy(dest, src, 12);
+104 101 108 108 111 119 0 11 101 108 108 111
+triangle@LEARN_FUCK:~$ make  # strncpy(dest, src, 12);
+104 101 108 108 111 119 0 0 0 0 0 0 
+```
+
+> [!note|style:flat]
+> **当`n`大于了`src`长度时：**
+> - `memcpy`: `src`后面的内存接着拷贝，管他是啥。
+> - `strncpy`：采用`\0`进行补全
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. `strcpy` 与 `strncpy`</span>
+
+<!--sec data-title="代码测试" data-id="strcpystrncpy" data-show=true data-collapse=true ces-->
+
+```cpp
+#include <stdio.h>
+#include <string.h>
+int main(int argc, char const *argv[])
+{
+    char src[] = "aaaa";
+    char dest[11]="0123456789";
+
+    // strncpy(dest, src,4);
+    strcpy(dest, src);
+
+    for (int i = 0; i < 11; i++)
+    {
+        printf("%d ",(int)dest[i]);
+    }
+    
+    printf("\n");
+
+    return 0;
+}
+```
+
+<!--endsec-->
+
+
+```term
+triangle@LEARN_FUCK:~$ make  #  strcpy(dest, src);
+97 97 97 97 0 53 54 55 56 57 0 
+triangle@LEARN_FUCK:~$ make # strncpy(dest, src,4);
+97 97 97 97 52 53 54 55 56 57 0 
+```
+
+> [!note|style:flat]
+> - **`strcpy`: 拷贝到`\0`结束拷贝**
+> - **`strncpy`：拷贝到`n`结束，超过了用`\0`进行补全，不会主动添加`\0`**
+
+
+<!--sec data-title="源代码" data-id="sourcecpy" data-show=true data-collapse=true ces-->
+
+```cpp
+void *memmove(void *dest, const void *src, size_t count)
+{
+    char *tmp;
+    const char *s;
+    // 目标起始地址 小于等于 源头的起始地址，从头开始 ++ 进行拷贝，dest 的值就是 原来的 src 的值，重叠部分的 src 值出错 
+    if (dest <= src) {
+            tmp = dest;
+            s = src;
+            while (count--)
+                    *tmp++ = *s++;
+    } 
+    // 目标起始地址 大于 源头的起始地址，从尾部开始 -- 进行拷贝，dest 的值就是 原来的 src 的值，重叠部分的 src 值出错 
+    else 
+    {
+            tmp = dest;
+            tmp += count;
+            s = src;
+            s += count;
+            while (count--)
+                    *--tmp = *--s;
+    }
+    return dest;
+}
+
+void *memcpy(void *dest, const void *src, size_t count)
+{
+       char *tmp = dest;
+       const char *s = src;
+       while (count--)
+               *tmp++ = *s++;
+       return dest;
+}
+
+
+
+char * strcpy(char *dst,const char *src)   
+{
+    assert(dst != NULL && src != NULL);
+ 
+    char *ret = dst;  
+ 
+    while ((*dst++=*src++)!='\0');
+ 
+    return ret;
+
+
+
+char * __cdecl strncpy (char * dest,constchar * source,size_t count)
+{
+   char *start = dest;
+
+   while (count && (*dest++ = *source++))   /* copy string */
+        count--;
+
+   if (count)                             /* pad out with zeroes */
+       while (--count)
+            *dest++ ='\0';
+
+   return(start);
+}
+```
+
+<!--endsec-->
+
+
+> [!note|style:flat]
+> **从源码中可以查库，四个拷贝函数的底层都是通过`char`进行拷贝的。**
+
+
+# 10. 类创建的限制
+## 10.1. 限制在堆
+
+> [!tip]
+> - **方式**：将析构函数设置为私有。
+> - **原因**：`C++`是静态绑定语言，编译器在为类对象分配栈空间时，会先检查类的「析构函数」的访问性。若析构函数不可访问，则不能在栈上创建对象。
+
+```cpp
+class Test{
+private:
+    ~Test(){};
+public:
+
+};
+```
+
+## 10.2. 限制在栈
+
+> [!tip]
+> **方式**：将 `new` 和 `delete` 重载为私有。
+> **原因**：在堆上生成对象，使用`new`关键词操作，其过程分为两阶段：第一阶段，使用`new`在堆上寻找可用内存，分配给对象；第二阶段，调用构造函数生成对象。将`new`操作设置为私有，那么第一阶段就无法完成，就不能够再堆上生成对象。
+
+```cpp
+class Test{
+private:
+    void* operator new(std::size_t size)
+    {
+        return std::malloc(size);
+    }
+    void operator delete(void* ptr)
+    {
+        std::free(ptr);
+    }
+public:
+};
+```
+
+## 10.3. 单例模式
+
+**在内存里，只有一个对象。**
+
+```cpp
+class Test{
+private:
+    Test(){};
+public:
+    static Test& getInstance(){
+        static Test instance;
+        return instance;
+    }
+};
+```

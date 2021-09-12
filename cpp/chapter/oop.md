@@ -18,14 +18,56 @@
    - 带有虚函数的类都会持有一个虚函数表
    - 继承带有虚函数父类的子类，会复制一份父类虚函数表，并根据自身实现情况修改虚函数表
    - 继承多个有虚函数表的子类，会维护所有的父类虚函数表
-   - 实例化的对象，会持有一个指向虚函数表的指针
+   - 实例化的对象，会持有一个指向虚函数表的指针`vptr`
+   - **`vptr`在初始化函数中被赋值**
 - **虚函数/纯虚函数** <font color="#f44336">子类实现后算overwrite</font>
    - 虚函数: virtual修饰，父类实现
    - 纯虚函数: virtual修饰，父类不实现，后面可有 = 0，<font color="#f44336">纯虚函数的类为抽象类。</font>
 
 > [!note|style:flat]
 > <font color="#f44336">虚函数是动绑定，运行时确定。</font>
-  
+
+
+```cpp
+#include <stdio.h>
+
+class Parent{
+public:
+    Parent(){
+        fcn();
+    }
+    virtual void fcn(){
+        printf("parent\n");
+    }
+};
+
+class Son : public Parent{
+public:
+    Son(){
+        fcn();
+    }
+    virtual void fcn(){
+        printf("son \n");
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    Son son;
+    return 0;
+}
+
+```
+
+```term
+triangle@LEARN_FUCK:~$ make 
+parent
+son 
+```
+
+> [!note|style:flat]
+> **构造顺序是先父类，再子类；在构造父类时，`vptr`还是指向父类的虚函数表，在构造子类时，才将`vptr`修改为子类的虚函数表。**
+
 # 继承
 
 **当私有继承和保护继承时，父类指针(引用)无法指向子类。默认为私有继承。防止多重继承，出现属性多次定义，继承时，还要使用 virtual 进行修饰。**

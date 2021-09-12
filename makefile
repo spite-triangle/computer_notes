@@ -24,4 +24,6 @@ num:
 	find ./linux/chapter/ -type f -exec python3 ./AutoNum.py {} \;
 	rm ./MySQL/chapter/*_withNum.md
 	find ./MySQL/chapter/ -type f -exec python3 ./AutoNum.py {} \;
+	rm ./tcp_udp/chapter/*_withNum.md
+	find ./tcp_udp/chapter/ -type f -exec python3 ./AutoNum.py {} \;
 
