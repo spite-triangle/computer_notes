@@ -16,10 +16,11 @@
     - [九、数据结构](cpp/chapter/dataStruction_withNum.md)
     - [十、数组链表操作](cpp/chapter/array_list_withNum.md)
     - [十一、目标查找](cpp/chapter/find_withNum.md)
-    - [十二、二叉树](cpp/chapter/binaryTree_withNum.md)
-    - [十三、动态规划](cpp/chapter/dynamicProgram_withNum.md)
-    - [十四、回溯算法](cpp/chapter/backtracking_withNum.md)
-    - [十五、单调栈](cpp/chapter/monotoneStack_withNum.md)
+    - [十二、树](cpp/chapter/tree_withNum.md)
+    - [十三、二叉树](cpp/chapter/binaryTree_withNum.md)
+    - [十四、动态规划](cpp/chapter/dynamicProgram_withNum.md)
+    - [十五、回溯算法](cpp/chapter/backtracking_withNum.md)
+    - [十六、单调栈](cpp/chapter/monotoneStack_withNum.md)
     - [附录 工具库](cpp/chapter/toollib_withNum.md)
 
 ---

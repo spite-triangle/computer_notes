@@ -140,17 +140,17 @@ int main(int argc, char const *argv[])
 
 <span style="font-size:24px;font-weight:bold" class="section2">3. 对比总结</span>
 
-| 项目              | `c`                    | `c++`          |
-| ----------------- | ---------------------- | -------------- |
-| `const`变量       | 可以                   | 可以           |
-| `const`变量初始化 | 定义变量时`{,,}`初始化 | 初始化参数列表 |
-| `static` 变量     | 不行                   | 可以           |
-| 函数定义          | 函数指针               | 直接定义       |
-| 结构体声明        | `struct 名字 变量;`    | `名字 变量;`   |
-| 访问权限          | 没有                   | 有             |
-| 构造、析构函数    | 没有                   | 有             |
-| 继承              | 没有                   | 有             |
-| 多态              | 没有                   | 有             |
+| 项目                     | `c`                    | `c++`          |
+| ------------------------ | ---------------------- | -------------- |
+| `const`变量              | 可以                   | 可以           |
+| `const`变量初始化        | 定义变量时`{,,}`初始化 | 初始化参数列表 |
+| `static` 变量            | 不行                   | 可以           |
+| 函数定义                 | 函数指针               | 直接定义       |
+| 结构体声明               | `struct 名字 变量;`    | `名字 变量;`   |
+| 访问权限                 | 没有                   | 有             |
+| 拷贝构造，构造、析构函数 | 没有                   | 有             |
+| 继承                     | 没有                   | 有             |
+| 多态                     | 没有                   | 有             |
 
 
 <span style="font-size:24px;font-weight:bold" class="section2">4. 恶心追加</span>
@@ -208,7 +208,18 @@ gcc与g++进行文件编译时，会互相调用，**但是编译.c文件除外*
 - **编译**:`-S`，生成汇编
 - **汇编**:`-C`，生成二进制
 - **链接**:`-O`，生成目标文件
- 
+
+# 进程工作目录
+
+> [!tip]
+> **定义：进程在哪个路径下被运行起来哪个路径就是进程的工作目录(Current Woring Directory, CWD)。**
+> - **相对路径：** 相对路径就是「相对」进程工作目录而言的。
+
+```term
+triangle@LEARN_FUCK:/home/triangle/test$ ./a.out # a.out 的进程工作目录就是 /home/triangle/test
+triangle@LEARN_FUCK:~$ pwdx pid号 # 查看进程的工作路径
+```
+
 # 动态链接与静态链接
 
 <span style="font-size:24px;font-weight:bold" class="section2">1. 对比</span>

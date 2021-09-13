@@ -1,0 +1,1270 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>十二、树 · 计算机笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="海拉尔的三角">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro-fixed/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex-pro/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-sectionx/sectionx.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-terminull-light/terminull.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="binaryTree_withNum.html" />
+    
+    
+    <link rel="prev" href="find_withNum.html" />
+    
+
+    
+        <link rel="shortcut icon" href="image/ico.png" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="image/ico.png">
+    
+    
+        
+    
+    
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://github.com/spite-triangle" target="_blank" class="custom-link">Github</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../cpp.html">
+            
+                <a href="../cpp.html">
+            
+                    
+                    C/C++
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="foundation_withNum.html">
+            
+                <a href="foundation_withNum.html">
+            
+                    
+                    一、基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="keyword_withNum.html">
+            
+                <a href="keyword_withNum.html">
+            
+                    
+                    二、关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="point_reference_withNum.html">
+            
+                <a href="point_reference_withNum.html">
+            
+                    
+                    三、指针与引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="oop_withNum.html">
+            
+                <a href="oop_withNum.html">
+            
+                    
+                    四、面向对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="memory_withNum.html">
+            
+                <a href="memory_withNum.html">
+            
+                    
+                    五、内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="process_withNum.html">
+            
+                <a href="process_withNum.html">
+            
+                    
+                    六、进程与线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="locks_withNum.html">
+            
+                <a href="locks_withNum.html">
+            
+                    
+                    七、锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="stl_withNum.html">
+            
+                <a href="stl_withNum.html">
+            
+                    
+                    八、STL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="dataStruction_withNum.html">
+            
+                <a href="dataStruction_withNum.html">
+            
+                    
+                    九、数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="array_list_withNum.html">
+            
+                <a href="array_list_withNum.html">
+            
+                    
+                    十、数组链表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.11" data-path="find_withNum.html">
+            
+                <a href="find_withNum.html">
+            
+                    
+                    十一、目标查找
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.12" data-path="tree_withNum.html">
+            
+                <a href="tree_withNum.html">
+            
+                    
+                    十二、树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="binaryTree_withNum.html">
+            
+                <a href="binaryTree_withNum.html">
+            
+                    
+                    十三、二叉树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="dynamicProgram_withNum.html">
+            
+                <a href="dynamicProgram_withNum.html">
+            
+                    
+                    十四、动态规划
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="backtracking_withNum.html">
+            
+                <a href="backtracking_withNum.html">
+            
+                    
+                    十五、回溯算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="monotoneStack_withNum.html">
+            
+                <a href="monotoneStack_withNum.html">
+            
+                    
+                    十六、单调栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.17" data-path="toollib_withNum.html">
+            
+                <a href="toollib_withNum.html">
+            
+                    
+                    附录 工具库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../MySQL/mysql.html">
+            
+                <a href="../../MySQL/mysql.html">
+            
+                    
+                    MySQL
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../MySQL/chapter/introduction_withNum.html">
+            
+                <a href="../../MySQL/chapter/introduction_withNum.html">
+            
+                    
+                    一、简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../MySQL/chapter/foundation_withNum.html">
+            
+                <a href="../../MySQL/chapter/foundation_withNum.html">
+            
+                    
+                    二、控制台操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorDB_withNum.html">
+            
+                    
+                    三、数据库、表操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../MySQL/chapter/operatorData_withNum.html">
+            
+                <a href="../../MySQL/chapter/operatorData_withNum.html">
+            
+                    
+                    四、数据操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../MySQL/chapter/transaction_withNum.html">
+            
+                <a href="../../MySQL/chapter/transaction_withNum.html">
+            
+                    
+                    五、事务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../../MySQL/chapter/index_withNum.html">
+            
+                <a href="../../MySQL/chapter/index_withNum.html">
+            
+                    
+                    六、索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../../MySQL/chapter/authority_withNum.html">
+            
+                <a href="../../MySQL/chapter/authority_withNum.html">
+            
+                    
+                    七、权限管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../../MySQL/chapter/backup_withNum.html">
+            
+                <a href="../../MySQL/chapter/backup_withNum.html">
+            
+                    
+                    八、备份
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../linux/linux.html">
+            
+                <a href="../../linux/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../linux/chapter/foundation_withNum.html">
+            
+                <a href="../../linux/chapter/foundation_withNum.html">
+            
+                    
+                    一、原理知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../linux/chapter/command_withNum.html">
+            
+                <a href="../../linux/chapter/command_withNum.html">
+            
+                    
+                    二、指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../tcp_udp/tcp_upd.html">
+            
+                <a href="../../tcp_udp/tcp_upd.html">
+            
+                    
+                    网络
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../tcp_udp/chapter/foundation_withNum.html">
+            
+                <a href="../../tcp_udp/chapter/foundation_withNum.html">
+            
+                    
+                    一、网络通讯基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../tcp_udp/chapter/tcp_udp_withNum.html">
+            
+                <a href="../../tcp_udp/chapter/tcp_udp_withNum.html">
+            
+                    
+                    二、tcp/udp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >十二、树</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x6811;&#x7ED3;&#x6784;"><b></b>&#x6811;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#1-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><b></b>1. &#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li><li><span class="title-icon "></span><a href="#2-&#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;"><b></b>2. &#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;</a></li><li><span class="title-icon "></span><a href="#3-&#x4E8C;&#x53C9;&#x6811;"><b></b>3. &#x4E8C;&#x53C9;&#x6811;</a></li><ul><li><span class="title-icon "></span><a href="#31-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><b></b>3.1. &#x57FA;&#x672C;&#x6982;&#x5FF5;</a></li><li><span class="title-icon "></span><a href="#32-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;-full-binary-tree"><b></b>3.2. &#x6EE1;&#x4E8C;&#x53C9;&#x6811; full binary Tree</a></li><li><span class="title-icon "></span><a href="#33-&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;-complete-binary-tree"><b></b>3.3. &#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811; complete binary tree</a></li><li><span class="title-icon "></span><a href="#34-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;"><b></b>3.4. &#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</a></li></ul><li><span class="title-icon "></span><a href="#4-&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;"><b></b>4. &#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;</a></li><ul><li><span class="title-icon "></span><a href="#41-&#x904D;&#x5386;&#x6846;&#x67B6;"><b></b>4.1. &#x904D;&#x5386;&#x6846;&#x67B6;</a></li><li><span class="title-icon "></span><a href="#42-&#x524D;&#x5E8F;&#x904D;&#x5386;"><b></b>4.2. &#x524D;&#x5E8F;&#x904D;&#x5386;</a></li><li><span class="title-icon "></span><a href="#43-&#x4E2D;&#x5E8F;&#x904D;&#x5386;"><b></b>4.3. &#x4E2D;&#x5E8F;&#x904D;&#x5386;</a></li><li><span class="title-icon "></span><a href="#44-&#x540E;&#x5E8F;&#x904D;&#x5386;"><b></b>4.4. &#x540E;&#x5E8F;&#x904D;&#x5386;</a></li><li><span class="title-icon "></span><a href="#45-&#x5C42;&#x7EA7;&#x904D;&#x5386;"><b></b>4.5. &#x5C42;&#x7EA7;&#x904D;&#x5386;</a></li><li><span class="title-icon "></span><a href="#46-&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;"><b></b>4.6. &#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;</a></li></ul><li><span class="title-icon "></span><a href="#5-&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;-binary-search-tree"><b></b>5. &#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811; Binary Search Tree</a></li><li><span class="title-icon "></span><a href="#6-&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;-balanced-binary-search-trees"><b></b>6. &#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811; Balanced binary search trees</a></li><li><span class="title-icon "></span><a href="#7-&#x4E8C;&#x53C9;&#x5806;"><b></b>7. &#x4E8C;&#x53C9;&#x5806;</a></li><li><span class="title-icon "></span><a href="#8-&#x5E76;&#x67E5;&#x96C6;&#xFF08;unionfind&#xFF09;"><b></b>8. &#x5E76;&#x67E5;&#x96C6;&#xFF08;union_find&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#81-&#x6982;&#x5FF5;"><b></b>8.1. &#x6982;&#x5FF5;</a></li><li><span class="title-icon "></span><a href="#82-&#x57FA;&#x672C;&#x5B9E;&#x73B0;"><b></b>8.2. &#x57FA;&#x672C;&#x5B9E;&#x73B0;</a></li><ul><li><span class="title-icon "></span><a href="#821-&#x6570;&#x636E;&#x7ED3;&#x6784;"><b></b>8.2.1. &#x6570;&#x636E;&#x7ED3;&#x6784;</a></li><li><span class="title-icon "></span><a href="#822-&#x5408;&#x5E76;"><b></b>8.2.2. &#x5408;&#x5E76;</a></li><li><span class="title-icon "></span><a href="#823-&#x8FDE;&#x901A;"><b></b>8.2.3. &#x8FDE;&#x901A;</a></li></ul><li><span class="title-icon "></span><a href="#83-&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;"><b></b>8.3. &#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;</a></li><li><span class="title-icon "></span><a href="#84-&#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;"><b></b>8.4. &#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;</a></li><li><span class="title-icon "></span><a href="#85-&#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;"><b></b>8.5. &#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;</a></li></ul></ul></div><a href="#&#x6811;&#x7ED3;&#x6784;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 style="font-size:60px;text-align:center;" id="&#x6811;&#x7ED3;&#x6784;"><a name="&#x6811;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#&#x6811;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6811;&#x7ED3;&#x6784;</h1>
+
+<p>&#x53C2;&#x8003;&#x535A;&#x5BA2;&#xFF1A;</p>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1819519" target="_blank">&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x76F8;&#x5173;&#x6982;&#x5FF5;&#x53CA;&#x539F;&#x7406;</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/152599308" target="_blank">&#x6574;&#x7406;&#x5F97;&#x5410;&#x8840;&#x4E86;&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x3001;&#x7EA2;&#x9ED1;&#x6811;&#x3001;B&amp;B+&#x6811;&#x8D85;&#x9F50;&#x5168;&#xFF0C;&#x5FEB;&#x901F;&#x641E;&#x5B9A;&#x6570;&#x636E;&#x7ED3;&#x6784;</a></li>
+</ul>
+<h1 id="1-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a name="1-&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#1-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x57FA;&#x672C;&#x6982;&#x5FF5;</h1>
+<p style="text-align:center;"><a href="../../image/cpp/treeStructure.png" data-lightbox="37e5cfac-89d5-41de-afbc-0b1628028723" data-title="undefined"><img src="../../image/cpp/treeStructure.png" alt="undefined"></a></p>
+
+<ul>
+<li><strong>&#x5B50;&#x6811;&#xFF1A;</strong> &#x6811;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#xFF0C;&#x5982;&#x56FE;&#x6240;&#x793A;&#x3002;</li>
+<li><strong>&#x8282;&#x70B9;(node)&#xFF1A;</strong> &#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5143;&#x7D20;&#x548C;&#x82E5;&#x5E72;&#x6307;&#x5411;&#x5176;&#x5B50;&#x6811;&#x5206;&#x652F;&#x3002;</li>
+<li><strong>&#x6839;&#x8282;&#x70B9;(node)&#xFF1A;</strong> &#x4E00;&#x9897;&#x6811;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6811;&#x6839;</li>
+<li><strong>&#x5EA6;&#xFF08;Degree&#xFF09;&#xFF1A;</strong> &#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x62E5;&#x6709;&#x7684;&#x5B50;&#x6811;&#x6570;&#xFF1B;&#x4F8B;&#x5982;&#x7ED3;&#x70B9;<code>A</code>&#x7684;&#x5EA6;&#x4E3A; <code>3</code>&#xFF0C;&#x7ED3;&#x70B9; <code>H</code> &#x7684;&#x5EA6;&#x4E3A; <code>1</code></li>
+<li><strong>&#x53F6;&#x5B50;&#xFF08;Leaf&#xFF09;&#xFF1A;</strong> &#x5EA6;&#x4E3A; <code>0</code> &#x7684;&#x7ED3;&#x70B9;&#x88AB;&#x79F0;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;</li>
+<li><strong>&#x5206;&#x652F;&#x7ED3;&#x70B9;&#xFF1A;</strong>  &#x5EA6;&#x4E0D;&#x4E3A; <code>0</code> &#x7684;&#x7ED3;&#x70B9;</li>
+<li><strong>&#x5185;&#x90E8;&#x7ED3;&#x70B9;&#xFF1A;</strong> &#x5728;&#x6811;&#x5185;&#x90E8;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x5373;&#x4E0D;&#x662F;&#x6839;&#x7ED3;&#x70B9;&#x548C;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;&#x7ED3;&#x70B9;&#x3002;</li>
+<li><strong>&#x5C42;&#x6B21;&#xFF08;Level&#xFF09;&#xFF1A;</strong> &#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x5F00;&#x59CB;&#xFF0C;&#x540C;&#x8F88;&#x5206;&#x7684;&#x8282;&#x70B9;&#x4E3A;&#x4E00;&#x5C42;&#xFF1B;<span style="color:blue;font-weight:bold"> &#x8D77;&#x59CB;&#x7F16;&#x53F7;&#x4E3A;<code>1</code> </span>&#xFF1B;&#x4F8B;&#x5982;&#x8282;&#x70B9;<code>E</code>&#x5728;&#x7B2C;<code>3</code>&#x5C42;</li>
+<li><strong>&#x6DF1;&#x5EA6;&#xFF08;Depth&#xFF09;/ &#x9AD8;&#x5EA6;&#xFF1A;</strong> &#x6307;&#x6811;&#x7684;&#x6700;&#x5927;&#x5C42;&#x6B21;</li>
+<li><strong>&#x6709;&#x5E8F;&#x6811;&#xFF1A;</strong> &#x7ED3;&#x70B9;&#x7684;&#x5404;&#x5B50;&#x6811;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x662F;&#x6709;&#x6B21;&#x5E8F;&#x7684;&#x3001;&#x4E0D;&#x80FD;&#x98A0;&#x5012;&#xFF0C;&#x5219;&#x4E3A;&#x6709;&#x5E8F;&#x6811;</li>
+</ul>
+<h1 id="2-&#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;"><a name="2-&#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#2-&#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6811;&#x7684;&#x9012;&#x5F52;&#x7279;&#x6027;</h1>
+<blockquote>
+<p>[!tip]
+&#x6811;&#x7684;&#x5C42;&#x7EA7;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x4E2A;&#x300C;&#x65CF;&#x8C31;&#x300D;&#xFF1A;</p>
+<ul>
+<li><strong>&#x7236;&#x7ED3;&#x70B9;&#xFF1A;</strong> &#x5C42;&#x7EA7;&#x9760;&#x524D;&#x7684;&#x7ED3;&#x70B9;</li>
+<li><strong>&#x5B50;&#x7ED3;&#x70B9;&#xFF1A;</strong> &#x5C42;&#x7EA7;&#x4E3A;&#x4E0E;&#x7236;&#x7ED3;&#x70B9;&#x76F8;&#x8FDE;&#x7684;&#x4E0B;&#x4E00;&#x5C42;&#x7684;&#x8282;&#x70B9;&#x3002;</li>
+<li><strong>&#x5144;&#x5F1F;&#x7ED3;&#x70B9;&#xFF1A;</strong> &#x540C;&#x4E00;&#x5C42;&#x7EA7;&#x7684;&#x7ED3;&#x70B9;</li>
+</ul>
+</blockquote>
+<p style="text-align:center;"><a href="../../image/cpp/recursion.png" data-lightbox="ea023089-35fa-4dd8-a1a9-7544607658c8" data-title="undefined"><img src="../../image/cpp/recursion.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note]
+<strong>&#x9012;&#x5F52;&#x7279;&#x6027;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5728;&#x6811;&#x4E2D;&#xFF0C;&#x5B50;&#x6811;&#x4ECD;&#x662F;&#x4E00;&#x9897;&#x6811;&#xFF0C;&#x5B50;&#x6811;&#x7684;&#x5B50;&#x6811;&#x4ECD;&#x662F;&#x4E00;&#x68F5;&#x6811;&#x3002;(&#x4FDD;&#x8BC1;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF1B;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;&#x662F;&#x4E00;&#x6837;&#x7684;)</li>
+<li>&#x7236;&#x7ED3;&#x70B9;&#x4E0B;&#x5B58;&#x5728;&#x5B50;&#x7ED3;&#x70B9;&#xFF08;<code>null</code>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x5B50;&#x7ED3;&#x70B9;&#xFF09;&#xFF0C;&#x5BF9;&#x4E8E;&#x5B50;&#x7ED3;&#x70B9;&#x53C8;&#x53EF;&#x6210;&#x4EE5;&#x6210;&#x4E3A;&#x5B50;&#x6811;&#x7684;&#x7236;&#x7ED3;&#x70B9;&#x3002;(&#x4FDD;&#x8BC1;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x95EE;&#x9898;&#x5904;&#x7406;)</li>
+</ul>
+</blockquote>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x4F20;&#x5165;&#x4E00;&#x9897;&#x4EE5;root&#x4E3A;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x6811;</span>
+<span class="token keyword">void</span> <span class="token function">recursion</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    &#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5904;&#x7406;
+
+    <span class="token comment">// &#x5B50;&#x7ED3;&#x70B9;&#x53C8;&#x662F;&#x5B50;&#x6811;&#x7684;&#x6839;&#x7ED3;&#x70B9;</span>
+    <span class="token function">recursion</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>child<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="3-&#x4E8C;&#x53C9;&#x6811;"><a name="3-&#x4E8C;&#x53C9;&#x6811;" class="anchor-navigation-ex-anchor" href="#3-&#x4E8C;&#x53C9;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x4E8C;&#x53C9;&#x6811;</h1>
+<h2 id="31-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><a name="31-&#x57FA;&#x672C;&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#31-&#x57FA;&#x672C;&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x5B9A;&#x4E49;&#xFF1A;&#x9650;&#x5236;&#x4E86;&#x5B69;&#x5B50;&#x6570;&#x91CF;&#xFF0C;&#x5373;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#x6700;&#x591A;&#x53EA;&#x80FD;&#x6709;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#xFF08;&#x5DE6;&#x5B69;&#x5B50;&#x548C;&#x53F3;&#x5B69;&#x5B50;&#xFF09;</strong></p>
+</blockquote>
+<p style="text-align:center;"><a href="../../image/cpp/binaryTree.png" data-lightbox="b4ea2469-de10-4377-bcf7-c3c475da1ef2" data-title="undefined"><img src="../../image/cpp/binaryTree.png" alt="undefined"></a></p>
+
+<ul>
+<li><strong>&#x7B2C;<code>k</code>&#x5C42;&#x7684;&#x7ED3;&#x70B9;&#x6570;&#xFF1A; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2264;</mo><msup><mn>2</mn><mrow><mi>k</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\le 2^{k-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">&#x2264;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span> &#x3002;</strong></li>
+<li><strong>&#x6DF1;&#x5EA6;&#x4E3A;<code>h</code>&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x603B;&#x7ED3;&#x70B9;&#x6570;&#xFF1A;<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&#x2264;</mo><msup><mn>2</mn><mi>h</mi></msup><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\le 2^h - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">&#x2264;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></strong>
+  <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mtable rowspacing="0.2500em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>n</mi><mrow><mi>n</mi><mi>o</mi><mi>d</mi><mi>e</mi></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>4</mn><mo>+</mo><mo>&#x22EF;</mo><mo>+</mo><msup><mn>2</mn><mrow><mi>h</mi><mo>&#x2212;</mo><mn>1</mn></mrow></msup></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mrow><msup><mn>2</mn><mi>h</mi></msup><mo>&#x2212;</mo><mn>1</mn></mrow><mrow><mn>2</mn><mo>&#x2212;</mo><mn>1</mn></mrow></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><msup><mn>2</mn><mi>h</mi></msup><mo>&#x2212;</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable></mtd><mtd width="50%"></mtd><mtd><mtext>(1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">
+      \begin{aligned}
+          n_{node} &amp;= 1 + 2 + 4 + \dotsm + 2^{h-1} \\
+          &amp;= \frac{2^{h} - 1}{2 - 1} \\
+          &amp;= 2^h - 1
+      \end{aligned} \tag{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.713654em;vertical-align:-2.6068269999999996em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.106827em;"><span style="top:-5.733827em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">d</span><span class="mord mathnormal mtight">e</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.547719em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"></span></span><span style="top:-1.5792810000000004em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:2.6068269999999996em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.106827em;"><span style="top:-5.733827em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="minner">&#x22EF;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span><span class="mbin mtight">&#x2212;</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.547719em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.526108em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-1.5792810000000004em;"><span class="pstrut" style="height:3.526108em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:2.6068269999999996em;"><span></span></span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:5.713654em;vertical-align:-2.6068269999999996em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1</span></span><span class="mord">)</span></span></span></span></span></span></li>
+</ul>
+<h2 id="32-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;-full-binary-tree"><a name="32-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;-full-binary-tree" class="anchor-navigation-ex-anchor" href="#32-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;-full-binary-tree"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x6EE1;&#x4E8C;&#x53C9;&#x6811; <code>full binary Tree</code></h2>
+<p style="text-align:center;"><a href="../../image/cpp/fullBinaryTree.png" data-lightbox="1a216744-314d-460e-960e-947d39f11d4a" data-title="undefined"><img src="../../image/cpp/fullBinaryTree.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x5B9A;&#x4E49;&#xFF1A;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x4E3A;<code>h</code>&#xFF0C;&#x4E14;&#x7ED3;&#x70B9;&#x603B;&#x6570;&#x662F; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>h</mi></msup><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^h - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.932438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">h</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>&#xFF1B;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7ED3;&#x70B9;&#x8981;&#x4E48;&#x662F;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x8981;&#x4E48;&#x8BE5;&#x7ED3;&#x70B9;&#x6709;&#x4E24;&#x4E2A;&#x5B50;&#x7ED3;&#x70B9;</strong></p>
+</blockquote>
+<h2 id="33-&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;-complete-binary-tree"><a name="33-&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;-complete-binary-tree" class="anchor-navigation-ex-anchor" href="#33-&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;-complete-binary-tree"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811; <code>complete binary tree</code></h2>
+<p style="text-align:center;"><a href="../../image/cpp/completeBinaryTree.png" data-lightbox="0d10ed32-e4fb-425c-8dd8-6e381060b755" data-title="undefined"><img src="../../image/cpp/completeBinaryTree.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x5B9A;&#x4E49;&#xFF1A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x53EA;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x6700;&#x4E0B;&#x5C42;&#x548C;&#x6B21;&#x4E0B;&#x5C42;&#xFF0C;&#x4E14;&#x6700;&#x4E0B;&#x5C42;&#x7684;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x96C6;&#x4E2D;&#x5728;&#x6811;&#x7684;&#x5DE6;&#x90E8;&#x3002;</strong></p>
+</blockquote>
+<h2 id="34-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;"><a name="34-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;" class="anchor-navigation-ex-anchor" href="#34-&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. &#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/storeComplete.png" data-lightbox="690d240c-3e08-483b-9e28-2bdc3309f66d" data-title="undefined"><img src="../../image/cpp/storeComplete.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!note]
+<span style="color:red;font-weight:bold"> &#x5BF9;&#x4E8E;&#x6EE1;&#x4E8C;&#x53C9;&#x6811;&#x4E0E;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x300C;&#x6570;&#x7EC4;&#x300D;&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#x3002; </span></p>
+</blockquote>
+<ol>
+<li>&#x7236;&#x8282;&#x70B9;&#x7684;&#x7F16;&#x53F7;&#x4E3A;<code>k</code>&#xFF0C;&#x5B50;&#x5DE6;&#x8282;&#x70B9;&#x7F16;&#x53F7;&#x4E3A;<code>2k</code>&#xFF0C;&#x5B50;&#x53F3;&#x8282;&#x70B9;&#x7684;&#x7F16;&#x53F7;&#x4E3A;<code>2k+1</code></li>
+<li>&#x5B50;&#x8282;&#x70B9;&#x7684;&#x7F16;&#x53F7;&#x4E3A;<code>x</code>&#xFF0C;&#x7236;&#x8282;&#x70B9;&#x7684;&#x7F16;&#x53F7;&#x4E3A; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">&#x230A;</mo><mfrac><mi>x</mi><mn>2</mn></mfrac><mo stretchy="false">&#x230B;</mo></mrow><annotation encoding="application/x-tex">\lfloor \frac{x}{2} \rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.095em;vertical-align:-0.345em;"></span><span class="mopen">&#x230A;</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">&#x230B;</span></span></span></span></li>
+<li>&#x4ECE;&#x4E0A;&#x5F80;&#x4E0B;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7236;&#x8282;&#x70B9;&#x7684;&#x7F16;&#x53F7;&#x4E3A; <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">&#x230A;</mo><mfrac><mi>n</mi><mn>2</mn></mfrac><mo stretchy="false">&#x230B;</mo></mrow><annotation encoding="application/x-tex">\lfloor \frac{n}{2} \rfloor </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.095em;vertical-align:-0.345em;"></span><span class="mopen">&#x230A;</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">&#x230B;</span></span></span></span> (<code>n</code>&#x4E3A;&#x603B;&#x8282;&#x70B9;&#x6570;)</li>
+</ol>
+<h1 id="4-&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;"><a name="4-&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#4-&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;</h1>
+<h2 id="41-&#x904D;&#x5386;&#x6846;&#x67B6;"><a name="41-&#x904D;&#x5386;&#x6846;&#x67B6;" class="anchor-navigation-ex-anchor" href="#41-&#x904D;&#x5386;&#x6846;&#x67B6;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. &#x904D;&#x5386;&#x6846;&#x67B6;</h2>
+<ul>
+<li>&#x524D;&#x5E8F;&#x904D;&#x5386;</li>
+<li>&#x4E2D;&#x5E8F;&#x904D;&#x5386;</li>
+<li>&#x540E;&#x5E8F;&#x904D;&#x5386;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">void</span> <span class="token function">Traversal</span><span class="token punctuation">(</span>Node<span class="token operator">*</span> root<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+    <span class="token comment">// &#x9000;&#x51FA;&#x6761;&#x4EF6;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x524D;&#x5E8F;&#x904D;&#x5386;</span>
+
+    <span class="token function">Traversal</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x4E2D;&#x5E8F;&#x904D;&#x5386;</span>
+
+    <span class="token function">Traversal</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x540E;&#x5E8F;&#x904D;&#x5386;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="42-&#x524D;&#x5E8F;&#x904D;&#x5386;"><a name="42-&#x524D;&#x5E8F;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#42-&#x524D;&#x5E8F;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. &#x524D;&#x5E8F;&#x904D;&#x5386;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/preorderTraversal.jpg" data-lightbox="6225af5b-b714-42a5-88c0-37270696e1ea" data-title="undefined"><img src="../../image/cpp/preorderTraversal.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]
+<span style="color:red;font-weight:bold"> &#x4EE5;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x5B50;&#x6811; </span></p>
+<ol>
+<li><strong>&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x5148;&#x8F93;&#x51FA;&#xFF0C;&#x518D;&#x8FDB;&#x5165;&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong><ul>
+<li><strong>&#x82E5;&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x7136;&#x540E;&#x518D;&#x8FDB;&#x5165;&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong><ul>
+<li><strong>&#x82E5;&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x67E5;&#x8BE2;&#x5B8C;&#xFF0C;&#x8FD4;&#x56DE;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ol>
+</blockquote>
+<h2 id="43-&#x4E2D;&#x5E8F;&#x904D;&#x5386;"><a name="43-&#x4E2D;&#x5E8F;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#43-&#x4E2D;&#x5E8F;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>4.3. &#x4E2D;&#x5E8F;&#x904D;&#x5386;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/inOrderTraversal.jpg" data-lightbox="daf5114f-3d10-4ce5-96b6-c70b72ee885a" data-title="undefined"><img src="../../image/cpp/inOrderTraversal.jpg" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]
+<span style="color:red;font-weight:bold"> &#x4EE5;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x5B50;&#x6811; </span></p>
+<ol>
+<li><strong>&#x5148;&#x8FDB;&#x5165;&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong><ul>
+<li><strong>&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x82E5;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x300C;&#x5DE6;&#x8FB9;&#x300D;&#x67E5;&#x8BE2;&#x5B8C;&#x6BD5;&#xFF0C;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#xFF1B;&#x7136;&#x540E;&#x8FDB;&#x5165;&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong> <ul>
+<li><strong>&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x82E5;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x67E5;&#x8BE2;&#x5B8C;&#xFF0C;&#x8FD4;&#x56DE;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ol>
+</blockquote>
+<h2 id="44-&#x540E;&#x5E8F;&#x904D;&#x5386;"><a name="44-&#x540E;&#x5E8F;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#44-&#x540E;&#x5E8F;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>4.4. &#x540E;&#x5E8F;&#x904D;&#x5386;</h2>
+<p style="text-align:center;"><a href="../../image/cpp/postOrderTraversal.png" data-lightbox="4d9c9413-df03-4b1e-bb57-10a226b1fabc" data-title="undefined"><img src="../../image/cpp/postOrderTraversal.png" alt="undefined"></a></p>
+
+<blockquote>
+<p>[!tip]
+<span style="color:red;font-weight:bold"> &#x4EE5;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x6839;&#x8282;&#x70B9;&#x7684;&#x5B50;&#x6811; </span></p>
+<ol>
+<li><strong>&#x5148;&#x8FDB;&#x5165;&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong><ul>
+<li><strong>&#x300C;&#x5DE6;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x82E5;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x7136;&#x540E;&#x8FDB;&#x5165;&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;</strong> <ul>
+<li><strong>&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x82E5;&#x4E3A;<code>null</code>&#xFF0C;&#x5219;&#x56DE;&#x9000;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ul>
+</li>
+<li><strong>&#x300C;&#x53F3;&#x5B50;&#x7ED3;&#x70B9;&#x300D;&#x67E5;&#x8BE2;&#x5B8C;&#xFF0C;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x300C;&#x7236;&#x7ED3;&#x70B9;&#x300D;</strong></li>
+</ol>
+</blockquote>
+<h2 id="45-&#x5C42;&#x7EA7;&#x904D;&#x5386;"><a name="45-&#x5C42;&#x7EA7;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#45-&#x5C42;&#x7EA7;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>4.5. &#x5C42;&#x7EA7;&#x904D;&#x5386;</h2>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;&#xFF1A;</strong> &#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#x89C1;&#x300C;&#x4E8C;&#x53C9;&#x6811;&#x7AE0;&#x8282;&#x300D;</p>
+</blockquote>
+<p style="text-align:center;"><a href="../../image/cpp/storeComplete.png" data-lightbox="17d4bf52-6b40-458c-a4d1-d764fa1b994a" data-title="undefined"><img src="../../image/cpp/storeComplete.png" alt="undefined"></a></p>
+
+<h2 id="46-&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;"><a name="46-&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;" class="anchor-navigation-ex-anchor" href="#46-&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;"><i class="fa fa-link" aria-hidden="true"></i></a>4.6. &#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5EFA;&#x7ACB;</h2>
+<p><strong>&#x901A;&#x8FC7;&#x300C;&#x524D;&#x5E8F;&#x548C;&#x4E2D;&#x5E8F;&#x300D;&#x904D;&#x5386;&#x7ED3;&#x679C;&#x6784;&#x9020;&#x4E8C;&#x53C9;&#x6811;&#xFF1A;&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#x89C1;&#x300C;&#x4E8C;&#x53C9;&#x6811;&#x7AE0;&#x8282;&#x300D;</strong>
+<a href="../../image/cpp/preorder_inorder.jpg" data-lightbox="5d35967e-1266-4460-a9d8-1f3213e157d3" data-title="preorder inorder"><img src="../../image/cpp/preorder_inorder.jpg" alt="preorder inorder"></a></p>
+<p><strong>&#x901A;&#x8FC7;&#x300C;&#x4E2D;&#x5E8F;&#x548C;&#x540E;&#x5E8F;&#x300D;&#x904D;&#x5386;&#x7ED3;&#x679C;&#x6784;&#x9020;&#x4E8C;&#x53C9;&#x6811;&#xFF1A;&#x8BE6;&#x7EC6;&#x4EE3;&#x7801;&#x89C1;&#x300C;&#x4E8C;&#x53C9;&#x6811;&#x7AE0;&#x8282;&#x300D;</strong>
+<a href="../../image/cpp/postorder_inorder.jpg" data-lightbox="040bc136-106e-4b4e-9134-53779c6c4f1a" data-title="postorder inorder"><img src="../../image/cpp/postorder_inorder.jpg" alt="postorder inorder"></a></p>
+<blockquote>
+<p>[!tip]</p>
+<ol>
+<li><strong>&#x5148;&#x4ECE;&#x300C;&#x524D;/&#x540E;&#x5E8F;&#x5217;&#x300D;&#x7ED3;&#x679C;&#x4E2D;&#x627E;&#x5230;<code>rootVal</code></strong></li>
+<li><strong>&#x7136;&#x540E;&#xFF0C;&#x518D;&#x300C;&#x4E2D;&#x5E8F;&#x5217;&#x300D;&#x7ED3;&#x679C;&#x4E2D;&#x627E;&#x5230;<code>rootVal</code></strong></li>
+<li><strong>&#x6839;&#x636E;<code>rootVal</code>&#x5C06;&#x300C;&#x4E2D;&#x5E8F;&#x5217;&#x300D;&#x62C6;&#x6210;&#x300C;&#x5DE6;&#xFF0C;&#x53F3;&#x300D;&#x4E24;&#x534A;&#xFF1B;&#x6839;&#x636E;<code>leftSize</code>&#x4F4D;&#x7F6E;&#x5173;&#x7CFB;&#x5C06;&#x300C;&#x524D;/&#x540E;&#x5E8F;&#x5217;&#x300D;&#x62C6;&#x6210;&#x300C;&#x5DE6;&#xFF0C;&#x53F3;&#x300D;&#x4E24;&#x534A;</strong></li>
+<li><strong>&#x300C;&#x5DE6;&#x534A;&#x300D;&#x662F;&#x300C;&#x5DE6;&#x5B50;&#x6811;&#x300D;&#xFF0C;&#x300C;&#x53F3;&#x534A;&#x300D;&#x662F;&#x300C;&#x53F3;&#x5B50;&#x6811;&#x300D;&#xFF1B;&#x300C;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x300D;&#x91CD;&#x590D;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x90FD;&#x627E;&#x5B8C;&#x3002;</strong></li>
+</ol>
+</blockquote>
+<h1 id="5-&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;-binary-search-tree"><a name="5-&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;-binary-search-tree" class="anchor-navigation-ex-anchor" href="#5-&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;-binary-search-tree"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811; <code>Binary Search Tree</code></h1>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#xFF1A;&#x300C;&#x6839;&#x8282;&#x70B9;&#x300D;&#x7684;&#x503C;&#x5927;&#x4E8E;&#x5176;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x5C0F;&#x4E8E;&#x5176;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x4E14;&#x8BE5;&#x89C4;&#x5219;&#x9002;&#x7528;&#x4E8E;&#x6811;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</strong>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>V</mi><mrow><mi>l</mi><mi>e</mi><mi>f</mi><mi>t</mi><mi>s</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mrow><mi>r</mi><mi>o</mi><mi>o</mi><mi>t</mi></mrow></msub><mo>&lt;</mo><msub><mi>V</mi><mrow><mi>r</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mi>s</mi></mrow></msub></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">V_{lefts} &lt;  V_{root} &lt; V_{rights} \tag{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight" style="margin-right:0.10764em;">f</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">roo</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">i</span><span class="mord mathnormal mtight" style="margin-right:0.03588em;">g</span><span class="mord mathnormal mtight">h</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">s</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span><span class="tag"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2</span></span><span class="mord">)</span></span></span></span></span></span>
+&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x67E5;&#x8BE2;&#x6548;&#x7387;&#x4ECB;&#x4E8E;<code>O(log n) ~ O(n)</code>&#x4E4B;&#x95F4;</p>
+</blockquote>
+<h1 id="6-&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;-balanced-binary-search-trees"><a name="6-&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;-balanced-binary-search-trees" class="anchor-navigation-ex-anchor" href="#6-&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;-balanced-binary-search-trees"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811; <code>Balanced binary search trees</code></h1>
+<blockquote>
+<p>[!note|style:flat]
+<strong><code>AVL</code>&#x6811;&#xFF1A;&#x300C;&#x81EA;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x300D;&#xFF0C;&#x6811;&#x4E2D;&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#x7684;&#x4E24;&#x4E2A;&#x5B50;&#x6811;&#x7684;&#x9AD8;&#x5EA6;&#x5DEE;&#x6700;&#x5927;&#x4E3A;<code>1</code>&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x9AD8;&#x5EA6;&#x5E73;&#x8861;&#x6811;</strong></p>
+<ul>
+<li><strong>&#x5176;&#x67E5;&#x627E;&#x3001;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x5728;&#x5E73;&#x5747;&#x548C;&#x6700;&#x574F;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(log n)&#x3002;</strong></li>
+</ul>
+<p><strong>&#x7279;&#x70B9;&#xFF1A;</strong></p>
+<ul>
+<li><strong>&#x5177;&#x6709;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x7279;&#x70B9;(&#x5DE6;&#x5B50;&#x6811;&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#x5C0F;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#xFF0C;&#x53F3;&#x5B50;&#x6811;&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#x5927;&#x4E8E;&#x7236;&#x8282;&#x70B9;)&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E0E;&#x53F3;&#x5B50;&#x6811;&#x90FD;&#x662F;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;</strong></li>
+<li><strong>&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x9AD8;&#x5EA6;&#x5DEE;&#x5C0F;&#x4E8E;1&#xFF0C;&#x5373;&#x5E73;&#x8861;&#x56E0;&#x5B50;&#x4E3A;&#x8303;&#x56F4;&#x4E3A;[-1,1]</strong></li>
+</ul>
+</blockquote>
+<h1 id="7-&#x4E8C;&#x53C9;&#x5806;"><a name="7-&#x4E8C;&#x53C9;&#x5806;" class="anchor-navigation-ex-anchor" href="#7-&#x4E8C;&#x53C9;&#x5806;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x4E8C;&#x53C9;&#x5806;</h1>
+<p><a href="../../image/cpp/heap.jpg" data-lightbox="86a58fa7-e1f4-4101-83d0-126a29ad28d8" data-title="heap"><img src="../../image/cpp/heap.jpg" alt="heap"></a></p>
+<blockquote>
+<p>[!tip]
+<span style="color:blue;font-weight:bold"> &#x91C7;&#x7528;&#x300C;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#x300D;&#x7ED3;&#x6784;&#x8FDB;&#x884C;&#x5B9E;&#x73B0; </span></p>
+<ul>
+<li><strong>&#x6700;&#x5927;&#x4E8C;&#x53C9;&#x5806;</strong>&#xFF1A;<span style="color:red;font-weight:bold"> &#x6BCF;&#x4E2A;&#x8282;&#x70B9; &gt;= &#x5B50;&#x8282;&#x70B9; </span></li>
+<li><strong>&#x6700;&#x5C0F;&#x4E8C;&#x53C9;&#x5806;</strong>&#xFF1A;<span style="color:red;font-weight:bold"> &#x6BCF;&#x4E2A;&#x8282;&#x70B9; &lt;= &#x5B50;&#x8282;&#x70B9; </span></li>
+</ul>
+</blockquote>
+<h1 id="8-&#x5E76;&#x67E5;&#x96C6;&#xFF08;unionfind&#xFF09;"><a name="8-&#x5E76;&#x67E5;&#x96C6;&#xFF08;unionfind&#xFF09;" class="anchor-navigation-ex-anchor" href="#8-&#x5E76;&#x67E5;&#x96C6;&#xFF08;unionfind&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x5E76;&#x67E5;&#x96C6;&#xFF08;union_find&#xFF09;</h1>
+<h2 id="81-&#x6982;&#x5FF5;"><a name="81-&#x6982;&#x5FF5;" class="anchor-navigation-ex-anchor" href="#81-&#x6982;&#x5FF5;"><i class="fa fa-link" aria-hidden="true"></i></a>8.1. &#x6982;&#x5FF5;</h2>
+<p><a href="../../image/cpp/union_set.jpg" data-lightbox="25a351f8-d3f5-4310-a0cd-9de5224da974" data-title="union set"><img src="../../image/cpp/union_set.jpg" alt="union set"></a></p>
+<blockquote>
+<p>[!note|style:flat]
+<strong>&#x4F7F;&#x7528;&#x524D;&#x63D0;&#xFF1A;</strong></p>
+<ul>
+<li><strong>&#x4E00;&#x5806;&#x72EC;&#x7ACB;&#x7684;&#x5143;&#x7D20;</strong></li>
+<li><strong>&#x95EE;&#x9898;&#x4E0E;&#x5173;&#x4E8E;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x300C;&#x80FD;&#x5426;&#x52A8;&#x6001;&#x8FDE;&#x901A;&#x300D;&#x6709;&#x5173;&#xFF0C;&#x5373;&#x5C06;&#x95EE;&#x9898;&#x8F6C;&#x4E3A;&#x300C;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x8FDE;&#x6CA1;&#x8FDE;&#x901A;&#x300D;&#x3002;&#x300C;&#x8FDE;&#x901A;&#x300D;&#x4E5F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5171;&#x6027;&#xFF0C;&#x7B49;&#x6548;&#x3002;</strong></li>
+</ul>
+<p><strong>&#x5E76;&#x67E5;&#x96C6;&#x89E3;&#x9898;&#x601D;&#x8DEF;&#xFF1A;&#x60F3;&#x529E;&#x6CD5;&#x8BA9;&#x5143;&#x7D20;&#x300C;&#x5206;&#x95E8;&#x522B;&#x7C7B;&#x300D;&#xFF0C;&#x5EFA;&#x7ACB;&#x52A8;&#x6001;&#x8FDE;&#x901A;&#x5173;&#x7CFB;&#x3002;</strong></p>
+</blockquote>
+<pre class="language-"><code class="lang-java"><span class="token keyword">class</span> UF <span class="token punctuation">{</span>
+    <span class="token comment">/* &#x5C06; p &#x548C; q &#x8FDE;&#x63A5; */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">union</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* &#x5224;&#x65AD; p &#x548C; q &#x662F;&#x5426;&#x8FDE;&#x901A; */</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">connected</span><span class="token punctuation">(</span><span class="token keyword">int</span> p<span class="token punctuation">,</span> <span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* &#x8FD4;&#x56DE;&#x56FE;&#x4E2D;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x91CF; */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* &#x627E;&#x6839; */</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findRoot</span><span class="token punctuation">(</span><span class="token keyword">int</span> q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<sec data-title="&#x5B8C;&#x6574;&#x4EE3;&#x7801;" data-id="union_set" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5B8C;&#x6574;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="union_set"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="union_set"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">class</span> <span class="token class-name">UnionSet</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> parents<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> weights<span class="token punctuation">;</span>
+    <span class="token comment">// &#x7EDF;&#x8BA1;&#x8FDE;&#x901A;&#x5206;&#x91CF;</span>
+    <span class="token keyword">int</span> count<span class="token punctuation">;</span>
+
+    <span class="token keyword">void</span> <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            parents<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            weights<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        count <span class="token operator">=</span> parents<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x67E5;&#x627E;</span>
+    <span class="token keyword">int</span> <span class="token function">findRoot</span><span class="token punctuation">(</span><span class="token keyword">int</span> element<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>element <span class="token operator">!=</span> parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// &#x628A;&#x5F53;&#x524D;&#x7236;&#x8282;&#x70B9;&#x8DF3;&#x4E00;&#x7EA7;&#xFF0C;&#x5B9E;&#x73B0;&#x8DEF;&#x5F84;&#x538B;&#x7F29;</span>
+            parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token operator">=</span> parents<span class="token punctuation">[</span>parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            element <span class="token operator">=</span> parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+       <span class="token keyword">return</span> element<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// &#x627E;&#x6839;</span>
+        <span class="token keyword">int</span> rootA <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rootB <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>rootA <span class="token operator">==</span> rootB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x589E;&#x52A0;&#x91CD;&#x91CF;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x8BA9;&#x6811;&#x957F;&#x5F97;&#x66F4;&#x52A0;&#x5747;&#x5300;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">&gt;</span> weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            parents<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span> <span class="token operator">=</span> rootA<span class="token punctuation">;</span>
+            weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">+=</span> weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            parents<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">=</span> rootB<span class="token punctuation">;</span>
+            weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span> <span class="token operator">+=</span> weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        count<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">bool</span> <span class="token function">isConnect</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> rootA <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rootB <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>rootA <span class="token operator">==</span> rootB<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+</div></div></div></sec>
+<blockquote>
+<p>[!note]
+<span style="color:blue;font-weight:bold"> &#x5E76;&#x67E5;&#x96C6;&#xFF1A;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x6709;&#x591A;&#x5C11;&#x5143;&#x7D20;&#x6BEB;&#x4E0D;&#x76F8;&#x5173;&#xFF1B;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x8FDE;&#x901A;&#x3002; </span></p>
+<ul>
+<li><strong>&#x8FDE;&#x901A;&#x5206;&#x91CF;&#xFF1A;&#x96C6;&#x5408;&#x4E2D;&#x6BEB;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x5143;&#x7D20;&#x6709;&#x591A;&#x5C11;&#x3002;&#x6BD4;&#x5982;&#x4E0A;&#x56FE;&#x4E3A;<code>8</code>&#x3002;</strong></li>
+<li><strong>&#x8FDE;&#x901A;&#xFF1A;</strong><ul>
+<li>&#x81EA;&#x53CD;&#xFF1A;&#x81EA;&#x5DF1;&#x548C;&#x81EA;&#x5DF1;&#x8FDE;&#x901A;</li>
+<li>&#x5BF9;&#x79F0;&#xFF1A;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x4E92;&#x76F8;&#x8FDE;&#x901A;</li>
+<li>&#x4F20;&#x9012;&#xFF1A;<code>a</code>&#x4E0E;<code>b</code>&#x8FDE;&#x901A;&#xFF0C;<code>b</code>&#x4E0E;<code>c</code>&#x8FDE;&#x901A;&#xFF0C;&#x5219;<code>c</code>&#x4E0E;<code>a</code>&#x4E4B;&#x95F4;&#x4E5F;&#x662F;&#x8FDE;&#x901A;&#x7684;&#x3002;</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="82-&#x57FA;&#x672C;&#x5B9E;&#x73B0;"><a name="82-&#x57FA;&#x672C;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#82-&#x57FA;&#x672C;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2. &#x57FA;&#x672C;&#x5B9E;&#x73B0;</h2>
+<h3 id="821-&#x6570;&#x636E;&#x7ED3;&#x6784;"><a name="821-&#x6570;&#x636E;&#x7ED3;&#x6784;" class="anchor-navigation-ex-anchor" href="#821-&#x6570;&#x636E;&#x7ED3;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2.1. &#x6570;&#x636E;&#x7ED3;&#x6784;</h3>
+<p>&#x5229;&#x7528;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;<code>parent[]</code>&#x6765;&#x50A8;&#x5B58;&#x96C6;&#x5408;&#x5143;&#x7D20;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x56FE;&#x5B58;&#x50A8;&#xFF1A;
+1&#xFF09;<strong>&#x6570;&#x7EC4;&#x7684;&#x7D22;&#x5F15;&#x4E3A;&#x5143;&#x7D20;&#x503C;&#xFF1B;</strong>
+2&#xFF09;<strong>&#x6570;&#x7EC4;&#x7684;&#x503C;&#x4E3A;&#x5143;&#x7D20;&#x7684;&#x7236;&#x8282;&#x70B9;</strong>&#x3002;</p>
+<p><strong>&#x5143;&#x7D20;&#x7684;&#x521D;&#x59CB;&#x5B58;&#x50A8;&#x5F62;&#x5F0F;&#xFF1A;</strong>
+<a href="../../image/cpp/unionData.jpg" data-lightbox="15d0ca80-0e58-48ad-9db1-2e42dd911de9" data-title="union data"><img src="../../image/cpp/unionData.jpg" alt="union data"></a></p>
+<h3 id="822-&#x5408;&#x5E76;"><a name="822-&#x5408;&#x5E76;" class="anchor-navigation-ex-anchor" href="#822-&#x5408;&#x5E76;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2.2. &#x5408;&#x5E76;</h3>
+<p><a href="../../image/cpp/union_operator.jpg" data-lightbox="5208fcfe-c8a4-491c-af7f-10bae064aaee" data-title="union opterator"><img src="../../image/cpp/union_operator.jpg" alt="union opterator"></a></p>
+<blockquote>
+<p>[!tip]</p>
+<ol>
+<li>&#x5C06;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x904D;&#x5386;&#x5230;&#x6839;&#x8282;&#x70B9;</li>
+<li>&#x5C06;&#x4E24;&#x4E2A;&#x6839;&#x8282;&#x70B9;&#x8FDE;&#x63A5;&#x8D77;&#x6765;</li>
+</ol>
+</blockquote>
+<sec data-title="&#x5408;&#x5E76;&#x4EE3;&#x7801;" data-id="merge" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x5408;&#x5E76;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="merge"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="merge"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// &#x627E;&#x6839;</span>
+        <span class="token keyword">int</span> rootA <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rootB <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>rootA <span class="token operator">==</span> rootB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x8FDE;&#x63A5;</span>
+        parents<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">=</span> rootB<span class="token punctuation">;</span>
+
+        count<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h3 id="823-&#x8FDE;&#x901A;"><a name="823-&#x8FDE;&#x901A;" class="anchor-navigation-ex-anchor" href="#823-&#x8FDE;&#x901A;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2.3. &#x8FDE;&#x901A;</h3>
+<blockquote>
+<p>[!tip]</p>
+<ol>
+<li>&#x5C06;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x904D;&#x5386;&#x5230;&#x5404;&#x81EA;&#x7684;&#x6839;</li>
+<li>&#x5BF9;&#x6BD4;&#x6839;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF1F;&#x8FDE;&#x901A;&#xFF1A;&#x4E0D;&#x8FDE;&#x901A;</li>
+</ol>
+</blockquote>
+<sec data-title="&#x662F;&#x5426;&#x8FDE;&#x901A;" data-id="is_connect" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x662F;&#x5426;&#x8FDE;&#x901A;<a class="pull-right section atTitle btn btn-default" target="is_connect"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="is_connect"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x662F;&#x5426;&#x8FDE;&#x901A;</span>
+    <span class="token keyword">bool</span> <span class="token function">isConnect</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token comment">// &#x67E5;&#x6839;</span>
+        <span class="token keyword">int</span> rootA <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rootB <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>rootA <span class="token operator">==</span> rootB<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="83-&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;"><a name="83-&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;" class="anchor-navigation-ex-anchor" href="#83-&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>8.3. &#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;</h2>
+<p><a href="../../image/cpp/optimizeBalance.jpg" data-lightbox="af14a03d-b5b3-437d-ae68-3ebd0643d3b8" data-title="optimize balance"><img src="../../image/cpp/optimizeBalance.jpg" alt="optimize balance"></a></p>
+<p>&#x5F53;&#x5408;&#x5E76;&#x4E24;&#x9897;&#x6811;&#x65F6;&#xFF0C;&#x5C06;&#x8282;&#x70B9;&#x591A;&#x7684;&#x4E00;&#x9897;&#x6811;&#x63A5;&#x5230;&#x8F7B;&#x7684;&#x6811;&#x4E0A;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x9020;&#x6210;&#x6811;&#x7684;&#x751F;&#x957F;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x63A5;&#x6811;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x6BD4;&#x4E24;&#x9897;&#x6811;&#x7684;&#x8282;&#x70B9;&#x6570;&#xFF0C;&#x5C11;&#x6570;&#x670D;&#x4ECE;&#x591A;&#x6570;&#x3002;</p>
+<sec data-title="&#x4F18;&#x5316;&#x8FDE;&#x63A5;" data-id="optimize_balance" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x4F18;&#x5316;&#x8FDE;&#x63A5;<a class="pull-right section atTitle btn btn-default" target="optimize_balance"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="optimize_balance"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token keyword">void</span> <span class="token function">connect</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment">// &#x627E;&#x6839;</span>
+        <span class="token keyword">int</span> rootA <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> rootB <span class="token operator">=</span> <span class="token function">findRoot</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>rootA <span class="token operator">==</span> rootB<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// &#x8FDE;&#x63A5;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">&gt;</span> weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            parents<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span> <span class="token operator">=</span> rootA<span class="token punctuation">;</span>
+            weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">+=</span> weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            parents<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span> <span class="token operator">=</span> rootB<span class="token punctuation">;</span>
+            weights<span class="token punctuation">[</span>rootB<span class="token punctuation">]</span> <span class="token operator">+=</span> weights<span class="token punctuation">[</span>rootA<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        count<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<h2 id="84-&#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;"><a name="84-&#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;" class="anchor-navigation-ex-anchor" href="#84-&#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>8.4. &#x8DEF;&#x5F84;&#x538B;&#x7F29;&#xFF08;&#x6700;&#x91CD;&#x8981;&#xFF09;</h2>
+<p><a href="../../image/cpp/decreasePath.gif" data-lightbox="0a659160-92f4-48b3-99c0-eede56dc5ea2" data-title="decrease path"><img src="../../image/cpp/decreasePath.gif" alt="decrease path"></a></p>
+<blockquote>
+<p>[!note|style:flat]
+<strong><code>element != parents[element]</code>&#xFF0C;&#x8282;&#x70B9;&#x4E0E;&#x7236;&#x8282;&#x70B9;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x5C31;&#x80FD;&#x8DF3;&#x8FC7;&#x7236;&#x8282;&#x8282;&#x70B9;&#xFF0C;&#x76F4;&#x8FBE;&#x7237;&#x8282;&#x70B9;&#x3002;&#x7531;&#x4E8E;&#x7236;&#x8282;&#x70B9;&#x81EA;&#x5DF1;&#x6307;&#x5411;&#x81EA;&#x5DF1;&#xFF0C;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x8D8A;&#x754C;&#x3002;</strong></p>
+</blockquote>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x67E5;&#x627E;</span>
+    <span class="token keyword">int</span> <span class="token function">findRoot</span><span class="token punctuation">(</span><span class="token keyword">int</span> element<span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>element <span class="token operator">!=</span> parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// &#x628A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7236;&#x8282;&#x70B9;&#x8DF3;&#x4E00;&#x7EA7;&#xFF0C;&#x5B9E;&#x73B0;&#x8DEF;&#x5F84;&#x538B;&#x7F29;</span>
+            parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span> <span class="token operator">=</span> parents<span class="token punctuation">[</span>parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+            element <span class="token operator">=</span> parents<span class="token punctuation">[</span>element<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+       <span class="token keyword">return</span> element<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>[!tip|style:flat]
+<span style="color:red;font-weight:bold"> &#x538B;&#x7F29;&#x8DEF;&#x5F84;&#x7684;&#x4F18;&#x5316;&#x6027;&#x80FD;&#x8F83;&#x5F3A;&#x4E0E;&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;&#xFF0C;&#x5E73;&#x8861;&#x6027;&#x4F18;&#x5316;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5199;&#x3002; </span></p>
+</blockquote>
+<h2 id="85-&#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;"><a name="85-&#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#85-&#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>8.5. &#x5224;&#x5B9A;&#x5408;&#x6CD5;&#x7B97;&#x5F0F;</h2>
+<p><strong>&#x9898;&#x76EE;&#xFF1A;</strong></p>
+<p>&#x7ED9;&#x4E00;&#x7EC4;<code>[&quot;a==b&quot;,&quot;b!=c&quot;,&quot;c==a&quot;]</code>&#x7684;&#x5173;&#x7CFB;&#x5F0F;&#xFF0C;&#x5224;&#x65AD;&#x8FD9;&#x4E9B;&#x5F0F;&#x5B50;&#x80FD;&#x5426;&#x6210;&#x7ACB;&#x3002;</p>
+<ul>
+<li><code>==</code>&#xFF1A;&#x5F53;&#x6210;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x8FDE;&#x901A;</li>
+<li><code>!=</code>: &#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x4E0D;&#x901A;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="find_withNum.html" class="navigation navigation-prev " aria-label="Previous page: 十一、目标查找">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="binaryTree_withNum.html" class="navigation navigation-next " aria-label="Next page: 十三、二叉树">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"十二、树","level":"2.1.12","depth":2,"next":{"title":"十三、二叉树","level":"2.1.13","depth":2,"path":"cpp/chapter/binaryTree_withNum.md","ref":"cpp/chapter/binaryTree_withNum.md","articles":[]},"previous":{"title":"十一、目标查找","level":"2.1.11","depth":2,"path":"cpp/chapter/find_withNum.md","ref":"cpp/chapter/find_withNum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"cpp/chapter/tree_withNum.md","mtime":"2021-09-13T04:51:35.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-13T04:57:59.533Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro-fixed/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-insert-logo-link-website/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sectionx/sectionx.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-terminull-light/terminull.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
