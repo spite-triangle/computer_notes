@@ -181,10 +181,363 @@ void Traversal(Node* root){
 # 二叉查找树 `Binary Search Tree`
 
 > [!note|style:flat]
-> **二叉查找树：「根节点」的值大于其左子树中任意一个节点的值，小于其右子树中任意一节点的值，且该规则适用于树中的每一个节点。**
+> - **二叉查找树：「根节点」的值大于其左子树中任意一个节点的值，小于其右子树中任意一节点的值，且该规则适用于树中的每一个节点。**
 > $$ V_{lefts} <  V_{root} < V_{rights} \tag{2} $$
-> 二叉查找树的查询效率介于`O(log n) ~ O(n)`之间
+> - 「中序遍历」为升序
+> - 二叉查找树的查询效率介于`O(log n) ~ O(n)`之间，最大糟糕的查差次数为「二叉树高度」。
 
+<!--sec data-title="完整实现代码" data-id="bst" data-show=true data-collapse=true ces-->
+```cpp
+class Note
+{
+public:
+    int val;
+    Note *left;
+    Note *right;
+    Note(int val) : val(val)
+    {
+        left = nullptr;
+        right = nullptr;
+    }
+
+    ~Note()
+    {
+        if (left != nullptr)
+        {
+            delete left;
+        }
+
+        if (right != nullptr)
+        {
+            delete right;
+        }
+    }
+};
+
+class BinarySearchTree
+{
+public:
+    Note *parent;
+    Note *search(Note *root, int val)
+    {
+
+        // 搜索完毕都没找到：返回 nullptr ；找到了 ：返回找到的结点
+        if (root == nullptr || root->val == val)
+        {
+            return root;
+        }
+
+        // 往子结点找
+        if (root->val < val)
+        {
+            parent = root;
+            return search(root->right, val);
+        }
+        else
+        {
+            parent = root;
+            return search(root->left, val);
+        }
+    }
+
+    // 该数据元素的插入位置一定位于二叉排序树的叶子结点，并且一定是查找失败时访问的最后一个结点的左孩子或者右孩子。
+    bool insert(Note *root, int val)
+    {
+        parent = nullptr;
+        // 没找到
+        if (search(root, val) == nullptr)
+        {
+            Note *cur = new Note(val);
+            if (val < parent->val)
+            {
+                parent->left = cur;
+            }
+            else
+            {
+                parent->right = cur;
+            }
+            return true;
+        }
+
+        // 找到了，就啥也不干
+        return false;
+    }
+
+    Note* remove(Note *root, int val)
+    {
+
+        parent = nullptr;
+        Note *target = search(root, val);
+        Note* del;
+
+        if (target == nullptr)
+        {
+            return root;
+        }
+
+        // target 没有左
+        if (target->left == nullptr)
+        {
+            // 当删除点是 根
+            if(target == root){
+                root = target->right;
+            }else{
+                if(parent->left == target){
+                    parent->left = target->right;
+                }else{
+                    parent->right = target->right;
+                }
+            }
+
+            del = target;
+        }
+        // target 没有右
+        else if(target->right == nullptr){
+            // 当删除点是 根
+            if(target == root){
+                root = target->left;
+            }else{
+                if(parent->left == target){
+                    parent->left = target->left;
+                }else{
+                    parent->right = target->left;
+                }
+            }
+            del = target;
+        }
+        // 左右都有
+        else{
+            Note* sub = target->left;
+ 
+            // 找到 中序 前驱动
+            while (sub->right != nullptr)
+            {
+                parent = sub;
+                sub = sub->right;
+            }
+
+            target->val = sub->val;
+            del = sub;
+
+            if(parent->left == sub){
+                parent->left = sub->left; 
+            }
+            else{
+                parent->right = sub->left;
+            }
+        }
+
+        del->left = nullptr;
+        del->right = nullptr;
+        delete del;
+
+        return root;
+    }
+
+    void sort(Note *root)
+    {
+        if (root == nullptr)
+        {
+            return;
+        }
+
+        traverse(root->left);
+
+        printf("%d \n", root->val);
+
+        traverse(root->right);
+    }
+
+    void traverse(Note *root)
+    {
+        if (root == nullptr)
+        {
+            printf("#\n");
+            return;
+        }
+
+        printf("%d \n", root->val);
+        traverse(root->left);
+        traverse(root->right);
+    }
+};
+
+int main(int argc, char const *argv[])
+{
+    BinarySearchTree bst;
+
+    Note *root = new Note(40);
+
+    bst.insert(root, 12);
+    bst.insert(root, 15);
+    bst.insert(root, 20);
+    bst.insert(root, 42);
+    bst.insert(root, 42);
+    bst.insert(root, 43);
+
+    bst.traverse(root);
+
+    root = bst.remove(root,40);
+
+    bst.traverse(root);
+
+    delete root;
+    return 0;
+}
+
+```
+<!--endsec-->
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. 查找</span>
+
+**根据二叉搜索树的特点，左右找；最差的查找次数，就是二叉搜索树的高度。**
+
+```cpp
+Note *search(Note *root, int val)
+{
+    // 搜索完毕都没找到：返回 nullptr ；找到了 ：返回找到的结点
+    if (root == nullptr || root->val == val)
+    {
+        return root;
+    }
+
+    // 往子结点找
+    if (root->val < val)
+    {
+        parent = root;
+        return search(root->right, val);
+    }
+    else
+    {
+        parent = root;
+        return search(root->left, val);
+    }
+}
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. 插入</span>
+
+- **插入位置一定位于二叉排序树的「叶子结点」**
+- **该「叶子结点」一定是查找失败时访问的最后一个结点**
+
+```cpp
+bool insert(Note *root, int val)
+{
+    parent = nullptr;
+    // 没找到
+    if (search(root, val) == nullptr)
+    {
+        Note *cur = new Note(val);
+        if (val < parent->val)
+        {
+            parent->left = cur;
+        }
+        else
+        {
+            parent->right = cur;
+        }
+        return true;
+    }
+
+    // 找到了，就啥也不干
+    return false;
+}
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. 删除</span>
+
+> [!tip]
+> **要删除结点存在四种情况：**
+> 1. 要删除的结点无孩子结点
+>       - 直接删除该结点；整合到情况 `1` 和 `2`
+> 1. 要删除的结点只有左孩子结点
+>       - 删除该结点；且使被删除节点的父结点指向被删除节点的左孩子结点
+> 1. 要删除的结点只有右孩子结点
+>       - 删除该结点；且使被删除节点的父结点指向被删除节点的右孩子结点
+> 1. 要删除的结点有左、右孩子结点
+>       - 见图
+> 1. 删除结点为根结点
+>
+
+
+<p style="text-align:center;"><img src="../../image/cpp/delete4.png" align="middle" /></p>
+
+> **要删除`p`**，在对`p`左子树进行「中序遍历」时，得到的结点 `p` 的直接前驱结点为结点 `s`，所以直接用结点`s` 「覆盖」 `p`的值，由于结点 `s` 还有左孩子，根据第 `2` 条规则，直接将其变为父结点的右孩子。
+
+```cpp
+Note* remove(Note *root, int val)
+{
+
+    parent = nullptr;
+    Note *target = search(root, val);
+    Note* del;
+
+    if (target == nullptr)
+    {
+        return root;
+    }
+
+    // target 没有左
+    if (target->left == nullptr)
+    {
+        // 当删除点是 根
+        if(target == root){
+            root = target->right;
+        }else{
+            if(parent->left == target){
+                parent->left = target->right;
+            }else{
+                parent->right = target->right;
+            }
+        }
+
+        del = target;
+    }
+    // target 没有右
+    else if(target->right == nullptr){
+        // 当删除点是 根
+        if(target == root){
+            root = target->left;
+        }else{
+            if(parent->left == target){
+                parent->left = target->left;
+            }else{
+                parent->right = target->left;
+            }
+        }
+        del = target;
+    }
+    // 左右都有
+    else{
+        Note* sub = target->left;
+
+        // 找到 中序 前驱动
+        while (sub->right != nullptr)
+        {
+            parent = sub;
+            sub = sub->right;
+        }
+
+        // 覆盖
+        target->val = sub->val;
+        del = sub;
+
+        // 重新组织结构
+        if(parent->left == sub){
+            parent->left = sub->left; 
+        }
+        else{
+            parent->right = sub->left;
+        }
+    }
+
+    del->left = nullptr;
+    del->right = nullptr;
+    delete del;
+
+    return root;
+}
+```
 
 # 平衡二叉搜索树 `Balanced binary search trees`
 
