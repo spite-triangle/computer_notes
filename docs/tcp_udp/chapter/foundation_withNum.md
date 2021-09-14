@@ -1,4 +1,4 @@
-
+ <h1 style="font-size:60px;text-align:center;">网络基础</h1>
 # 1. 基础概念
 
 
@@ -273,6 +273,37 @@ Content-Type: text/html
 <span style="font-size:24px;font-weight:bold" class="section2">4. 案例测试</span>
 
 ```term
-triangle@LEARN_FUCK:~$ tcpdump -nn -i eth0 port 80
+triangle@LEARN_FUCK:~$ sudo tcpdump -i ens192 port 80
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on ens192, link-type EN10MB (Ethernet), capture size 262144 bytes
+
+# 三次握手
+18:06:03.191110 IP nginx-hj.41414 > 14.215.177.39.http: Flags [S], seq 2295567055, win 29200, options [mss 1460,sackOK,TS val 1364799231 ecr 0,nop,wscale 7], length 0
+18:06:03.224702 IP 14.215.177.39.http > nginx-hj.41414: Flags [S.], seq 4189444164, ack 2295567056, win 8192, options [mss 1400,sackOK,nop,nop,nop,nop,nop,nop,nop,nop,nop,nop,nop,wscale 5], length 0
+18:06:03.224755 IP nginx-hj.41414 > 14.215.177.39.http: Flags [.], ack 1, win 229, length 0
+
+# 发送 http 请求头
+18:06:03.231241 IP nginx-hj.41414 > 14.215.177.39.http: Flags [P.], seq 1:78, ack 1, win 229, length 77: HTTP: GET / HTTP/1.1
+18:06:03.265447 IP 14.215.177.39.http > nginx-hj.41414: Flags [.], ack 78, win 908, length 0
+
+# 百度发网页回来：分了两次发送
+18:06:03.267423 IP 14.215.177.39.http > nginx-hj.41414: Flags [.], seq 1:1401, ack 78, win 908, length 1400: HTTP: HTTP/1.1 200 OK
+18:06:03.267439 IP nginx-hj.41414 > 14.215.177.39.http: Flags [.], ack 1401, win 251, length 0
+18:06:03.267468 IP 14.215.177.39.http > nginx-hj.41414: Flags [P.], seq 1401:2782, ack 78, win 908, length 1381: HTTP
+18:06:03.267481 IP nginx-hj.41414 > 14.215.177.39.http: Flags [.], ack 2782, win 274, length 0
+
+# 四次挥手
+18:06:03.269671 IP nginx-hj.41414 > 14.215.177.39.http: Flags [F.], seq 78, ack 2782, win 274, length 0
+
+# 还有数据没发完，接着发
+18:06:03.276309 IP 14.215.177.39.http > nginx-hj.41414: Flags [P.], seq 1401:2782, ack 78, win 908, length 1381: HTTP
+18:06:03.276334 IP nginx-hj.41414 > 14.215.177.39.http: Flags [.], ack 2782, win 274, options [nop,nop,sack 1 {1401:2782}], length 0
+
+18:06:03.303586 IP 14.215.177.39.http > nginx-hj.41414: Flags [.], ack 79, win 908, length 0
+
+# 这次活干完了，服务器开始断开
+18:06:03.303614 IP 14.215.177.39.http > nginx-hj.41414: Flags [F.], seq 2782, ack 79, win 908, length 0
+18:06:03.303638 IP nginx-hj.41414 > 14.215.177.39.http: Flags [.], ack 2783, win 274, length 0
+
 ```
 

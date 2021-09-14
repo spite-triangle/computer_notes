@@ -205,10 +205,22 @@ void Traversal(Node* root){
 > - **最大二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 >= 子节点 </span>
 > - **最小二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 <= 子节点 </span>
 
+# 8. 生成树和最小生成树
 
-# 8. 并查集（union_find）
+- **生成树：** 「连通图」进行遍历（就涉及全部结点），过程中所经过的边和顶点的组合可看做是一棵普通树，通常称为生成树，是原图的一个子图。
+  - **「连通图」有`n`个顶点，生成树有就有`n-1`条边**
+  - **如果生成树中再添加一条边，则必定成环**
 
-## 8.1. 概念
+<p style="text-align:center;"><img src="../../image/cpp/generateTree.jpg" align="middle" /></p>
+
+- **最小生成树：** 代价和最小的「生成树」，就是边上面的数字和最小。
+
+<p style="text-align:center;"><img src="../../image/cpp/minGenerateTree.jpg" align="middle" /></p>
+
+
+# 9. 并查集（union_find）
+
+## 9.1. 概念
 
 ![union set](../../image/cpp/union_set.jpg)
 
@@ -311,9 +323,9 @@ public:
 >   - 对称：两个元素互相连通
 >   - 传递：`a`与`b`连通，`b`与`c`连通，则`c`与`a`之间也是连通的。
 
-## 8.2. 基本实现
+## 9.2. 基本实现
 
-### 8.2.1. 数据结构
+### 9.2.1. 数据结构
 
 利用一个数组`parent[]`来储存集合元素，来实现一个图存储：
 1）**数组的索引为元素值；**
@@ -322,7 +334,7 @@ public:
 **元素的初始存储形式：**
 ![union data](../../image/cpp/unionData.jpg)
 
-### 8.2.2. 合并
+### 9.2.2. 合并
 
 ![union opterator](../../image/cpp/union_operator.jpg)
 
@@ -349,7 +361,7 @@ public:
 ```
 <!--endsec-->
 
-### 8.2.3. 连通
+### 9.2.3. 连通
 
 > [!tip]
 > 1. 将两个元素遍历到各自的根
@@ -374,7 +386,7 @@ public:
 ```
 <!--endsec-->
 
-## 8.3. 平衡性优化
+## 9.3. 平衡性优化
 
 ![optimize balance](../../image/cpp/optimizeBalance.jpg)
 
@@ -407,7 +419,7 @@ public:
 ```
 <!--endsec-->
 
-## 8.4. 路径压缩（最重要）
+## 9.4. 路径压缩（最重要）
 
 ![decrease path](../../image/cpp/decreasePath.gif)
 
@@ -433,7 +445,7 @@ public:
 > [!tip|style:flat]
 > <span style="color:red;font-weight:bold"> 压缩路径的优化性能较强与平衡性优化，平衡性优化可以不用写。 </span>
 
-## 8.5. 判定合法算式
+## 9.5. 判定合法算式
 
 **题目：**
 

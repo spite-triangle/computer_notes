@@ -2,6 +2,11 @@
 
 # 排序
 
+<p style="text-align:center;"><img src="../../image/cpp/sortAlgorithm.png" align="middle" /></p>
+
+> [!tip|style:flat]
+> **稳定的算法：插冒龟，JJ痛。(插入，冒泡，归并，计数，基数，桶)**
+
 ## 冒泡排序
 
 - <span style="color:red;font-weight:bold"> 稳定排序，排序之后，数据输入顺序不会乱掉 </span>
@@ -53,7 +58,6 @@
 
 ## 快速排序
 
-若要对`nums[lo..hi]`  进行排序，我们先找一个分界点 p，通过交换元素使得 nums[lo..p-1] 都小于等于 nums[p]，且 nums[p+1..hi] 都大于 nums[p]，然后递归地去 nums[lo..p-1] 和 nums[p+1..hi] 中寻找新的分界点，最后整个数组就被排序了。
 
 ```cpp
 
@@ -69,6 +73,7 @@ void quickSort(int left, int right,int* array){
 
     while (l < r)
     {
+        // 移动右边指针，找小于 base 的值
         for ( r; r > l ; r --)
         {
             if (array[r] < base)
@@ -76,7 +81,7 @@ void quickSort(int left, int right,int* array){
                 break;
             }
         } 
-        // 移动左边
+        // 移动左边指针，找大于 base 的值
         for (l; l < r; l++)
         {
             if (array[l] > base)
@@ -85,6 +90,7 @@ void quickSort(int left, int right,int* array){
             }
         }
         
+        // 交换左右值；两指针相遇，就把 base 放到中间
         if(l == r){
             array[left] = array[l];
             array[l] = base;

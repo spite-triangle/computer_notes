@@ -155,7 +155,7 @@ const int& d3 = d2;
 
 
 ```cpp
-char str[20] = "fuck you";
+char str[20] = "github";
 
 // 计算字节数
 sizeof(str);

@@ -794,6 +794,17 @@ triangle@LEARN_FUCK:~$ uname -a
 Linux DESKTOP-RDTVBUO 4.4.0-19041-Microsoft #1151-Microsoft Thu Jul 22 21:05:00 PST 2021 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
+## 8.3. `lsb_release`
+
+```term
+triangle@LEARN_FUCK:~$  lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 18.04.4 LTS
+Release:        18.04
+Codename:       bionic
+```
+
 # 9. 网络
 ## 9.1. `netstat`
 

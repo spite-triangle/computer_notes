@@ -683,7 +683,7 @@ having 组过滤
 -- 排序
 order by `字段` asc/desc
 -- 显示内容
-limit 起始索引,显示列数 ;
+limit 起始索引,显示行数 ;
 ```
 
 > [!warning|style:flat]

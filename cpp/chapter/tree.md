@@ -205,6 +205,18 @@ void Traversal(Node* root){
 > - **最大二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 >= 子节点 </span>
 > - **最小二叉堆**：<span style="color:red;font-weight:bold"> 每个节点 <= 子节点 </span>
 
+# 生成树和最小生成树
+
+- **生成树：** 「连通图」进行遍历（就涉及全部结点），过程中所经过的边和顶点的组合可看做是一棵普通树，通常称为生成树，是原图的一个子图。
+  - **「连通图」有`n`个顶点，生成树有就有`n-1`条边**
+  - **如果生成树中再添加一条边，则必定成环**
+
+<p style="text-align:center;"><img src="../../image/cpp/generateTree.jpg" align="middle" /></p>
+
+- **最小生成树：** 代价和最小的「生成树」，就是边上面的数字和最小。
+
+<p style="text-align:center;"><img src="../../image/cpp/minGenerateTree.jpg" align="middle" /></p>
+
 
 # 并查集（union_find）
 
