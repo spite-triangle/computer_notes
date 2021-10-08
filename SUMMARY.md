@@ -47,3 +47,8 @@
   - [一、网络通讯基础](./tcp_udp/chapter/foundation_withNum.md)
   - [二、tcp/udp](./tcp_udp/chapter/tcp_udp_withNum.md)
 
+---
+
+- [QT](./qt/qt.md)
+  - [一、基础概念](./qt/chapter/foundation_withNum.md)
+  - [二、信号与槽](./qt/chapter/singleAndSlot_withNum.md)

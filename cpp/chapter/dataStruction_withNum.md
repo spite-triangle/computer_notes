@@ -210,6 +210,14 @@ q.back();   //返回队尾元素的值，但不删除该元素
 > **`vector`是一个可以动态扩容的「数组」。`_Myfirst` 指向的是 `vector` 容器对象的起始字节位置；`_Mylast` 指向当前最后一个元素的末尾字节；`_myend` 指向整个 `vector` 容器所占用内存空间的末尾字节。**
 
 
+## 5.2. vector与list
+
+| 条目     | vector       | list     |
+| -------- | ------------ | -------- |
+| 实现     | 动态扩容数组 | 双向链表 |
+| 随机访问 | `O(1)`       | `O(n)`   |
+| 插入删除 | `O(n)`       | `O(1)`   |
+
 <!--sec data-title="具体操作" data-id="vector_operator" data-show=true data-collapse=true ces-->
 
 ```cpp
@@ -250,9 +258,9 @@ int a = *it; //获取值
 ```
 <!--endsec-->
 
-## 5.2. 内存管理
+## 5.3. 内存管理
 
-### 5.2.1. 内存属性
+### 5.3.1. 内存属性
 - `size = _Mylast - _Myfirst`: 数据真正存储了多少个。
 - `capacity = _Myend - _Myfirst`：预分配的内存空间。
 
@@ -261,14 +269,14 @@ vector::size(); // 获取 size
 vecotr::capacity(); // 获取 capacity
 ```
 
-### 5.2.2. 内存修改
+### 5.3.2. 内存修改
 
 - `reserve(int)`：<span style="color:red;font-weight:bold"> 仅仅只修改`capacity`，但不会真正的创建对象。 </span>
 
-- `resize(int)`：<span style="color:red;font-weight:bold"> 分配了空间，也创建了对象。默认初始化为`0`。同时修改了`size `和` capacity` </span>
+- `resize(int)`：<span style="color:red;font-weight:bold"> 分配了空间，也创建了对象。默认初始化为`0`。同时修改了`size `和` capacity` 。</span>
 
 
-### 5.2.3. 内存扩展
+### 5.3.3. 内存扩展
 
 当`size == capacity`时，表示`vector`申请的内存已经被存储完了，需要进行内存扩张：
 1. **完全弃用现有的内存空间，重新申请更大的内存空间；**
@@ -278,7 +286,7 @@ vecotr::capacity(); // 获取 capacity
 > [!note|style:flat]
 > vector 容器在进行扩容后，与其相关的指针、引用以及迭代器可能会失效。
 
-## 5.3. 排序
+## 5.4. 排序
 
 - `>` : 从大到小排序
 - `<` : 从小到大排序，默认方式

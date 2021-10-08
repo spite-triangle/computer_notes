@@ -210,6 +210,14 @@ q.back();   //返回队尾元素的值，但不删除该元素
 > **`vector`是一个可以动态扩容的「数组」。`_Myfirst` 指向的是 `vector` 容器对象的起始字节位置；`_Mylast` 指向当前最后一个元素的末尾字节；`_myend` 指向整个 `vector` 容器所占用内存空间的末尾字节。**
 
 
+## vector与list
+
+| 条目     | vector       | list     |
+| -------- | ------------ | -------- |
+| 实现     | 动态扩容数组 | 双向链表 |
+| 随机访问 | `O(1)`       | `O(n)`   |
+| 插入删除 | `O(n)`       | `O(1)`   |
+
 <!--sec data-title="具体操作" data-id="vector_operator" data-show=true data-collapse=true ces-->
 
 ```cpp
@@ -265,7 +273,7 @@ vecotr::capacity(); // 获取 capacity
 
 - `reserve(int)`：<span style="color:red;font-weight:bold"> 仅仅只修改`capacity`，但不会真正的创建对象。 </span>
 
-- `resize(int)`：<span style="color:red;font-weight:bold"> 分配了空间，也创建了对象。默认初始化为`0`。同时修改了`size `和` capacity` </span>
+- `resize(int)`：<span style="color:red;font-weight:bold"> 分配了空间，也创建了对象。默认初始化为`0`。同时修改了`size `和` capacity` 。</span>
 
 
 ### 内存扩展

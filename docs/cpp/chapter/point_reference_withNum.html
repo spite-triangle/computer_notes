@@ -660,6 +660,58 @@
     
 
     
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../qt/qt.html">
+            
+                <a href="../../qt/qt.html">
+            
+                    
+                    QT
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../qt/chapter/foundation_withNum.html">
+            
+                <a href="../../qt/chapter/foundation_withNum.html">
+            
+                    
+                    一、基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../qt/chapter/singleAndSlot_withNum.html">
+            
+                <a href="../../qt/chapter/singleAndSlot_withNum.html">
+            
+                    
+                    二、信号与槽
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
 
     <li class="divider"></li>
 
@@ -807,27 +859,284 @@ d1 <span class="token operator">=</span> <span class="token number">5</span><spa
 <li>&#x4E0D;&#x80FD;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x5185;&#x90E8;<code>new</code>&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5229;&#x7528;&#x5F15;&#x7528;&#x8FD4;&#x56DE;&#xFF0C;&#x5C31;&#x6CA1;&#x6CD5;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x4E86;&#x3002;</li>
 </ol>
 <h1 id="3-&#x667A;&#x80FD;&#x6307;&#x9488;"><a name="3-&#x667A;&#x80FD;&#x6307;&#x9488;" class="anchor-navigation-ex-anchor" href="#3-&#x667A;&#x80FD;&#x6307;&#x9488;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x667A;&#x80FD;&#x6307;&#x9488;</h1>
-<p>&#x2003;&#x2003;&#x901A;&#x8FC7;&#x5E93;&#x51FD;&#x6570;<memory>&#xFF0C;&#x7BA1;&#x7406;&#x5BF9;&#x8C61;&#x6307;&#x9488;&#x3002;</memory></p>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>std::auto_ptr</td>
+<td>&#x5E9F;&#x5F03;</td>
+</tr>
+<tr>
+<td><code>unique_ptr</code></td>
+<td>&#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x6301;&#x6709;</td>
+</tr>
+<tr>
+<td><code>shared_ptr</code></td>
+<td>&#x591A;&#x4E2A;&#x6307;&#x9488;&#x6307;&#x5411;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;</td>
+</tr>
+<tr>
+<td><code>weak_ptr</code></td>
+<td>&#x7528;&#x4E8E;&#x9632;&#x6B62;<code>shared_ptr</code>&#x5FAA;&#x73AF;&#x5F15;&#x7528;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[!note]</p>
 <ul>
-<li>std::auto_ptr : &#x5E9F;&#x5F03;</li>
-<li>unique_ptr: &#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x6301;&#x6709;&#x3002;<pre class="language-"><code class="lang-cpp">  <span class="token comment">// &#x521D;&#x59CB;&#x5316;&#x8D4B;&#x503C;</span>
-     std<span class="token double-colon punctuation">::</span>unique_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">p1</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token comment">// &#x79FB;&#x4EA4;&#x6240;&#x6709;&#x6743;&#xFF0C;p1&#x5C06;&#x53D8;&#x65E0;&#x6548;</span>
-     std<span class="token double-colon punctuation">::</span>unique_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p2 <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token comment">// &#x6EDE;&#x540E;&#x8D4B;&#x503C;</span>
-     unique_ptr<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> p3<span class="token punctuation">;</span>
-     p3 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">unique_ptr</span><span class="token generic class-name"><span class="token operator">&lt;</span>string<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">string</span> <span class="token punctuation">(</span><span class="token string">&quot;You&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-</li>
-<li>shared_ptr: &#x591A;&#x4E2A;&#x6307;&#x9488;&#x6307;&#x5411;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5185;&#x90E8;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x5668;&#x53D8;&#x4E3A;0&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x9500;&#x6BC1;&#xFF0C;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x3002;<pre class="language-"><code class="lang-cpp">  <span class="token comment">// make_shared&#x751F;&#x6210;</span>
-    std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p1 <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// &#x62F7;&#x8D1D;&#x8D4B;&#x503C;</span>
-    std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p2<span class="token punctuation">;</span>
-    p2 <span class="token operator">=</span> p1<span class="token punctuation">;</span>
-</code></pre>
-</li>
-<li>weak_ptr: <font color="#4c9df8">&#x6CA1;&#x6709;&#x91CD;&#x8F7D;operator*&#x548C;-&gt;&#xFF0C;&#x7528;&#x4E8E;&#x9632;&#x6B62;shared_ptr&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;</font></li>
+<li>&#x901A;&#x8FC7;&#x5E93;&#x51FD;&#x6570;<memory>&#xFF0C;&#x7BA1;&#x7406;&#x5BF9;&#x8C61;&#x6307;&#x9488;</memory></li>
+<li><code>ptr.</code>&#xFF1A;&#x8C03;&#x7528;&#x7684;&#x662F;&#x667A;&#x80FD;&#x6307;&#x9488;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5BB9;</li>
+<li><code>ptr-&gt;</code>&#xFF1A;&#x8C03;&#x7528;&#x7684;&#x662F;&#x667A;&#x80FD;&#x6307;&#x9488;&#x6240;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5BB9;</li>
 </ul>
+</blockquote>
+<p><span style="font-size:24px;font-weight:bold" class="section2">1. <code>unique_ptr</code></span></p>
+<p><strong>&#x4F5C;&#x7528;</strong>&#xFF1A;&#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x6301;&#x6709;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// &#x521D;&#x59CB;&#x5316;&#x8D4B;&#x503C;</span>
+std<span class="token double-colon punctuation">::</span>unique_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">p1</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x79FB;&#x4EA4;&#x6240;&#x6709;&#x6743;&#xFF0C;p1&#x5C06;&#x53D8;&#x65E0;&#x6548;</span>
+std<span class="token double-colon punctuation">::</span>unique_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p2 <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x6EDE;&#x540E;&#x8D4B;&#x503C;</span>
+unique_ptr<span class="token operator">&lt;</span>string<span class="token operator">&gt;</span> p3<span class="token punctuation">;</span>
+p3 <span class="token operator">=</span> <span class="token generic-function"><span class="token function">unique_ptr</span><span class="token generic class-name"><span class="token operator">&lt;</span>string<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token function">string</span> <span class="token punctuation">(</span><span class="token string">&quot;You&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x83B7;&#x53D6;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5730;&#x5740;</span>
+p3<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><span style="font-size:24px;font-weight:bold" class="section2">2. <code>shared_ptr</code></span></p>
+<p><strong>&#x4F5C;&#x7528;</strong>&#xFF1A;&#x591A;&#x4E2A;&#x6307;&#x9488;&#x6307;&#x5411;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5185;&#x90E8;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x5668;&#x53D8;&#x4E3A;0&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x9500;&#x6BC1;&#xFF0C;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp"><span class="token comment">// make_shared&#x751F;&#x6210;</span>
+std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p1 <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x62F7;&#x8D1D;&#x8D4B;&#x503C;</span>
+std<span class="token double-colon punctuation">::</span>shared_ptr<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> p2<span class="token punctuation">;</span>
+p2 <span class="token operator">=</span> p1<span class="token punctuation">;</span>
+
+<span class="token comment">// &#x83B7;&#x53D6;&#x5F15;&#x7528;&#x8BA1;&#x6570;</span>
+p2<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong>&#x8BA1;&#x6570;&#x5668;</strong>&#xFF1A;<code>temp = p;</code>&#x8D4B;&#x503C;&#x65F6;&#xFF0C;&#x4E24;&#x7AEF;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x53D8;&#x5316;</p>
+<ul>
+<li><code>temp</code>&#x4E4B;&#x524D;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x4F1A;&#x300C;&#x9012;&#x51CF;&#x300D;</li>
+<li><code>p</code>&#x6307;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x4F1A;&#x300C;&#x9012;&#x589E;&#x300D;</li>
+<li>&#x8D4B;&#x503C;&#x540E;&#xFF0C;<code>temp</code>&#x6307;&#x5411;&#x4E86;<code>p</code>&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x4E5F;&#x5C31;&#x548C;<code>p</code>&#x4E00;&#x6837;&#x4E86;</li>
+</ul>
+<pre class="language-"><code class="lang-cpp">shared_ptr<span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span> r <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token string">&quot;r&quot;</span><span class="token punctuation">,</span><span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+shared_ptr<span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span> p <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token string">&quot;p&quot;</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+shared_ptr<span class="token operator">&lt;</span>Parent<span class="token operator">&gt;</span> temp<span class="token punctuation">;</span>
+
+temp <span class="token operator">=</span> r<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span> <span class="token operator">&lt;&lt;</span> p<span class="token operator">-&gt;</span>name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> r<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span> <span class="token operator">&lt;&lt;</span> r<span class="token operator">-&gt;</span>name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+temp <span class="token operator">=</span> p<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> p<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span> <span class="token operator">&lt;&lt;</span> p<span class="token operator">-&gt;</span>name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+cout <span class="token operator">&lt;&lt;</span> r<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; &quot;</span> <span class="token operator">&lt;&lt;</span> r<span class="token operator">-&gt;</span>name <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+</code></pre>
+<p></p><div class="terminull">
+    <div class="terminullMenu">
+      <div class="terminullButtons terminullClose"></div>
+      <div class="terminullButtons terminullMinimize"></div>
+      <div class="terminullButtons terminullZoom"></div>
+    </div>
+    <div class="terminullScreen">
+        
+          <span class="terminullDirectory">triangle@LEARN_FUCK:~</span>$ 
+          <span class="terminullCommand">make</span>
+          
+          <i class="fa fa-clone t-copy terminullCopyBtn" onclick="copyCommandTerminull(`make`)"></i>
+          <span class="terminullOutput">1 p
+2 r
+2 p
+1 r</span>
+        
+    </div>
+</div><p></p>
+<p><span style="font-size:24px;font-weight:bold" class="section2">3. <code>weak_ptr</code></span></p>
+<p><strong>&#x4F5C;&#x7528;</strong>&#xFF1A;&#x6CA1;&#x6709;&#x91CD;&#x8F7D;<code>operator*</code>&#x548C;<code>-&gt;</code>&#xFF0C;&#x7528;&#x4E8E;&#x9632;&#x6B62;<code>shared_ptr</code>&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x3002;</p>
+<pre class="language-"><code class="lang-cpp">weak_ptr<span class="token operator">&lt;</span><span class="token operator">&gt;</span> wp<span class="token punctuation">;</span>
+
+<span class="token comment">// &#x4F5C;&#x7528;&#x7B49;&#x540C;&#x4E8E; wp.use_count() == 0</span>
+wp<span class="token punctuation">.</span><span class="token function">expired</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x6307;&#x9488;</span>
+shared_ptr<span class="token operator">&lt;</span><span class="token operator">&gt;</span> sp <span class="token operator">=</span> wp<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<sec data-title="&#x6848;&#x4F8B;&#x4EE3;&#x7801;" data-id="weak_ptr" data-show="true" data-collapse="true"><div class="panel panel-default"><div class="panel-heading"><b>&#x6848;&#x4F8B;&#x4EE3;&#x7801;<a class="pull-right section atTitle btn btn-default" target="weak_ptr"><span class="fa fa-angle-up"></span></a></b></div><div class="panel-collapse in" id="weak_ptr"><div class="panel-body">
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;memory&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> c<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    weak_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> wa<span class="token punctuation">;</span>
+    shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> sa <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>A<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    wa <span class="token operator">=</span> sa<span class="token punctuation">;</span> 
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>wa<span class="token punctuation">.</span><span class="token function">expired</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> temp<span class="token punctuation">;</span>
+        temp <span class="token operator">=</span> wa<span class="token punctuation">.</span><span class="token function">lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        temp<span class="token operator">-&gt;</span>a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    cout <span class="token operator">&lt;&lt;</span> sa<span class="token operator">-&gt;</span>a <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></div></div></sec>
+<p><strong>&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;memory&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    shared_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    weak_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> wa<span class="token punctuation">;</span>
+    weak_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> wb<span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
+        shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> sa <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>A<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shared_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> sb <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>B<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// &#x5FAA;&#x73AF;&#x5F15;&#x7528;</span>
+        sa<span class="token operator">-&gt;</span>b <span class="token operator">=</span> sb<span class="token punctuation">;</span>
+        sb<span class="token operator">-&gt;</span>a <span class="token operator">=</span> sa<span class="token punctuation">;</span>
+
+        wa <span class="token operator">=</span> sa<span class="token punctuation">;</span>
+        wb <span class="token operator">=</span> sb<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sa: &quot;</span> <span class="token operator">&lt;&lt;</span> wa<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sb: &quot;</span> <span class="token operator">&lt;&lt;</span> wb<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>[!note|style:flat]
+&#x7531;&#x4E8E;<code>shared_ptr</code>&#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#xFF0C;&#x9020;&#x6210;&#x300C;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x300D;</p>
+</blockquote>
+<p></p><div class="terminull">
+    <div class="terminullMenu">
+      <div class="terminullButtons terminullClose"></div>
+      <div class="terminullButtons terminullMinimize"></div>
+      <div class="terminullButtons terminullZoom"></div>
+    </div>
+    <div class="terminullScreen">
+        
+          <span class="terminullDirectory">triangle@LEARN_FUCK:~</span>$ 
+          <span class="terminullCommand">make</span>
+          
+          <i class="fa fa-clone t-copy terminullCopyBtn" onclick="copyCommandTerminull(`make`)"></i>
+          <span class="terminullOutput">sa: 1
+sb: 1
+=================================================================
+==991==ERROR: LeakSanitizer: detected memory leaks
+Indirect leak of 32 byte(s) in 1 object(s) allocated from:
+#8 0x7f9fd200275f in std::shared_ptr&lt;B&gt; std::make_shared&lt;B&gt;() /usr/include/c++/7/bits/shared_ptr.h:707
+Indirect leak of 32 byte(s) in 1 object(s) allocated from:
+#8 0x7f9fd20025c5 in std::shared_ptr&lt;A&gt; std::make_shared&lt;A&gt;() /usr/include/c++/7/bits/shared_ptr.h:707</span>
+        
+    </div>
+</div><p></p>
+<p><strong>&#x6B63;&#x786E;&#x4F7F;&#x7528;&#xFF1A;</strong></p>
+<pre class="language-"><code class="lang-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;memory&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">A</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">// &#x4F7F;&#x7528;`weak_ptr` &#x4EE3;&#x66FF; `shared_ptr`</span>
+    weak_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> b<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">B</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token comment">// &#x4F7F;&#x7528;`weak_ptr` &#x4EE3;&#x66FF; `shared_ptr`</span>
+    weak_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token keyword">const</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    weak_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> wa<span class="token punctuation">;</span>
+    weak_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> wb<span class="token punctuation">;</span>
+    <span class="token punctuation">{</span>
+        shared_ptr<span class="token operator">&lt;</span>A<span class="token operator">&gt;</span> sa <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>A<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        shared_ptr<span class="token operator">&lt;</span>B<span class="token operator">&gt;</span> sb <span class="token operator">=</span> <span class="token generic-function"><span class="token function">make_shared</span><span class="token generic class-name"><span class="token operator">&lt;</span>B<span class="token operator">&gt;</span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// &#x5FAA;&#x73AF;&#x5F15;&#x7528;</span>
+        sa<span class="token operator">-&gt;</span>b <span class="token operator">=</span> sb<span class="token punctuation">;</span>
+        sb<span class="token operator">-&gt;</span>a <span class="token operator">=</span> sa<span class="token punctuation">;</span>
+
+        wa <span class="token operator">=</span> sa<span class="token punctuation">;</span>
+        wb <span class="token operator">=</span> sb<span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span>
+
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sa: &quot;</span> <span class="token operator">&lt;&lt;</span> wa<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;sb: &quot;</span> <span class="token operator">&lt;&lt;</span> wb<span class="token punctuation">.</span><span class="token function">use_count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p></p><div class="terminull">
+    <div class="terminullMenu">
+      <div class="terminullButtons terminullClose"></div>
+      <div class="terminullButtons terminullMinimize"></div>
+      <div class="terminullButtons terminullZoom"></div>
+    </div>
+    <div class="terminullScreen">
+        
+          <span class="terminullDirectory">triangle@LEARN_FUCK:~</span>$ 
+          <span class="terminullCommand">make</span>
+          
+          <i class="fa fa-clone t-copy terminullCopyBtn" onclick="copyCommandTerminull(`make`)"></i>
+          <span class="terminullOutput">sa: 0
+sb: 0</span>
+        
+    </div>
+</div><p></p>
+<p><span style="font-size:24px;font-weight:bold" class="section2">4. <code>new/delete</code>&#x4E0E;&#x667A;&#x80FD;&#x6307;&#x9488;</span></p>
+<p>&#x4F7F;&#x7528;<code>new</code>&#x548C;<code>delete</code>&#x7BA1;&#x7406;&#x52A8;&#x6001;&#x5185;&#x5B58;&#x5E38;&#x51FA;&#x73B0;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x5FD8;&#x8BB0;<code>delete</code>&#x5185;&#x5B58;</li>
+<li>&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x91CA;&#x653E;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x540C;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x91CA;&#x653E;&#x4E24;&#x6B21;</li>
+</ul>
+<p>&#x667A;&#x80FD;&#x6307;&#x9488;&#x80FD;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#xFF0C;&#x5C31;&#x4E0D;&#x5B58;&#x4E0A;&#x8FF0;&#x95EE;&#x9898;&#x3002;</p>
 <h1 id="4-&#x91CE;&#x6307;&#x9488;"><a name="4-&#x91CE;&#x6307;&#x9488;" class="anchor-navigation-ex-anchor" href="#4-&#x91CE;&#x6307;&#x9488;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x91CE;&#x6307;&#x9488;</h1>
 <p>&#x2003;&#x2003;<strong>&#x91CE;&#x6307;&#x9488;&#x4E0D;&#x662F;NULL&#x6307;&#x9488;&#xFF0C;&#x662F;&#x672A;&#x521D;&#x59CB;&#x5316;&#x6216;&#x8005;&#x672A;&#x6E05;&#x96F6;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x4E71;&#x6307;&#x3002;</strong></p>
 <ul>
@@ -978,7 +1287,7 @@ d1 <span class="token operator">=</span> <span class="token number">5</span><spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"三、指针与引用","level":"2.1.3","depth":2,"next":{"title":"四、面向对象","level":"2.1.4","depth":2,"path":"cpp/chapter/oop_withNum.md","ref":"cpp/chapter/oop_withNum.md","articles":[]},"previous":{"title":"二、关键字","level":"2.1.2","depth":2,"path":"cpp/chapter/keyword_withNum.md","ref":"cpp/chapter/keyword_withNum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"cpp/chapter/point_reference_withNum.md","mtime":"2021-09-14T15:43:12.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-14T15:43:23.052Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"三、指针与引用","level":"2.1.3","depth":2,"next":{"title":"四、面向对象","level":"2.1.4","depth":2,"path":"cpp/chapter/oop_withNum.md","ref":"cpp/chapter/oop_withNum.md","articles":[]},"previous":{"title":"二、关键字","level":"2.1.2","depth":2,"path":"cpp/chapter/keyword_withNum.md","ref":"cpp/chapter/keyword_withNum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro-fixed","expandable-chapters-small","ancre-navigation","hide-element","code","splitter","insert-logo-link-website","-sharing","sharing-plus","prism","-highlight","flexible-alerts","lightbox","pageview-count","auto-scroll-table","katex-pro","favicon-absolute","sectionx","terminull-light","livereload"],"styles":{"website":"styles/website.css","ebook":"styles/ebook.css","pdf":"styles/pdf.css","mobi":"styles/mobi.css","epub":"styles/epub.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"}},"livereload":{},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"code":{"copyButtons":true},"terminull-light":{},"search-pro-fixed":{},"favicon-absolute":{"favicon":"image/ico.png","appleTouchIconPrecomposed152":"image/ico.png","appleTouchIconMore":{},"appleTouchIconPrecomposedMore":{}},"hide-element":{"elements":[".gitbook-link"]},"katex-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{"tag":"b"},"lightbox":{"jquery":true,"sameUuid":false},"insert-logo-link-website":{"url":"image/logo.png","link":"https://space.bilibili.com/27206875","target":"_blank","style":"height: 230px"},"pageview-count":{},"ancre-navigation":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters-small":{},"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"qq":true,"all":["douban","facebook","google","instapaper","linkedin","twitter","weibo","messenger","qq","qzone","viber","whatsapp"],"douban":false,"facebook":false,"weibo":true,"whatsapp":false,"twitter":false,"pocket":false,"google":true,"qzone":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"海拉尔的三角","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"计算机笔记","links":{"sidebar":{"Github":"https://github.com/spite-triangle"}},"gitbook":"*"},"file":{"path":"cpp/chapter/point_reference_withNum.md","mtime":"2021-10-08T01:31:25.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-10-08T01:31:28.919Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

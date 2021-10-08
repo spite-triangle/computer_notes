@@ -90,31 +90,261 @@ const int& d3 = d2;
 
 # 3. 智能指针
 
-&emsp;&emsp;通过库函数<memory>，管理对象指针。
 
--  ~~std::auto_ptr~~ : 废弃
-- unique_ptr: 对象只能一个指针持有。
-    
-    ```cpp
-     // 初始化赋值
-     std::unique_ptr<int> p1(new int(5));
-     // 移交所有权，p1将变无效
-     std::unique_ptr<int> p2 = std::move(p1);
-     // 滞后赋值
-     unique_ptr<string> p3;
-     p3 = unique_ptr<string>(new string ("You"));
-    ```
+| 类型              | 作用                         |
+| ----------------- | ---------------------------- |
+| ~~std::auto_ptr~~ | 废弃                         |
+| `unique_ptr`      | 对象只能一个指针持有         |
+| `shared_ptr`      | 多个指针指向相同的对象       |
+| `weak_ptr`        | 用于防止`shared_ptr`循环引用 |
 
-- shared_ptr: 多个指针指向相同的对象。内部会有一个指向计数器，当计数器变为0时，系统就会对这个对象进行销毁，线程安全。
+
+> [!note]
+> - 通过库函数<memory>，管理对象指针
+> - `ptr.`：调用的是智能指针对象的内容
+> - `ptr->`：调用的是智能指针所指向对象的内容
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. `unique_ptr`</span>
+
+**作用**：对象只能一个指针持有。
+
+```cpp
+// 初始化赋值
+std::unique_ptr<int> p1(new int(5));
+
+// 移交所有权，p1将变无效
+std::unique_ptr<int> p2 = std::move(p1);
+
+// 滞后赋值
+unique_ptr<string> p3;
+p3 = unique_ptr<string>(new string ("You"));
+
+// 获取指向对象的地址
+p3.get();
+
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. `shared_ptr`</span>
+
+**作用**：多个指针指向相同的对象。内部会有一个指向计数器，当计数器变为0时，系统就会对这个对象进行销毁，线程安全。
    
-    ```cpp
-    // make_shared生成
-    std::shared_ptr<int> p1 = std::make_shared<int>(10);
-    // 拷贝赋值
-    std::shared_ptr<int> p2;
-    p2 = p1;
-    ```
-- weak_ptr: <font color="#4c9df8">没有重载operator*和->，用于防止shared_ptr循环引用。</font>
+```cpp
+// make_shared生成
+std::shared_ptr<int> p1 = std::make_shared<int>(10);
+
+// 拷贝赋值
+std::shared_ptr<int> p2;
+p2 = p1;
+
+// 获取引用计数
+p2.use_count();
+
+```
+
+**计数器**：`temp = p;`赋值时，两端的计数器变化
+
+- `temp`之前指向对象的计数器会「递减」
+- `p`指向对象的计数器会「递增」
+- 赋值后，`temp`指向了`p`的对象，计数器也就和`p`一样了
+
+```cpp
+shared_ptr<Parent> r = make_shared<Parent>("r",45); 
+shared_ptr<Parent> p = make_shared<Parent>("p", 50);
+shared_ptr<Parent> temp;
+
+temp = r;
+cout << p.use_count() << " " << p->name << endl;
+cout << r.use_count() << " " << r->name << endl;
+
+temp = p;
+cout << p.use_count() << " " << p->name << endl;
+cout << r.use_count() << " " << r->name << endl;
+```
+
+```term
+triangle@LEARN_FUCK:~$ make 
+1 p
+2 r
+2 p
+1 r
+```
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. `weak_ptr`</span>
+
+**作用**：没有重载`operator*`和`->`，用于防止`shared_ptr`循环引用。
+
+```cpp
+weak_ptr<> wp;
+
+// 作用等同于 wp.use_count() == 0
+wp.expired();
+
+// 返回一个共享指针
+shared_ptr<> sp = wp.lock();
+```
+
+<!--sec data-title="案例代码" data-id="weak_ptr" data-show=true data-collapse=true ces-->
+
+```cpp
+#include <iostream>
+#include <memory>
+using namespace std;
+
+class A{
+public:
+    int a;
+    int c; 
+};
+
+
+int main(int argc, char const *argv[])
+{
+    weak_ptr<A> wa;
+    shared_ptr<A> sa = make_shared<A>();
+    
+    wa = sa; 
+
+    if(!wa.expired()){
+        shared_ptr<A> temp;
+        temp = wa.lock();
+        temp->a = 10;
+    }
+
+    cout << sa->a << endl;
+    return 0;
+}
+
+```
+
+<!--endsec-->
+
+**循环引用：**
+
+```cpp
+#include <iostream>
+#include <memory>
+using namespace std;
+
+class A;
+class B;
+
+
+class A{
+public:
+    shared_ptr<B> b;
+};
+
+
+class B{
+public:
+    shared_ptr<A> a;
+};
+
+
+int main(int argc, char const *argv[])
+{
+    weak_ptr<A> wa;
+    weak_ptr<B> wb;
+    {
+        shared_ptr<A> sa = make_shared<A>();
+        shared_ptr<B> sb = make_shared<B>();
+
+        // 循环引用
+        sa->b = sb;
+        sb->a = sa;
+
+        wa = sa;
+        wb = sb; 
+    }
+
+    cout << "sa: " << wa.use_count() << endl;
+    cout << "sb: " << wb.use_count() << endl;
+
+    return 0;
+}
+```
+
+> [!note|style:flat]
+> 由于`shared_ptr`的循环引用，造成「内存泄露」
+
+```term
+triangle@LEARN_FUCK:~$ make 
+sa: 1
+sb: 1
+=================================================================
+==991==ERROR: LeakSanitizer: detected memory leaks
+Indirect leak of 32 byte(s) in 1 object(s) allocated from:
+#8 0x7f9fd200275f in std::shared_ptr<B> std::make_shared<B>() /usr/include/c++/7/bits/shared_ptr.h:707
+Indirect leak of 32 byte(s) in 1 object(s) allocated from:
+#8 0x7f9fd20025c5 in std::shared_ptr<A> std::make_shared<A>() /usr/include/c++/7/bits/shared_ptr.h:707
+```
+
+
+**正确使用：**
+
+```cpp
+#include <iostream>
+#include <memory>
+using namespace std;
+
+class A;
+class B;
+
+
+class A{
+public:
+    // 使用`weak_ptr` 代替 `shared_ptr`
+    weak_ptr<B> b;
+};
+
+
+class B{
+public:
+    // 使用`weak_ptr` 代替 `shared_ptr`
+    weak_ptr<A> a;
+};
+
+
+int main(int argc, char const *argv[])
+{
+    weak_ptr<A> wa;
+    weak_ptr<B> wb;
+    {
+        shared_ptr<A> sa = make_shared<A>();
+        shared_ptr<B> sb = make_shared<B>();
+
+        // 循环引用
+        sa->b = sb;
+        sb->a = sa;
+
+        wa = sa;
+        wb = sb; 
+    }
+
+    cout << "sa: " << wa.use_count() << endl;
+    cout << "sb: " << wb.use_count() << endl;
+
+    return 0;
+}
+
+```
+
+```term
+triangle@LEARN_FUCK:~$ make 
+sa: 0
+sb: 0
+```
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">4. `new/delete`与智能指针</span>
+
+使用`new`和`delete`管理动态内存常出现的问题：
+- 忘记`delete`内存
+- 使用已经释放的对象
+- 同一块内存释放两次
+
+智能指针能自动释放，就不存上述问题。
+
 
 # 4. 野指针
 &emsp;&emsp;**野指针不是NULL指针，是未初始化或者未清零的指针，在程序中乱指。**
@@ -166,6 +396,7 @@ strlen(str);
 
 > [!note|style:flat]
 > <span style="color:red;font-weight:bold"> `sizeof(类型)`的计算值实在编译时，进行计算。以下计算是正确的。 </span> 
+
 > ```cpp
 > int a[sizeof(int)];
 > ```

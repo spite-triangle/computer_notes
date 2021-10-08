@@ -541,13 +541,134 @@ Note* remove(Note *root, int val)
 
 # 平衡二叉搜索树 `Balanced binary search trees`
 
-> [!note|style:flat]
-> **`AVL`树：「自平衡二叉搜索树」，树中任一节点的两个子树的高度差最大为`1`，所以它也被称为高度平衡树**
+参考：
+- [什么是平衡二叉树（AVL）](https://zhuanlan.zhihu.com/p/56066942)
+- [简单粗暴的方式解决平衡二叉树的调整](https://www.bilibili.com/video/BV1Ro4y1S7wb?from=search&seid=1054540468683481348&spm_id_from=333.337.0.0)
+
+> [!note]
+> **`AVL`树：「自平衡二叉搜索树」，树中任一节点的两个子树的高度差最大为`1`，所以它也被称为高度平衡树。由于二叉搜索树添加节点后，可能会朝着某一方向生长，造成二叉树倾斜，二叉树层次增大，导致查找时间边长。平衡二叉搜索树的作用就是通过自身调节，让二叉搜索树平衡生长，层次稳定增长。**
 > - **其查找、插入和删除在平均和最坏情况下的时间复杂度都是O(log n)。**
-> 
-> **特点：**
-> - **具有二叉查找树的特点(左子树任一节点小于父节点，右子树任一节点大于父节点)，任何一个节点的左子树与右子树都是平衡二叉树**
-> - **任一节点的左右子树高度差小于1，即平衡因子为范围为[-1,1]**
+> - **一种特殊的「二叉搜索树」**
+> - **|平衡因子| $\leq$ 1**
+
+<p style="text-align:center;"><img src="./images/cpp/../../../../image/cpp/slopTree.png" align="middle" /></p>
+
+<p style="text-align:center;"><img src="../../image/cpp/avl.jpg" align="middle" /></p>
+
+## 平衡因子
+
+> [!note|style:flat]
+> 一个节点的平衡因子 = 左子树层次 - 右子树层次
+
+<p style="text-align:center;"><img src="../../image/cpp/balanceFactor.jpg" align="middle" /></p>
+
+## 失衡调整
+
+<span style="font-size:24px;font-weight:bold" class="section2">1. 最小失衡子树</span>
+
+**定义**：在新插入的结点向上查找，以第一个平衡因子的绝对值超过 `1` 的结点为根的子树称为最小不平衡子树。下图的最小失衡子树的根结点是`66`。**只要调整最小的不平衡子树，就能够将不平衡的树调整为平衡的树**。
+
+<p style="text-align:center;"><img src="../../image/cpp/balanceFactor.jpg" align="middle" /></p>
+
+
+<span style="font-size:24px;font-weight:bold" class="section2">2. LL型</span>
+
+**问题**：插入的新结点在最小不平衡树的「根结点」的「左孩子」的「左子树」上。
+
+**调整：LL型，右旋，右子树变左子树**
+- 「左孩子`B`」变「根结点」，
+- `B`的「右子树`BR`」变为「右结点`A`」的「左子树」
+
+<p style="text-align:center;"><img src="../../image/cpp/LL.jpg" align="middle" /></p>
+
+<span style="font-size:24px;font-weight:bold" class="section2">3. RR型</span>
+
+**问题**：插入的新结点在最小不平衡树的「根结点」的「右孩子」的「右子树」上。
+
+**调整：RR型，左旋，左子树变右子树**
+- 「右孩子`B`」变「根结点」，
+- `B`的「左子树`BL`」变为「左结点`A`」的「右子树」
+
+<p style="text-align:center;"><img src="../../image/cpp/RR.jpg" align="middle" /></p>
+
+<span style="font-size:24px;font-weight:bold" class="section2">4. LR型</span>
+
+**问题**：插入的新结点在最小不平衡树的「根结点」的「左孩子」的「右子树」上。
+
+**调整：LR型，先左旋，左子树变右子树，再右旋，右子树变左子树**
+- 「黄结点」变「根结点」，
+- 左旋：黄结点与左孩结点，黄结点的「左子树」变为了左孩结点的「右子树」
+- 右旋：黄结点与右孩结点，黄结点的「右子树」变为了右孩结点的「左子树」
+
+<p style="text-align:center;"><img src="../../image/cpp/LR.jpg" align="middle" /></p>
+
+<span style="font-size:24px;font-weight:bold" class="section2">5. RL型</span>
+
+**问题**：插入的新结点在最小不平衡树的「根结点」的「右孩子」的「左子树」上。
+
+**调整：RL型，先右旋，右子树变左子树，再左旋，左子树变右子树**
+- 「黄结点」变「根结点」，
+- 右旋：黄结点与右孩结点，黄结点的「右子树」变为了右孩结点的「左子树」
+- 左旋：黄结点与左孩结点，黄结点的「左子树」变为了左孩结点的「右子树」
+
+<p style="text-align:center;"><img src="../../image/cpp/RL.jpg" align="middle" /></p>
+
+# 2-3-4 树
+
+## 介绍
+
+> [!note]
+> **概念：** 四阶的「B树（balance tree）」，一种多路查找树
+> - 所有叶子结点具有同样的深度
+> - 左孩子结点元素 < 父结点元素 < 右孩子结点元素
+> - 2-3-4树包含三种结点
+>   - 2结点：可有2个子结点，1个元素，例如`5`、`3`、`4`
+>   - 3结点：可有3个子结点，2个元素，例如`7 9`、`1 2`
+>   - 4结点：可有4个子结点，3个元素，例如`10 11 12`
+>
+> **生成**：[2-3-4树的生成](https://www.bilibili.com/video/BV1d64y1z7Uk?p=7&spm_id_from=pageDriver)
+
+
+<p style="text-align:center;"><img src="../../image/cpp/234Tree.jpg" align="middle" /></p>
+
+## 分裂
+
+当一个结点由「4」个元素所合并成时，需要对该结点进行分裂。将第二个元素分裂出去作为「父结点」。
+
+<p style="text-align:center;"><img src="../../image/cpp/split.jpg" align="middle" /></p>
+
+## 234树与红黑树的等价关系
+
+<p style="text-align:center;"><img src="../../image/cpp/node2.jpg" align="middle" /></p>
+
+<p style="text-align:center;"><img src="../../image/cpp/node3.jpg" align="middle" /></p>
+
+<p style="text-align:center;"><img src="../../image/cpp/node4.jpg" align="middle" /></p>
+
+<p style="text-align:center;"><img src="../../image/cpp/changeColor.jpg" align="middle" /></p>
+
+# 红黑树
+
+参考：
+- [终于有人把红黑树讲明白了，史上最详细的视频解析，傻瓜都能看懂](https://www.bilibili.com/video/BV1d64y1z7Uk?p=6)
+
+## 概念
+
+> [!note]
+> **作用**：红黑树（red-black tree）的产生是由于`AVL`的自我结构调整过于频繁，会导致调整的时间可能使用查找的时间还要多，而红黑树的自我调整要求相对于`AVL`树更松一些。
+>
+> **性质**：
+> - 结点要么黑，要么红
+> - 根结点为黑
+> - `NULL`被视为叶子结点，且为黑
+> - 两个红色的结点，不能构成父子关系
+> - 任意一根结点到任意一个叶子结点的路径，所经过的黑色结点个数一样。
+
+<p style="text-align:center;"><img src="../../image/cpp/redBlackTree.jpg" align="middle" /></p>
+
+<p style="text-align:center;"><img src="../../image/cpp/rbt.jpg" align="middle" /></p>
+
+
 
 # 二叉堆
 
